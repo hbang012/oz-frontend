@@ -1,7 +1,7 @@
 // 아티클 리스트 페이지
 'use client';
 
-import Pagination from '@/app/ui/Pagination';
+import Pagination from '@/app/componets/Pagination';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';

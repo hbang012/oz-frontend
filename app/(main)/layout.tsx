@@ -1,5 +1,5 @@
-import Header from '@/app/ui/home/Header';
-import Footer from '@/app/ui/home/Footer';
+import Header from '@/app/componets/home/header/Header';
+import Footer from '@/app/componets/home/Footer';
 
 export default function MainLayout({
   children,

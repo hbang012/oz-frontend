@@ -1,10 +1,10 @@
 @import 'tailwindcss';
 @theme {
-  --color-point1: #32a13c;
+  --color-point1: #6b59f6;
   --color-point2: #fbb900;
-  --color-gray-400: #999;
-  --color-gray-500: #666;
-  --color-gray-600: #222;
+  --color-gray-400: #777;
+  --color-gray-500: #555;
+  --color-gray-600: #000;
   /* 1201미만 테블릿 */
   --breakpoint-md: 1201px;
   /* 1025미만 테블릿 */
@@ -24,11 +24,11 @@
   /* 컬러 변수 */
   /* :root는 html을 의미 */
   :root {
-    --point-color1: #32a13c;
+    --point-color1: #6b59f6;
     --point-color2: #fbb900;
-    --gray-400: #999;
-    --gray-500: #666;
-    --gray-600: #222;
+    --gray-400: #777;
+    --gray-500: #555;
+    --gray-600: #000;
   }
 
   /* rem단위사용시 주석풀고 사용 */

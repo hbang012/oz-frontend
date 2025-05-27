@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { pretendard } from '@/app/ui/fonts';
+import { pretendard } from '@/app/componets/fonts';
 import TanStackProvider from '@/providers/TanStackProvider';
-import ThemeProvider from '@/app/ui/ThemeProvider';
+import ThemeProvider from '@/app/componets/ThemeProvider';
 
 export const metadata: Metadata = {
   title: {
