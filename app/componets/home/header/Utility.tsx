@@ -26,6 +26,7 @@ export default function Utility() {
       <button
         type="button"
         className="border-0 bg-[#f6f6f6] rounded-[50%] w-[40px] h-[40px]"
+        onClick={openLogin}
       >
         <Image
           src={'/icons/cart.svg'}
