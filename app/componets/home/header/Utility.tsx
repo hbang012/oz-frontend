@@ -1,6 +1,11 @@
+'use client';
+
+import { useLogin } from '@/app/(auth)/login/LoginContext';
 import Image from 'next/image';
 
 export default function Utility() {
+  const { openLogin } = useLogin();
+
   return (
     <div className="flex gap-[8px]">
       {/* 검색 */}
@@ -32,7 +37,11 @@ export default function Utility() {
       </button>
 
       {/* 로그인 */}
-      <button type="button" className="text-[14px] text-gray-400 pl-[16px]">
+      <button
+        type="button"
+        className="text-[14px] text-gray-400 pl-[16px]"
+        onClick={openLogin}
+      >
         로그인
       </button>
     </div>
