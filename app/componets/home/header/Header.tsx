@@ -1,4 +1,4 @@
-import Memu from '@/app/componets/home/header/Memu';
+import Gnb from '@/app/componets/home/header/Gnb';
 import Utility from '@/app/componets/home/header/Utility';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,7 +20,7 @@ export default function Header() {
             </Link>
           </h1>
 
-          <Memu />
+          <Gnb />
         </div>
 
         <div>
