@@ -1,5 +1,6 @@
 'use client';
 
+import ProductMenu from '@/app/componets/home/header/ProductMenu';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -412,6 +413,42 @@ export default function Gnb() {
             >
               {item.label}
             </Link>
+
+            {item.sub && item.sub?.length > 0 && (
+              <ul
+                className={`absolute left-1/2 top-[85px] -translate-x-1/2 ${
+                  index === 2
+                    ? 'flex justify-between max-w-[1200px] w-full h-[52px] bg-white border-b-1 border-[#eee]'
+                    : ''
+                } ${
+                  index === 3
+                    ? 'flex gap-x-[20px] whitespace-nowrap p-[16px] border'
+                    : ''
+                } ${active === index ? 'block' : 'hidden'} `}
+              >
+                {item.sub.map((item, i) => (
+                  <li
+                    key={i}
+                    onMouseEnter={() => setActiveProduct(i)}
+                    onMouseLeave={() => setActiveProduct(null)}
+                    className="w-full p-[10px_0_0_30px]"
+                  >
+                    <Link
+                      href={item.href}
+                      className="block h-[40px] text-center "
+                    >
+                      {item.label}
+                    </Link>
+                    {i === 2 && (
+                      <ProductMenu
+                        className={activeProduct === i ? 'block' : 'hidden'}
+                        menus={productMenu[i]}
+                      />
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>

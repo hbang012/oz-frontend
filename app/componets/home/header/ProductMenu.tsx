@@ -1,10 +1,24 @@
-export default function ProductMenu() {
-  return (
-    <div className="max-w-[1200px]">
-      {/* 큰 카테고리 목록 */}
+'use client';
 
-      <ul className="absolute text-[#000] left-0 top-[62px] flex bg-white border">
-        <li className=" ">인형/패브릭</li>
+import Link from 'next/link';
+
+export default function ProductMenu({
+  className,
+  menus,
+}: {
+  className: string;
+  menus: { label: string; href: string }[];
+}) {
+  return (
+    <div
+      className={`${className} absolute left-0 top-[50px] bg-white border w-full p-[30px]`}
+    >
+      <ul>
+        {menus.map((item) => (
+          <li key={item.label}>
+            <Link href={item.href}>{item.label}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

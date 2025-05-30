@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className=" border bg-[#fff] ">
+    <header className=" border-b-1 border-[#eee] bg-[#fff] ">
       <div className="max-w-[1200px] mx-auto h-[85px] flex items-center justify-between p-[0_42px_0_42px]">
         <div className="flex items-center">
           <h1>
