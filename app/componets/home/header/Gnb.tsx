@@ -422,7 +422,7 @@ export default function Gnb() {
                     : ''
                 } ${
                   index === 3
-                    ? 'flex gap-x-[20px] whitespace-nowrap p-[16px] border'
+                    ? 'flex gap-x-[10px] whitespace-nowrap p-[16px] pr-[41px] border-[#eee] shadow-[0px_4px_4px_rgba(0,0,0,0.1)] rounded-[8px] bg-white border'
                     : ''
                 } ${active === index ? 'block' : 'hidden'} `}
               >
@@ -435,7 +435,7 @@ export default function Gnb() {
                   >
                     <Link
                       href={item.href}
-                      className="block h-[40px] text-center "
+                      className="block h-[40px] text-center hover:text-point1 hover:font-bold"
                     >
                       {item.label}
                     </Link>
