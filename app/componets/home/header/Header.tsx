@@ -15,7 +15,7 @@ export default function Header() {
                 alt="오즈의제작소"
                 width={195}
                 height={39}
-                className="w-[133px] h-[25px] mb-[5px]"
+                className="w-[133px] h-[25px] mb-[10px] pr-[10px]"
               />
             </Link>
           </h1>

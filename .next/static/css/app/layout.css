@@ -276,6 +276,24 @@
   .left-\[18px\] {
     left: 18px;
   }
+  .\!container {
+    width: 100% !important;
+    @media (width >= 768px) {
+      max-width: 768px !important;
+    }
+    @media (width >= 1201px) {
+      max-width: 1201px !important;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem !important;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem !important;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem !important;
+    }
+  }
   .container {
     width: 100%;
     @media (width >= 768px) {
@@ -332,6 +350,9 @@
   }
   .mt-\[47px\] {
     margin-top: 47px;
+  }
+  .mr-\[10px\] {
+    margin-right: 10px;
   }
   .mb-\[5px\] {
     margin-bottom: 5px;
@@ -696,6 +717,9 @@
   .pt-\[36px\] {
     padding-top: 36px;
   }
+  .pr-\[10px\] {
+    padding-right: 10px;
+  }
   .pb-0 {
     padding-bottom: calc(var(--spacing) * 0);
   }
@@ -823,6 +847,9 @@
   .lowercase {
     text-transform: lowercase;
   }
+  .uppercase {
+    text-transform: uppercase;
+  }
   .italic {
     font-style: italic;
   }
@@ -936,6 +963,13 @@
     &:hover {
       @media (hover: hover) {
         color: #fff;
+      }
+    }
+  }
+  .hover\:text-white {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-white);
       }
     }
   }

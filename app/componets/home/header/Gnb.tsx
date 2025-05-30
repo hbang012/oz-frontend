@@ -392,25 +392,28 @@ const productMenu = [
 
 export default function Gnb() {
   const [active, setActive] = useState<number | null>(null);
+  const [activeProduct, setActiveProduct] = useState<number | null>(null);
 
   return (
     <nav>
       <ul className="flex items-center gap-[8px] text-[18px] text-[#626262]">
-        <li className="p-[6px_12px_7px] hover:bg-point1 hover:rounded-[20px] hover:text-[#fff] hover:h-[100%]">
-          <Link href="/">오즈소개</Link>
-        </li>
-        <li className="p-[6px_12px_7px] hover:bg-point1 hover:rounded-[20px] hover:text-[#fff] hover:h-[100%]">
-          <Link href="/">문의하기</Link>
-        </li>
-
-        {/* 제작소 */}
-        <li className="relative p-[6px_12px_7px] hover:bg-point1 hover:rounded-[20px] hover:text-[#fff] hover:h-[100%]">
-          <span>제작소</span>
-        </li>
-
-        <li className="p-[6px_12px_7px] hover:bg-point1 hover:rounded-[20px] hover:text-[#fff] hover:h-[100%]">
-          <Link href="/">콘텐츠</Link>
-        </li>
+        {gnb.map((item, index) => (
+          <li
+            key={item.label}
+            className={`${
+              index === 3 ? 'relative' : ''
+            } flex items-center h-[85px]`}
+            onMouseEnter={() => setActive(index)}
+            onMouseLeave={() => setActive(null)}
+          >
+            <Link
+              href={item.href || ''}
+              className="p-[6px_12px_7px] hover:bg-point1 hover:rounded-[20px] hover:text-[#fff]"
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
