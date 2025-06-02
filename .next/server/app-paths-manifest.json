@@ -1,3 +1,4 @@
 {
+  "/search-results/page": "app/search-results/page.js",
   "/(main)/page": "app/(main)/page.js"
 }

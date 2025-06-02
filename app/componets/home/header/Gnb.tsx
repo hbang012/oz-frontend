@@ -439,7 +439,7 @@ export default function Gnb() {
                     >
                       {item.label}
                     </Link>
-                    {i === 2 && (
+                    {index === 2 && (
                       <ProductMenu
                         className={activeProduct === i ? 'block' : 'hidden'}
                         menus={productMenu[i]}
