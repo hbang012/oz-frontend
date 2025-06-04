@@ -4,8 +4,14 @@ import ProductMenu from '@/app/componets/home/header/ProductMenu';
 import Link from 'next/link';
 import { useState } from 'react';
 
+export interface MenuItem {
+  label: string;
+  href?: string;
+  sub?: MenuItem[];
+}
+
 // GNB 배열
-const gnb = [
+export const gnb: MenuItem[] = [
   {
     label: '오즈소개',
     href: '/solution',
@@ -396,7 +402,7 @@ export default function Gnb() {
   const [activeProduct, setActiveProduct] = useState<number | null>(null);
 
   return (
-    <nav>
+    <nav className="max-md:hidden">
       <ul className="flex items-center gap-[8px] text-[18px] text-[#626262]">
         {gnb.map((item, index) => (
           <li
@@ -434,7 +440,7 @@ export default function Gnb() {
                     className="w-full p-[10px_0_0_30px]"
                   >
                     <Link
-                      href={item.href}
+                      href={item.href ?? '/'}
                       className="block h-[40px] text-center hover:text-point1 hover:font-bold"
                     >
                       {item.label}

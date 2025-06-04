@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#fafafa] mt-[40px] pb-[80px]">
       {/* 약관 */}
-      <div className="w-[100%] border-t-1 border-b-1 border-[#eee] bg-[#fff] ">
+      <div className="w-[100%] border-t-1 border-b-1 border-[#eee] bg-[#fff] max-md:hidden">
         <ul className="max-w-[1200px] mx-auto flex justify-between text-[16px] text-[#333] p-[20px_0px]">
           <li>
             <Link href={'/'}>회사소개</Link>
@@ -28,9 +28,9 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div className="max-w-[1200px] mx-auto pt-[36px] flex justify-between">
+      <div className="max-w-[1200px] mx-auto pt-[36px] pl-[20px] pr-[20px] flex justify-between">
         {/* 왼쪽 슬라이드 */}
-        <div className="w-[320px] rounded-[10px] bg-[#f6f6f6] p-[20px_10px]">
+        <div className="w-[320px] rounded-[10px] bg-[#f6f6f6] p-[20px_10px] max-md:hidden">
           <div className="flex gap-[20px] pb-[14px] border-b-1 border-[#d8d8d8]">
             <Image src={'/icons/ozicon.svg'} width={28} height={43} alt="" />
             <div className="">
@@ -54,6 +54,29 @@ export default function Footer() {
         <div className="w-[792px] text-[14px]">
           {/* company-info-wrap */}
           <div>
+            {/* 모바일 약관 */}
+            <div className="hidden max-md:block">
+              <ul className="flex flex-wrap gap-x-[10px] font-bold text-[13px] text-[#333] p-[20px_0px]">
+                <li>
+                  <Link href={'/'}>회사소개</Link>
+                </li>
+                <li>
+                  <Link href={'/'}>이용약관</Link>
+                </li>
+                <li>
+                  <Link href={'/'}>전자금융거래약관</Link>
+                </li>
+                <li>
+                  <Link href={'/'}>개인정보처리방침</Link>
+                </li>
+                <li>
+                  <Link href={'/'}>사업자등록증 다운로드</Link>
+                </li>
+                <li>
+                  <Link href={'/'}>통장사본 다운로드</Link>
+                </li>
+              </ul>
+            </div>
             <span className="font-bold">법인명</span> (주)콘콘{' '}
             <span className="text-gray-500 mx-2 font-normal">|</span>
             <span className="font-bold">대표이사</span> 서소영{' '}
