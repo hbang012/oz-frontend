@@ -43,7 +43,7 @@ export const gnb: MenuItem[] = [
   },
 ];
 
-const productMenu = [
+export const productMenu = [
   // 인형/패브릭
   [
     {

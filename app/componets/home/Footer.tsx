@@ -32,7 +32,14 @@ export default function Footer() {
         {/* 왼쪽 슬라이드 */}
         <div className="w-[320px] rounded-[10px] bg-[#f6f6f6] p-[20px_10px] max-md:hidden">
           <div className="flex gap-[20px] pb-[14px] border-b-1 border-[#d8d8d8]">
-            <Image src={'/icons/ozicon.svg'} width={28} height={43} alt="" />
+            <Image
+              src={'/icons/ozicon.svg'}
+              width={28}
+              height={43}
+              alt=""
+              priority
+              className="h-[39px] w-[24px]"
+            />
             <div className="">
               <p className="text-[12px] text-[#555] mb-[20px]">
                 운영시간 | 평일 09:00 ~ 18:00
@@ -103,7 +110,14 @@ export default function Footer() {
           </p>
 
           <div className="flex">
-            <Image src={'/icons/inipay.svg'} width={40} height={40} alt="" />
+            <Image
+              src={'/icons/inipay.svg'}
+              width={40}
+              height={40}
+              alt=""
+              priority
+              className="h-[35px] w-[35px] mt-[18px]"
+            />
             <p className="text-[12px] text-[#999] mt-[14px] ml-[10px]">
               고객님의 안전거래를 위해 결제 시 <br />
               KG이니시스 구매안전(에스크로)서비스를 이용하실 수 있습니다.

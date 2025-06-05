@@ -1,7 +1,7 @@
 'use client';
 
 import { useLogin } from '@/app/(auth)/login/LoginContext';
-import MobileMenu from '@/app/componets/home/header/Mobile-Menu';
+import MobileMenu from '@/app/componets/home/header/SubMenu';
 import Search from '@/app/componets/home/header/Search';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -63,7 +63,7 @@ export default function Utility() {
       {/* 더보기 버튼 */}
       <button
         type="button"
-        className="border-0 rounded-[50%] w-[40px] h-[40px]"
+        className="hidden max-md:block border-0 rounded-[50%] w-[40px] h-[40px]"
         onClick={() => setIsMenuOpen(true)}
       >
         <Image
