@@ -261,17 +261,11 @@
   .top-\[14px\] {
     top: 14px;
   }
-  .top-\[15px\] {
-    top: 15px;
-  }
   .top-\[16px\] {
     top: 16px;
   }
   .top-\[18px\] {
     top: 18px;
-  }
-  .top-\[20px\] {
-    top: 20px;
   }
   .top-\[32px\] {
     top: 32px;
@@ -306,6 +300,15 @@
   .right-\[16px\] {
     right: 16px;
   }
+  .bottom-\[-60px\] {
+    bottom: -60px;
+  }
+  .bottom-\[-80px\] {
+    bottom: -80px;
+  }
+  .bottom-\[-90px\] {
+    bottom: -90px;
+  }
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
@@ -323,6 +326,12 @@
   }
   .left-\[238px\] {
     left: 238px;
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .z-15 {
+    z-index: 15;
   }
   .z-50 {
     z-index: 50;
@@ -363,8 +372,14 @@
       max-width: 96rem;
     }
   }
+  .m-\[0_auto\] {
+    margin: 0 auto;
+  }
   .m-\[30px_80px\] {
     margin: 30px 80px;
+  }
+  .m-auto {
+    margin: auto;
   }
   .mx-2 {
     margin-inline: calc(var(--spacing) * 2);
@@ -410,6 +425,9 @@
   }
   .mt-\[47px\] {
     margin-top: 47px;
+  }
+  .mt-\[90px\] {
+    margin-top: 90px;
   }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
@@ -474,14 +492,8 @@
   .h-\[40px\] {
     height: 40px;
   }
-  .h-\[45px\] {
-    height: 45px;
-  }
   .h-\[52px\] {
     height: 52px;
-  }
-  .h-\[55px\] {
-    height: 55px;
   }
   .h-\[56px\] {
     height: 56px;
@@ -500,6 +512,9 @@
   }
   .h-\[500px\] {
     height: 500px;
+  }
+  .h-\[900px\] {
+    height: 900px;
   }
   .h-full {
     height: 100%;
@@ -838,15 +853,6 @@
   .p-\[0_42px_0_42px\] {
     padding: 0 42px 0 42px;
   }
-  .p-\[5px_20px_5px_20px\] {
-    padding: 5px 20px 5px 20px;
-  }
-  .p-\[5px_30px_5px_30px\] {
-    padding: 5px 30px 5px 30px;
-  }
-  .p-\[5px_40px_5px_40px\] {
-    padding: 5px 40px 5px 40px;
-  }
   .p-\[6px_12px_7px\] {
     padding: 6px 12px 7px;
   }
@@ -895,6 +901,9 @@
   .p-\[32px_35px_40px\] {
     padding: 32px 35px 40px;
   }
+  .p-\[50px_0px_35px\] {
+    padding: 50px 0px 35px;
+  }
   .px-\[10px\] {
     padding-inline: 10px;
   }
@@ -912,6 +921,21 @@
   }
   .pt-\[36px\] {
     padding-top: 36px;
+  }
+  .pt-\[60px\] {
+    padding-top: 60px;
+  }
+  .pt-\[80px\] {
+    padding-top: 80px;
+  }
+  .pt-\[85px\] {
+    padding-top: 85px;
+  }
+  .pt-\[200px\] {
+    padding-top: 200px;
+  }
+  .pt-\[800px\] {
+    padding-top: 800px;
   }
   .pr-\[10px\] {
     padding-right: 10px;
@@ -1008,6 +1032,10 @@
   .leading-\[35px\] {
     --tw-leading: 35px;
     line-height: 35px;
+  }
+  .leading-\[36px\] {
+    --tw-leading: 36px;
+    line-height: 36px;
   }
   .leading-\[40px\] {
     --tw-leading: 40px;

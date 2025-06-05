@@ -7,9 +7,14 @@ import { useState } from 'react';
 interface SearchProps {
   isSearchOpen: boolean;
   onClose: () => void;
+  animationClass: string;
 }
 
-export default function Search({ onClose, isSearchOpen }: SearchProps) {
+export default function Search({
+  onClose,
+  isSearchOpen,
+  animationClass,
+}: SearchProps) {
   const router = useRouter();
   const [query, setQuery] = useState('');
 
@@ -28,12 +33,7 @@ export default function Search({ onClose, isSearchOpen }: SearchProps) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleSearch}
-          className={`border border-[#d8d8d8] rounded-[8px] w-[245px] p-2 transition-all duration-500 ease-in-out 
-      ${
-        isSearchOpen
-          ? 'opacity-100 scale-100 max-h-[40px]'
-          : 'opacity-0 scale-90 max-h-0 overflow-hidden'
-      }`}
+          className={`border border-[#d8d8d8] rounded-[8px] w-[245px] p-2 text-[12px] ${animationClass}`}
         />
         <button type="button" className="hidden">
           x

@@ -11,6 +11,10 @@ export default function Utility() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const animationClass = isSearchOpen
+    ? 'opacity-100 scale-100 max-h-[40px]'
+    : 'opacity-0 scale-90 max-h-0 overflow-hidden';
+
   return (
     <div className="flex gap-[8px] max-md:gap-[1px]">
       {/* 검색 */}
@@ -33,6 +37,7 @@ export default function Utility() {
         <Search
           isSearchOpen={isSearchOpen}
           onClose={() => setIsSearchOpen(false)}
+          animationClass={animationClass}
         />
       )}
 

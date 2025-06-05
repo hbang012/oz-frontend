@@ -43,7 +43,7 @@ const LoginPopup: React.FC<LoginPopupProps> = () => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,.6)]">
+    <div className="fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,.6)] z-15">
       <div className="bg-[#fff] rounded-[16px] w-[360px]">
         {/* 닫기 */}
         <div className="flex justify-between items-center p-[20px_20px_24px]">

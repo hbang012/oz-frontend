@@ -15,7 +15,10 @@ export default function SubSearch({ onClose, isSearchOpen }: SubSearchProps) {
 
   const handleSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      router.push(`/search-results?page=${query}`);
+      event.preventDefault(); // 기본 이벤트 방지
+      if (query.trim() !== '') {
+        router.push(`/search-results?page=${encodeURIComponent(query)}`);
+      }
     }
   };
 
