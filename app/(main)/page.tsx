@@ -1,5 +1,5 @@
 import MainSlider from '@/app/componets/home/MainSlider';
-import Suggestion from '@/app/componets/home/Suggestion';
+import MainProduct from '@/app/componets/home/MainProduct';
 import Link from 'next/link';
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
       <MainSlider />
 
       <div>
-        <Suggestion />
+        <MainProduct />
       </div>
     </main>
   );
