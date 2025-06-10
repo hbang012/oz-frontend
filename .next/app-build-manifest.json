@@ -24,17 +24,13 @@
     "/(main)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/(main)/page.css",
       "static/chunks/app/(main)/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
-    ],
-    "/search-results/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/search-results/page.js"
     ]
   }
 }

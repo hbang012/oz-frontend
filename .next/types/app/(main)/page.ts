@@ -1,4 +1,4 @@
-// File: D:\프론트엔드 수업\oz-frontend\app\(main)\page.tsx
+// File: D:\프론트엔드 수업\oz-프로젝트\oz-frontend\app\(main)\page.tsx
 import * as entry from '../../../../app/(main)/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
