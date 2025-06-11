@@ -441,6 +441,9 @@
   .mb-\[10px\] {
     margin-bottom: 10px;
   }
+  .mb-\[20\%\] {
+    margin-bottom: 20%;
+  }
   .mb-\[20px\] {
     margin-bottom: 20px;
   }
@@ -707,9 +710,6 @@
   }
   .flex-wrap {
     flex-wrap: wrap;
-  }
-  .place-items-end {
-    place-items: end;
   }
   .items-center {
     align-items: center;
@@ -1031,6 +1031,9 @@
   }
   .pb-\[14px\] {
     padding-bottom: 14px;
+  }
+  .pb-\[20\%\] {
+    padding-bottom: 20%;
   }
   .pb-\[20px\] {
     padding-bottom: 20px;
@@ -1455,16 +1458,6 @@
   .max-md\:w-\[112px\] {
     @media (width < 1201px) {
       width: 112px;
-    }
-  }
-  .max-md\:flex-none {
-    @media (width < 1201px) {
-      flex: none;
-    }
-  }
-  .max-md\:place-content-center {
-    @media (width < 1201px) {
-      place-content: center;
     }
   }
   .max-md\:justify-center {

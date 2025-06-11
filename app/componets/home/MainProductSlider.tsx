@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/controller';
 import { Controller } from 'swiper/modules';
 import { useState } from 'react';
+import type { Swiper as SwiperType } from 'swiper';
 
 const products = [
   {
@@ -82,13 +83,16 @@ const products = [
 ];
 
 export default function MainProductSlider() {
-  const [controlledSwiper, setControlledSwiper] = useState(null);
+  const [controlledSwiper, setControlledSwiper] = useState<SwiperType | null>(
+    null
+  );
 
   return (
     <div className="px-[16px]">
       <Swiper
         spaceBetween={10}
         slidesPerView={2}
+        onSwiper={setControlledSwiper}
         modules={[Controller]}
         controller={{ control: controlledSwiper }}
       >
