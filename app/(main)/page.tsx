@@ -7,9 +7,7 @@ export default function Home() {
     <main className="p-[30px_30px_0_30px] pt-[80px] h-full">
       <MainSlider />
 
-      <div>
-        <MainProduct />
-      </div>
+      <MainProduct />
     </main>
   );
 }

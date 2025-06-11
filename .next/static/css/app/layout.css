@@ -306,6 +306,9 @@
   .right-\[16px\] {
     right: 16px;
   }
+  .bottom-\[10px\] {
+    bottom: 10px;
+  }
   .bottom-\[17px\] {
     bottom: 17px;
   }
@@ -314,6 +317,9 @@
   }
   .left-1\/2 {
     left: calc(1/2 * 100%);
+  }
+  .left-\[10px\] {
+    left: 10px;
   }
   .left-\[14px\] {
     left: 14px;
@@ -482,6 +488,15 @@
   }
   .h-32 {
     height: calc(var(--spacing) * 32);
+  }
+  .h-\[10\%\] {
+    height: 10%;
+  }
+  .h-\[20px\] {
+    height: 20px;
+  }
+  .h-\[22px\] {
+    height: 22px;
   }
   .h-\[24px\] {
     height: 24px;
@@ -918,6 +933,27 @@
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
+  .p-\[0_0_10px_10px\] {
+    padding: 0 0 10px 10px;
+  }
+  .p-\[0_0_10px_15px\] {
+    padding: 0 0 10px 15px;
+  }
+  .p-\[0_0_10px_20px\] {
+    padding: 0 0 10px 20px;
+  }
+  .p-\[0_0_15px_10px\] {
+    padding: 0 0 15px 10px;
+  }
+  .p-\[0_0_15px_15px\] {
+    padding: 0 0 15px 15px;
+  }
+  .p-\[0_0_20px_10px\] {
+    padding: 0 0 20px 10px;
+  }
+  .p-\[0_0_25px_10px\] {
+    padding: 0 0 25px 10px;
+  }
   .p-\[0_42px_0_42px\] {
     padding: 0 42px 0 42px;
   }
@@ -1031,9 +1067,6 @@
   }
   .pb-\[14px\] {
     padding-bottom: 14px;
-  }
-  .pb-\[20\%\] {
-    padding-bottom: 20%;
   }
   .pb-\[20px\] {
     padding-bottom: 20px;
