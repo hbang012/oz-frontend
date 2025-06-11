@@ -33,7 +33,7 @@ export default function MainPopup({ isOpen, onClose, item }: MainPopupProps) {
           width={792}
           height={594}
           priority
-          className="rounded-tr-[20px] rounded-tl-[20px]"
+          className="w-full h-auto rounded-tr-[20px] rounded-tl-[20px]"
         />
         <div className="p-[16px_24px] max-md:p-[16px_24px] max-sm:p-[12px_20px]">
           <h2 className="text-[20px] text-[#000] font-bold max-md:text-[16px] max-sm:text-[14px]">

@@ -89,7 +89,7 @@ export default function MainProductSlider() {
   }
 
   return (
-    <div className="px-[16px]">
+    <div className="px-[25%] max-sm:px-[10px]">
       <Swiper
         spaceBetween={10}
         slidesPerView={1}

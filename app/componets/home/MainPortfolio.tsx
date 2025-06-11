@@ -122,7 +122,7 @@ export default function MainPortfolio() {
       {/* 포트폴리오 */}
       {/* 이미지 관련 경고 이슈*/}
       <div>
-        <ul className="grid grid-cols-3 grid-rows-2 gap-[40px_30px] pt-[60px] max-md:grid-cols-2 max-md:grid-rows-none max-md:">
+        <ul className="grid grid-cols-3 grid-rows-2 gap-[40px_30px] pt-[60px] max-md:grid-cols-2 max-md:grid-rows-none">
           {MainPortfolios.map((item, index) => (
             <li
               key={item.id}
@@ -136,7 +136,7 @@ export default function MainPortfolio() {
                   width={380}
                   height={260}
                   priority
-                  className=" max-md:w-full rounded-[8px] transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+                  className="w-auto h-auto max-md:w-full rounded-[8px] transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
                 />
               </div>
 
@@ -150,7 +150,7 @@ export default function MainPortfolio() {
                   {item.tag.map((tagItem, index) => (
                     <li
                       key={index}
-                      className="bg-[#F6F6F6] rounded-[6px] w-auto h-[30px] p-[4px_6px] text-[14px] flex items-center"
+                      className="bg-[#F6F6F6] rounded-[6px] w-auto h-[30px] p-[4px_6px] text-[14px] flex items-center max-md:h-auto"
                     >
                       {tagItem}
                     </li>

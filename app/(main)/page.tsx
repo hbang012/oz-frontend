@@ -1,6 +1,9 @@
 import MainSlider from '@/app/componets/home/MainSlider';
 import MainProduct from '@/app/componets/home/MainProduct';
 import MainPortfolio from '@/app/componets/home/MainPortfolio';
+import MainReview from '@/app/componets/home/MainReview';
+import MainBlog from '@/app/componets/home/MainBlog';
+import InfoConnect from '@/app/componets/home/InfoConnect';
 
 export default function Home() {
   return (
@@ -10,6 +13,13 @@ export default function Home() {
       <MainProduct />
 
       <MainPortfolio />
+
+      <MainReview />
+
+      <InfoConnect />
+
+      {/* 슬라이더 작업 필요 */}
+      <MainBlog />
     </main>
   );
 }
