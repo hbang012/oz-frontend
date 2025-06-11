@@ -12,42 +12,42 @@ import { useEffect, useRef, useState } from 'react';
 const slides = [
   {
     id: 1,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     title: '굿즈 열풍의 이유 & 인기 많은\n굿즈를 위한 4가지 TIP',
     description:
       '굿즈는 왜 인기가 많을까? 오즈의제작소에서 성공하는 굿즈 마케팅과\n굿즈 제작을 위한 꿀팁을 전달합니다',
   },
   {
     id: 2,
-    imgSrc: '/images/slide/Slide02.png',
+    imgSrc: '/images/slide/main-Slide02.png',
     title: '홍보에서 기능까지 완벽한\nNFC 키링',
     description:
       '스마트폰을 갖다대기만 하면 원하는 링크로 연결되는 아크릴 NFC키링',
   },
   {
     id: 3,
-    imgSrc: '/images/slide/Slide03.png',
+    imgSrc: '/images/slide/main-Slide03.png',
     title: '세상에 단 하나뿐인 나만의\n디자인 트럼프 카드',
     description:
       '1세트에 54가지 디자인을 넣을 수 있다니!\n포토카드, 캐릭터 카드, 한글/숫자 교구용 카드 등으로 활용가능해요',
   },
   {
     id: 4,
-    imgSrc: '/images/slide/Slide04.png',
+    imgSrc: '/images/slide/main-Slide04.png',
     title: '포근포근 내 품 안에 말랑말랑\n귀여운 패브릭 굿즈',
     description:
       '500개부터 제작 가능한 귀여운 캐릭터 맞춤형 인형굿즈를 소개합니다',
   },
   {
     id: 5,
-    imgSrc: '/images/slide/Slide05.png',
+    imgSrc: '/images/slide/main-Slide05.png',
     title: '데스크테리어에 찰떡,\n오피스에 감성을 더하다',
     description:
       '슬기로운 오피스 생활! 도킹형 충전기, 디자인 키캡, 마우스패드로 매일 만나는 책상을\n감각적으로 데코할 수 있어요',
   },
   {
     id: 6,
-    imgSrc: '/images/slide/Slide06.png',
+    imgSrc: '/images/slide/main-Slide06.png',
     title: '팬들의 구매욕구를 자극하는\n퀄리티 좋은 아크릴 굿즈',
     description:
       '아크릴 키링, 아크릴 디오라마, 아크릴 스탠드, 글리터 아크릴 등등\n개성있는 디자인을 담은 다양한 아크릴 굿즈를 제작해보세요',

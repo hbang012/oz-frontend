@@ -78,13 +78,7 @@ const LoginPopup: React.FC<LoginPopupProps> = () => {
                 mailerror ? 'border-[#FF5630]' : 'border-[#000]'
               } text-[14px]`}
             />
-            <label
-              className="absolute left-[16px] top-[50%] translate-y-[-50%] text-[#999] text-[14px] 
-     peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-[14px] 
-     peer-focus:top-[10px] peer-focus:text-[11px] peer-focus:text-[#999]
-     peer-not-placeholder-shown:top-[13px] transition-all duration-[0.3s] 
-     ease-[cubic-bezier(0.5,0,0.1,1)]"
-            >
+            <label className="absolute left-[16px] top-[50%] translate-y-[-50%] text-[#999] text-[14px] peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-[14px] peer-focus:top-[10px] peer-focus:text-[11px] peer-focus:text-[#999] peer-not-placeholder-shown:top-[13px] transition-all duration-[0.3s] ease-[cubic-bezier(0.5,0,0.1,1)]">
               이메일
             </label>
           </form>

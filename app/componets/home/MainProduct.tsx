@@ -3,78 +3,78 @@
 import MainProductSlider from '@/app/componets/home/MainProductSlider';
 import Image from 'next/image';
 
-const products = [
+const MainProducts = [
   {
     id: 1,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
     tag: '티셔츠123',
-    num: 1,
+    quantity: 1,
   },
   {
     id: 2,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
     tag: '티셔츠12313',
-    num: 12,
+    quantity: 12,
   },
   {
     id: 3,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
     tag: '티셔츠123123',
-    num: 1,
+    quantity: 1,
   },
   {
     id: 4,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
     tag: '티셔츠2',
-    num: 144,
+    quantity: 144,
   },
   {
     id: 5,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
     tag: '티셔츠',
-    num: 1123,
+    quantity: 1123,
   },
   {
     id: 6,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
     tag: '티셔츠',
-    num: 1,
+    quantity: 1,
   },
   {
     id: 7,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
     tag: '티셔츠',
-    num: 12,
+    quantity: 12,
   },
   {
     id: 8,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
     tag: '티셔츠',
-    num: 1,
+    quantity: 1,
   },
 ];
 
@@ -128,7 +128,7 @@ export default function MainProduct() {
       {/* 상품 grid (PC) */}
       <div className="pt-[60px] hidden md:block">
         <ul className="grid grid-cols-4 grid-rows-2 gap-[60px_13px]">
-          {products.map((item) => (
+          {MainProducts.map((item) => (
             <li
               key={item.id}
               className="group cursor-pointer overflow-hidden rounded-[8px] max-w-[900px]"
@@ -140,7 +140,7 @@ export default function MainProduct() {
                     {item.tag}
                   </div>
                   <div className="w-auto h-[28px] p-[3px_6px] rounded-[5px] bg-white text-[13px]">
-                    최소{item.num}개
+                    최소{item.quantity}개
                   </div>
                 </div>
                 <img
@@ -164,7 +164,7 @@ export default function MainProduct() {
         </ul>
       </div>
 
-      {/* 태블릿+모바일 */}
+      {/* 태블릿 + 모바일 */}
       <div className="block md:hidden pt-[60px]">
         <MainProductSlider />
       </div>

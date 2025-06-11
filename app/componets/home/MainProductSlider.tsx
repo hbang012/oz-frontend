@@ -6,10 +6,10 @@ import 'swiper/css/scrollbar';
 import style from '@/app/componets/home/MainProductSlider.module.css';
 import { Scrollbar } from 'swiper/modules';
 
-const products = [
+const MainProducts = [
   {
     id: 1,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
@@ -18,7 +18,7 @@ const products = [
   },
   {
     id: 2,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
@@ -27,7 +27,7 @@ const products = [
   },
   {
     id: 3,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
@@ -36,7 +36,7 @@ const products = [
   },
   {
     id: 4,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
@@ -45,7 +45,7 @@ const products = [
   },
   {
     id: 5,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
@@ -54,7 +54,7 @@ const products = [
   },
   {
     id: 6,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
@@ -63,7 +63,7 @@ const products = [
   },
   {
     id: 7,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
@@ -72,7 +72,7 @@ const products = [
   },
   {
     id: 8,
-    imgSrc: '/images/slide/Slide01.png',
+    imgSrc: '/images/slide/main-Slide01.png',
     name: '반팔 티셔츠',
     price: '3091',
     href: '/',
@@ -84,8 +84,8 @@ const products = [
 export default function MainProductSlider() {
   // 4개씩그룹
   const groupedProducts = [];
-  for (let i = 0; i < products.length; i += 4) {
-    groupedProducts.push(products.slice(i, i + 4));
+  for (let i = 0; i < MainProducts.length; i += 4) {
+    groupedProducts.push(MainProducts.slice(i, i + 4));
   }
 
   return (

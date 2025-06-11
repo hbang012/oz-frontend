@@ -1,6 +1,6 @@
 import MainSlider from '@/app/componets/home/MainSlider';
 import MainProduct from '@/app/componets/home/MainProduct';
-import Link from 'next/link';
+import MainPortfolio from '@/app/componets/home/MainPortfolio';
 
 export default function Home() {
   return (
@@ -8,6 +8,8 @@ export default function Home() {
       <MainSlider />
 
       <MainProduct />
+
+      <MainPortfolio />
     </main>
   );
 }
