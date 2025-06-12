@@ -1,15 +1,5 @@
 {
   "pages": {
-    "/not-found": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -21,6 +11,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/loading.js"
     ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
+    ],
     "/(main)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -31,6 +26,21 @@
       "static/chunks/main-app.js",
       "static/css/app/(main)/page.css",
       "static/chunks/app/(main)/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
+    ],
+    "/(main)/solution/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(main)/solution/page.js"
+    ],
+    "/(main)/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(main)/contact/page.js"
     ]
   }
 }

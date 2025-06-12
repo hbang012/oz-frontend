@@ -54,7 +54,10 @@ export default function MainPartner() {
 
       {/* 파트너 그룹 */}
       {partnerGroups.map((group, groupIndex) => (
-        <ul key={groupIndex} className="flex justify-center gap-4 ">
+        <ul
+          key={groupIndex}
+          className="flex justify-center gap-4 max-sm:static max-sm:grid max-sm:grid-cols-4 grid-rows-7"
+        >
           {group.map((item) => (
             <li key={item.id} className="mt-[40px] w-full fade-up3">
               <Image

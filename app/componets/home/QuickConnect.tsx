@@ -11,7 +11,7 @@ export default function QuickConnect() {
         </h2>
       </div>
 
-      <div className="flex justify-center gap-4 mt-[40px] fade-up2">
+      <div className="flex justify-center gap-4 mt-[40px] fade-up2 max-sm:flex-col">
         {/* 굿즈 문의하기 버튼 */}
         <button
           type="button"
