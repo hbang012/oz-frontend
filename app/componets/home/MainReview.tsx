@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import '@/app/animations.css';
 
 const MainReviews = [
   {
@@ -63,7 +64,7 @@ export default function MainReview() {
   return (
     <div className="pt-[100px] max-w-[1200px] mx-auto">
       {/* 제목 */}
-      <div className="flex relative justify-center items-center gap-[8px] max-md:gap-[4px] max-md:static max-md:flex-col">
+      <div className="flex relative justify-center items-center gap-[8px] max-md:gap-[4px] max-md:static max-md:flex-col fade-up">
         <h2 className="text-[#000] font-bold text-[32px] max-md:text-[24px]">
           오즈와 함께한 파트너들
         </h2>
@@ -103,7 +104,7 @@ export default function MainReview() {
       </div>
 
       {/* 리뷰 */}
-      <ul className="grid grid-cols-4 grid-rows-2 gap-[13px] pt-[60px] max-md:grid-cols-2 max-md:grid-rows-none max-sm:line-clamp-1">
+      <ul className="grid grid-cols-4 grid-rows-2 gap-[13px] pt-[60px] max-md:grid-cols-2 max-md:grid-rows-none max-sm:line-clamp-1 fade-up3">
         {MainReviews.map((item, index) => (
           <li
             key={item.id}

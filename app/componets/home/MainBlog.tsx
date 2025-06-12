@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import '@/app/animations.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -77,7 +78,7 @@ export default function MainBlog() {
   }, []);
 
   return (
-    <div className="pt-[100px] max-w-[1200px] mx-auto max-sm:pt-[60px]">
+    <div className="pt-[100px] max-w-[1200px] mx-auto max-sm:pt-[60px] fade-up">
       {/* 제목 */}
       <div className="flex relative justify-between items-center gap-[8px] max-md:gap-[4px] max-md:justify-between">
         <h2 className="text-[#000] font-bold text-[50px] max-md:text-[24px]">

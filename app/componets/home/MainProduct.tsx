@@ -2,6 +2,7 @@
 
 import MainProductSlider from '@/app/componets/home/MainProductSlider';
 import Image from 'next/image';
+import '@/app/animations.css';
 
 const MainProducts = [
   {
@@ -82,7 +83,7 @@ export default function MainProduct() {
   return (
     <div className="pt-[60px] max-w-[1200px] mx-auto">
       {/* 제목 */}
-      <div className="flex flex-col gap-[8px] text-center max-md:gap-[4px]">
+      <div className="flex flex-col gap-[8px] text-center max-md:gap-[4px] fade-up">
         <h2 className="text-[#000] font-bold text-[32px] max-md:text-[24px]">
           FOR YOU
         </h2>
@@ -126,7 +127,7 @@ export default function MainProduct() {
       </div>
 
       {/* 상품 grid (PC) */}
-      <div className="pt-[60px] hidden md:block">
+      <div className="pt-[60px] hidden md:block fade-up2">
         <ul className="grid grid-cols-4 grid-rows-2 gap-[60px_13px]">
           {MainProducts.map((item) => (
             <li

@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
+import '@/app/animations.css';
 import style from '@/app/componets/home/MainProductSlider.module.css';
 import { Scrollbar } from 'swiper/modules';
 
@@ -89,7 +90,7 @@ export default function MainProductSlider() {
   }
 
   return (
-    <div className="px-[25%] max-sm:px-[10px]">
+    <div className="px-[25%] max-sm:px-[10px] fade-up2">
       <Swiper
         spaceBetween={10}
         slidesPerView={1}

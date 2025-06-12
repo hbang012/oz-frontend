@@ -6,25 +6,44 @@ import MainBlog from '@/app/componets/home/MainBlog';
 import InfoConnect from '@/app/componets/home/InfoConnect';
 import MainPartner from '@/app/componets/home/MainPartner';
 import QuickConnect from '@/app/componets/home/QuickConnect';
+import Frame from '@/app/componets/home/Frame';
 
 export default function Home() {
   return (
-    <main className="p-[30px_30px_0_30px] pt-[80px] h-full">
-      <MainSlider />
+    <main className="pt-[80px] h-full">
+      <div className="p-[30px_30px_0_30px]">
+        <MainSlider />
+      </div>
 
-      <MainProduct />
+      <div className="p-[30px_30px_0_30px]">
+        <MainProduct />
+      </div>
 
-      <MainPortfolio />
+      <div className="p-[30px_30px_0_30px]">
+        <MainPortfolio />
+      </div>
 
-      <MainReview />
+      <div className="p-[30px_30px_0_30px]">
+        <MainReview />
+      </div>
 
-      <InfoConnect />
+      <div className="p-[30px_30px_0_30px]">
+        <InfoConnect />
+      </div>
 
-      <MainBlog />
+      <div className="p-[30px_30px_0_30px]">
+        <MainBlog />
+      </div>
 
-      <MainPartner />
+      <div className="p-[30px_30px_0_30px]">
+        <MainPartner />
+      </div>
 
-      <QuickConnect />
+      <div className="p-[30px_30px_0_30px]">
+        <QuickConnect />
+      </div>
+
+      <Frame />
     </main>
   );
 }

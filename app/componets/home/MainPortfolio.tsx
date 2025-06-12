@@ -2,6 +2,7 @@
 
 import MainPopup from '@/app/componets/home/MainPopup';
 import Image from 'next/image';
+import '@/app/animations.css';
 import { useState } from 'react';
 
 type Item = {
@@ -80,7 +81,7 @@ export default function MainPortfolio() {
   return (
     <div className="pt-[100px] max-w-[1200px] mx-auto">
       {/* 제목 */}
-      <div className="flex relative justify-center items-center gap-[8px] max-md:gap-[4px] max-md:static max-md:flex-col">
+      <div className="flex relative justify-center items-center gap-[8px] max-md:gap-[4px] max-md:static max-md:flex-col fade-up">
         <h2 className="text-[#000] font-bold text-[32px] max-md:text-[24px]">
           포트폴리오
         </h2>
@@ -121,7 +122,7 @@ export default function MainPortfolio() {
 
       {/* 포트폴리오 */}
       {/* 이미지 관련 경고 이슈*/}
-      <div>
+      <div className="fade-up2">
         <ul className="grid grid-cols-3 grid-rows-2 gap-[40px_30px] pt-[60px] max-md:grid-cols-2 max-md:grid-rows-none">
           {MainPortfolios.map((item, index) => (
             <li
