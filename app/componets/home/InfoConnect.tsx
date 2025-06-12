@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function InfoConnect() {
   return (
-    <div className="max-w-[1200px] mx-auto p-[40px_20px_0px] max-sm:p-[40px_0px]">
+    <div className="max-w-[1200px] mx-auto p-[100px_0px_0px] max-sm:p-[40px_0px]">
       <ul className="flex gap-[22px] max-sm:block">
         {/* 소개 */}
         <li className="group relative bg-point1 flex flex-col basis-[590px] gap-[128px] p-[30px] rounded-[8px] cursor-pointer overflow-hidden max-sm:mb-[15px]">
@@ -26,6 +26,7 @@ export default function InfoConnect() {
               alt=""
               width={15}
               height={15}
+              priority
               className="ml-[15px]"
             />
           </div>

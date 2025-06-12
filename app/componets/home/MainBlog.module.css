@@ -1,0 +1,91 @@
+/* 이전 */
+.prevButton {
+  position: absolute;
+  bottom: 25%;
+  left: 20%;
+  z-index: 10;
+  transform: translateX(25%);
+  background-color: white;
+  border: 2px solid #d8d8d8;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+}
+.prevButton::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 12px;
+  background-image: url('/icons/gray_arrow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+  transform: rotate(-180deg);
+}
+.prevButton:hover::after {
+  content: '';
+  display: block;
+  width: 26px;
+  height: 40px;
+  background-image: url('/icons/keyboard_arrow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: -2px 10px;
+  transform: rotate(-180deg);
+}
+
+/* 다음 */
+.nextButton {
+  position: absolute;
+  bottom: 25%;
+  left: 19.5%;
+  z-index: 10;
+  transform: translateX(150%);
+  background-color: white;
+  border: 2px solid #d8d8d8;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+}
+.nextButton::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 12px;
+  background-image: url('/icons/gray_arrow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 13px 0px;
+  transform: rotate(0deg);
+}
+.nextButton:hover::after {
+  content: '';
+  background-image: url('/icons/keyboard_arrow.svg');
+  display: block;
+  width: 26px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 5px 4px;
+  transform: rotate(0deg);
+}
+
+@media (max-width: 1200px) {
+  .slider [class*='swiper-button'] {
+    display: none;
+  }
+  .slider [class*='swiper-button-next'] {
+    display: none;
+  }
+  .slider [class*='swiper-button-next']::after {
+    display: none;
+  }
+  .slider [class*='swiper-slide-active'] > div > img {
+    transform: none;
+    transition: none;
+  }
+  .prevButton,
+  .nextButton {
+    display: none !important;
+  }
+}

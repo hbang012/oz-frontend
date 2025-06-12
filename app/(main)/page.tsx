@@ -4,6 +4,8 @@ import MainPortfolio from '@/app/componets/home/MainPortfolio';
 import MainReview from '@/app/componets/home/MainReview';
 import MainBlog from '@/app/componets/home/MainBlog';
 import InfoConnect from '@/app/componets/home/InfoConnect';
+import MainPartner from '@/app/componets/home/MainPartner';
+import QuickConnect from '@/app/componets/home/QuickConnect';
 
 export default function Home() {
   return (
@@ -18,8 +20,11 @@ export default function Home() {
 
       <InfoConnect />
 
-      {/* 슬라이더 작업 필요 */}
       <MainBlog />
+
+      <MainPartner />
+
+      <QuickConnect />
     </main>
   );
 }

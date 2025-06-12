@@ -17,7 +17,7 @@ const MainReviews = [
   },
   {
     id: 3,
-    imgSrc: '/images/partner/mangrang.png',
+    imgSrc: '/images/partner/myungrang.png',
     name: '명랑시대외식청년창업협동조합',
     reviews:
       '얼마되지 않는 제작 기간에 맞춰서 어떤 굿즈가 제작이 가능한지 친절하게 알려주셨고, 소량의 제품 여러 개를 제작해야 하는 상황이라 더더욱 빠듯했던 일정이었던 와중에 항상 친절하게 대해주신 담당자분과 일정에 맞춰 제작을 해주신 제작팀 분들께 감사드립니다! 중간에 시안 수정해야 할 부분과 일부 불량건에 대한 대처까지 빠르게 해주셔서 굿즈 제작에 한결 수월했습니다. 감사합니다 :)',
@@ -45,7 +45,7 @@ const MainReviews = [
   },
   {
     id: 7,
-    imgSrc: '/images/partner/weou.png',
+    imgSrc: '/images/partner/hamkke.png',
     name: '함께 일하는 재단',
     reviews:
       '우선 촉박한 일정에도 꼼꼼하게 챙겨주신 PM님께 감사의 말씀드립니다. 사회초년생을 타깃으로 한 웰컴키트를 구성했었는데, PM님께서 구성품 추천도 해주셔서 빠르게 준비할 수 있었습니다. 항상 빠르게 피드백 주셔서 덕분에 행사도 잘 마칠 수 있었습니다~ 다음에도 잘 부탁드립니다! 감사합니다 :)',
