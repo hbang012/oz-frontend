@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import '/app/style.css';
 
 @theme {
   --color-point1: #6b59f6;

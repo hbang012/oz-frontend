@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import '@/app/animations.css';
 
 const MainReviews = [
   {

@@ -2,7 +2,6 @@
 
 import MainPopup from '@/app/componets/home/MainPopup';
 import Image from 'next/image';
-import '@/app/animations.css';
 import { useState } from 'react';
 
 type Item = {

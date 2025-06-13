@@ -2,7 +2,6 @@
 
 import MainProductSlider from '@/app/componets/home/MainProductSlider';
 import Image from 'next/image';
-import '@/app/animations.css';
 
 const MainProducts = [
   {

@@ -27,20 +27,20 @@
       "static/css/app/(main)/page.css",
       "static/chunks/app/(main)/page.js"
     ],
-    "/_not-found/page": [
+    "/(main)/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/(main)/contact/page.js"
     ],
     "/(main)/solution/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(main)/solution/page.js"
     ],
-    "/(main)/contact/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/contact/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

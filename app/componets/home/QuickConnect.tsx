@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import '@/app/animations.css';
 
 export default function QuickConnect() {
   return (

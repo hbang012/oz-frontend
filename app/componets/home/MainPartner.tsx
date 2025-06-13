@@ -1,4 +1,3 @@
-import '@/app/animations.css';
 import Image from 'next/image';
 
 const partnerGroups = [

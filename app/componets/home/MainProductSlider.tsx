@@ -3,7 +3,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
-import '@/app/animations.css';
 import style from '@/app/componets/home/MainProductSlider.module.css';
 import { Scrollbar } from 'swiper/modules';
 
