@@ -140,9 +140,12 @@ export default function ContactInfoMobile() {
       </div>
 
       {/* 문의 항목 */}
-      <div className="flex flex-col gap-y-2">
-        <div className="flex items-center gap-x-1 pt-[40px]">
-          <h3 className="text-[18px] text-[#333] font-bold">
+      <div className="flex flex-col ">
+        <div
+          className="flex items-center"
+          style={{ paddingTop: '15px', paddingBottom: '15px' }}
+        >
+          <h3 className="text-[13px] text-[#333] font-bold">
             문의항목 (중복 가능)
           </h3>
           <span
@@ -156,7 +159,10 @@ export default function ContactInfoMobile() {
             ●
           </span>
         </div>
-        <ul className="flex flex-wrap gap-[10px] pt-[15px] pb-[10px]">
+        <ul
+          className="grid grid-cols-2 w-full"
+          style={{ gap: '10px', paddingBottom: '20px' }}
+        >
           {options.map((option) => (
             <li key={option}>
               <input
@@ -186,8 +192,11 @@ export default function ContactInfoMobile() {
 
       {/* 디자인 유무 */}
       <div className="flex flex-col gap-y-2">
-        <div className="flex items-center gap-x-1 pt-[40px]">
-          <h3 className="text-[18px] text-[#333] font-bold">디자인 유무</h3>
+        <div
+          className="flex items-center gap-x-1"
+          style={{ paddingBottom: '10px' }}
+        >
+          <h3 className="text-[13px] text-[#333] font-bold">디자인 유무</h3>
           <span
             className="text-point1 "
             style={{
@@ -199,7 +208,10 @@ export default function ContactInfoMobile() {
             ●
           </span>
         </div>
-        <ul className="flex flex-wrap gap-[10px] pt-[15px] pb-[30px]">
+        <ul
+          className="grid grid-cols-2"
+          style={{ gap: '10px', paddingBottom: '20px' }}
+        >
           {radioOptions.map((option) => (
             <li key={option}>
               <input
@@ -212,11 +224,12 @@ export default function ContactInfoMobile() {
               />
               <label
                 htmlFor={option}
-                className={`flex justify-center items-center h-[48px] border rounded-[8px] px-5 cursor-pointer ${
+                className={`flex justify-center items-center border rounded-[8px] cursor-pointer ${
                   selectedRadioOption === option
                     ? 'border-[3px] border-[#000] text-[#000]'
                     : 'border border-[#d8d8d8] text-[#999]'
                 }`}
+                style={{ height: '50px' }}
               >
                 {option}
               </label>
@@ -227,8 +240,11 @@ export default function ContactInfoMobile() {
 
       {/* 포장 유무 */}
       <div className="flex flex-col gap-y-2">
-        <div className="flex items-center gap-x-1 pt-[30px]">
-          <h3 className="text-[18px] text-[#333] font-bold">포장 유무</h3>
+        <div
+          className="flex items-center gap-x-1 "
+          style={{ paddingBottom: '10px' }}
+        >
+          <h3 className="text-[13px] text-[#333] font-bold">포장 유무</h3>
           <span
             className="text-point1 "
             style={{
@@ -240,7 +256,10 @@ export default function ContactInfoMobile() {
             ●
           </span>
         </div>
-        <ul className="flex flex-wrap gap-[10px] pt-[15px] pb-[30px]">
+        <ul
+          className="grid grid-cols-2"
+          style={{ gap: '10px', paddingBottom: '20px' }}
+        >
           {packagingOptions.map((option) => (
             <li key={option}>
               <input
@@ -253,7 +272,7 @@ export default function ContactInfoMobile() {
               />
               <label
                 htmlFor={option}
-                className={`flex justify-center items-center h-[48px] border rounded-[8px] px-5 cursor-pointer ${
+                className={`flex justify-center items-center h-[48px] border rounded-[8px] cursor-pointer ${
                   selectedPackagingOption === option
                     ? 'border-[3px] border-[#000] text-[#000]'
                     : 'border border-[#d8d8d8] text-[#999]'
@@ -270,7 +289,10 @@ export default function ContactInfoMobile() {
       <div className="flex flex-col gap-y-6">
         {formFields.map(({ name, label, placeholder }) => (
           <div key={name} className="flex flex-col gap-y-2">
-            <div className="flex items-center gap-x-1 pt-[30px]">
+            <div
+              className="flex items-center gap-x-1 pt-[30px]"
+              style={{ paddingBottom: '5px', paddingTop: '15px' }}
+            >
               <h3 className="text-[14px] text-[#333] font-bold">{label}</h3>
               <span
                 className="text-point1"
@@ -307,8 +329,9 @@ export default function ContactInfoMobile() {
       {/* 버튼 */}
       <button
         type="button"
-        className="mt-[40px] bg-black text-white text-[20px] font-bold w-[200px] h-[64px] rounded-[8px] px-[48px]"
+        className="mt-[40px] bg-black text-white text-[18px] font-bold rounded-[8px] px-[48px]"
         onClick={handleValidation}
+        style={{ height: '50px' }}
       >
         다음
       </button>

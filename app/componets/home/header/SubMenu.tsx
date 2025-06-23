@@ -90,7 +90,11 @@ export default function MobileMenu({
                   />
                 </button>
               ) : (
-                <Link href={item.href || ''} className="block">
+                <Link
+                  href={item.href || ''}
+                  className="block"
+                  onClick={onClose}
+                >
                   {item.label}
                 </Link>
               )}
@@ -110,7 +114,9 @@ export default function MobileMenu({
                             {subItem.label}
                           </button>
                         ) : (
-                          <Link href={subItem.href || ''}>{subItem.label}</Link>
+                          <Link href={subItem.href || ''} onClick={onClose}>
+                            {subItem.label}
+                          </Link>
                         )}
                         {activeSubItem === subIndex && (
                           <SubProductMenu
