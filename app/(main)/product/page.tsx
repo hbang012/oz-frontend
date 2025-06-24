@@ -3,29 +3,48 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Gnb from '@/app/componets/home/header/Gnb';
-
-type Product = {
-  product_id: number;
-  name: string;
-  image_url: string;
-  created_at: string;
-  price?: number;
-  quantity_range: string; // 최소 수량
-  supply_price: string; // 최소 단가
-  category_large_name: string;
-  category_medium_name: string; // 중분류 "인형"
-  category_small_name: string;
-};
+import Pagination from '@/app/componets/Pagination';
+import type { Product } from '@/app/_lib/types/product';
+import ProductCategoryTabs from '@/app/(main)/product/ProductTab';
+import { useSearchParams } from 'next/navigation';
+import SideCategory from '@/app/(main)/product/SideCategory';
 
 export default function ProductPage() {
   const [data, setData] = useState<Product[] | null>(null);
+  const [filtered, setFiltered] = useState<Product[]>([]);
+  const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(1);
+  const itemsPerPage = 10;
 
+  const searchParams = useSearchParams();
+  const currentCategory = searchParams.get('category');
   useEffect(() => {
     fetch('http://localhost:3001/product')
       .then((res) => res.json())
-      .then((json) => setData(json));
-  }, []);
+      .then((json: Product[]) => {
+        setData(json);
+
+        if (!currentCategory) {
+          setFiltered(json);
+        } else {
+          const categoryNum = Number(currentCategory);
+          const filteredItems = json.filter((item) =>
+            [
+              item.category_large_id,
+              item.category_medium_id,
+              item.category_small_id,
+            ].includes(categoryNum)
+          );
+          setFiltered(filteredItems);
+        }
+
+        setPage(1);
+        setTotalPage(Math.ceil(json.length / itemsPerPage));
+      });
+  }, [currentCategory]);
+
+  const startIndex = (page - 1) * itemsPerPage;
+  const pagedData = filtered.slice(startIndex, startIndex + itemsPerPage);
 
   if (!data) return <p>로딩 중...</p>;
 
@@ -33,84 +52,104 @@ export default function ProductPage() {
     <main
       className=""
       style={{
-        paddingTop: '200px',
         maxWidth: '1200px',
-        height: '1000px',
         marginLeft: 'auto',
         marginRight: 'auto',
         paddingLeft: '20px',
         paddingRight: '20px',
       }}
     >
+      <div
+        className="border-b-1 "
+        style={{ padding: '100px 0px 10px 0px', borderColor: '#eee' }}
+      >
+        <ProductCategoryTabs />
+      </div>
+
       {/* 옵션 */}
-      <div className="flex justify-between" style={{ paddingBottom: '30px' }}>
+      <div
+        className="flex justify-between"
+        style={{ padding: '20px 0px 30px 0px' }}
+      >
         <p className="text-[12px] text-[#626262]">전체</p>
         <button type="button" className="border-0">
           <p className="text-[14px] text-[#000]">기본순</p>
         </button>
       </div>
 
-      {/* 전체 아이템 */}
-      <ul className="grid grid-cols-4 grid-rows-5" style={{ gap: '20px' }}>
-        {data.map((product) => (
-          <li key={product.product_id} className="relative">
-            <Link href={`/product/${product.product_id}`}>
-              {/* 이미지 */}
-              <div
-                className="rounded-[16px] overflow-hidden"
-                style={{
-                  height: '80%',
-                  width: '100%',
-                  background: '#f3efe9',
-                }}
-              >
-                <Image
-                  src={`http://localhost:3001${product.image_url}`}
-                  alt={product.name}
-                  width={291}
-                  height={291}
-                  priority
-                  sizes="291px"
+      <div className="flex">
+        <div className="flex gap-[40px] mt-[40px]">
+          <SideCategory />
+        </div>
+
+        {/* 전체 아이템 */}
+        <ul className="grid grid-cols-4 grid-rows-5" style={{ gap: '20px' }}>
+          {pagedData?.map((product) => (
+            <li key={product.product_id} className="relative">
+              <Link href={`/product/${product.product_id}`}>
+                {/* 이미지 */}
+                <div
+                  className="rounded-[16px] overflow-hidden"
                   style={{
-                    objectFit: 'cover',
+                    height: '80%',
                     width: '100%',
-                    height: '100%',
+                    background: '#f3efe9',
                   }}
-                />
-              </div>
-
-              {/* 태그 */}
-              <div className="absolute" style={{ top: '66%', left: '7%' }}>
-                <span
-                  className=" rounded-[5px] text-white text-[13px] font-bold bg-point1"
-                  style={{ padding: '5px 5px', marginRight: '5px' }}
                 >
-                  {product.category_medium_name || '카테고리'}
-                </span>
-                <span
-                  className=" rounded-[5px] text-[#777] text-[13px] font-bold bg-white"
-                  style={{ padding: '5px 5px' }}
-                >
-                  {product.quantity_range || '최소 0개'}
-                </span>
-              </div>
+                  <Image
+                    src={`http://localhost:3001${product.image_url}`}
+                    alt={product.name}
+                    width={291}
+                    height={291}
+                    priority
+                    sizes="291px"
+                    style={{
+                      objectFit: 'cover',
+                      width: '100%',
+                      height: '100%',
+                    }}
+                  />
+                </div>
 
-              {/* 텍스트 */}
-              <div style={{ padding: '16px 14px' }}>
-                <h2 className="text-[16px] font-bold">{product.name}</h2>
-                <p className="text-[14px]">
-                  최소{' '}
-                  <span>
-                    {product.supply_price
-                      ? `${Number(product.supply_price).toLocaleString()}원~`
-                      : '1234원~'}
+                {/* 태그 */}
+                <div className="absolute" style={{ top: '66%', left: '7%' }}>
+                  <span
+                    className=" rounded-[5px] text-white text-[13px] font-bold bg-point1"
+                    style={{ padding: '5px 5px', marginRight: '5px' }}
+                  >
+                    {product.category_medium_name || '카테고리'}
                   </span>
-                </p>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+                  <span
+                    className=" rounded-[5px] text-[#777] text-[13px] font-bold bg-white"
+                    style={{ padding: '5px 5px' }}
+                  >
+                    {product.quantity_range || '최소 0개'}
+                  </span>
+                </div>
+
+                {/* 텍스트 */}
+                <div style={{ padding: '16px 14px' }}>
+                  <h2 className="text-[16px] font-bold">{product.name}</h2>
+                  <p className="text-[14px]">
+                    최소{' '}
+                    <span>
+                      {product.supply_price
+                        ? `${Number(product.supply_price).toLocaleString()}원~`
+                        : '1234원~'}
+                    </span>
+                  </p>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="flex justify-center" style={{ padding: '50px' }}>
+        {data && totalPage > 0 && (
+          <Pagination page={page} setPage={setPage} totalPage={totalPage} />
+        )}
+      </div>
     </main>
   );
 }

@@ -2,83 +2,30 @@
 
 import MainProductSlider from '@/app/componets/home/MainProductSlider';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
-const MainProducts = [
-  {
-    id: 1,
-    imgSrc: '/images/slide/main-Slide01.png',
-    name: '반팔 티셔츠',
-    price: '3091',
-    href: '/',
-    tag: '티셔츠123',
-    quantity: 1,
-  },
-  {
-    id: 2,
-    imgSrc: '/images/slide/main-Slide01.png',
-    name: '반팔 티셔츠',
-    price: '3091',
-    href: '/',
-    tag: '티셔츠12313',
-    quantity: 12,
-  },
-  {
-    id: 3,
-    imgSrc: '/images/slide/main-Slide01.png',
-    name: '반팔 티셔츠',
-    price: '3091',
-    href: '/',
-    tag: '티셔츠123123',
-    quantity: 1,
-  },
-  {
-    id: 4,
-    imgSrc: '/images/slide/main-Slide01.png',
-    name: '반팔 티셔츠',
-    price: '3091',
-    href: '/',
-    tag: '티셔츠2',
-    quantity: 144,
-  },
-  {
-    id: 5,
-    imgSrc: '/images/slide/main-Slide01.png',
-    name: '반팔 티셔츠',
-    price: '3091',
-    href: '/',
-    tag: '티셔츠',
-    quantity: 1123,
-  },
-  {
-    id: 6,
-    imgSrc: '/images/slide/main-Slide01.png',
-    name: '반팔 티셔츠',
-    price: '3091',
-    href: '/',
-    tag: '티셔츠',
-    quantity: 1,
-  },
-  {
-    id: 7,
-    imgSrc: '/images/slide/main-Slide01.png',
-    name: '반팔 티셔츠',
-    price: '3091',
-    href: '/',
-    tag: '티셔츠',
-    quantity: 12,
-  },
-  {
-    id: 8,
-    imgSrc: '/images/slide/main-Slide01.png',
-    name: '반팔 티셔츠',
-    price: '3091',
-    href: '/',
-    tag: '티셔츠',
-    quantity: 1,
-  },
-];
+type Product = {
+  product_id: number;
+  name: string;
+  image_url: string;
+  created_at: string;
+  price?: number;
+  quantity_range: string; // 최소 수량
+  supply_price: string; // 최소 단가
+  category_large_name: string;
+  category_medium_name: string; // 중분류 "인형"
+  category_small_name: string;
+};
 
 export default function MainProduct() {
+  const [data, setData] = useState<Product[] | null>(null);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/product')
+      .then((res) => res.json())
+      .then((json) => setData(json));
+  }, []);
+
   return (
     <div className="pt-[60px] max-w-[1200px] mx-auto">
       {/* 제목 */}
@@ -128,24 +75,24 @@ export default function MainProduct() {
       {/* 상품 grid (PC) */}
       <div className="pt-[60px] hidden md:block fade-up2">
         <ul className="grid grid-cols-4 grid-rows-2 gap-[60px_13px]">
-          {MainProducts.map((item) => (
+          {data?.map((product) => (
             <li
-              key={item.id}
+              key={product.product_id}
               className="group cursor-pointer overflow-hidden rounded-[8px] max-w-[900px]"
             >
               <div className="relative w-[290px] h-[386px] bg-[#f6f6f6] flex justify-center items-center">
                 {/* 상품 태그 */}
                 <div className="absolute left-[16px] bottom-[17px] flex gap-[4px]">
                   <div className="w-auto h-[28px] p-[3px_6px] rounded-[5px] bg-black text-white text-[13px]">
-                    {item.tag}
+                    {product.category_medium_name}
                   </div>
                   <div className="w-auto h-[28px] p-[3px_6px] rounded-[5px] bg-white text-[13px]">
-                    최소{item.quantity}개
+                    최소{product.quantity_range}
                   </div>
                 </div>
                 <img
-                  src={item.imgSrc}
-                  alt={item.name}
+                  src={`http://localhost:3001${product.image_url}`}
+                  alt={product.name}
                   className="transition-transform duration-300 ease-in-out group-hover:scale-105 w-[80%]"
                 />
               </div>
@@ -153,10 +100,15 @@ export default function MainProduct() {
               {/* 상품 설명 */}
               <div className="mt-[10px]">
                 <h2 className=" font-bold text-[18px] text-[#000]">
-                  반팔 티셔츠
+                  {product.name}
                 </h2>
                 <p className=" font-bold text-[18px] text-[#777]">
-                  최소 <span>3091</span>원~
+                  최소{' '}
+                  <span>
+                    {product.supply_price
+                      ? `${Number(product.supply_price).toLocaleString()}원~`
+                      : '1234원~'}
+                  </span>
                 </p>
               </div>
             </li>

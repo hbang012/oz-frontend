@@ -1,4 +1,5 @@
 import { generatePagination } from '@/app/_lib/utils';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export default function Pagination({
@@ -13,6 +14,7 @@ export default function Pagination({
   const [pageArr, setPageArr] = useState<(number | string)[]>([]);
 
   useEffect(() => {
+    if (!totalPage || isNaN(totalPage)) return; // 임시
     const arr = generatePagination(page, totalPage);
     setPageArr(arr);
   }, [page, totalPage]);
@@ -21,11 +23,18 @@ export default function Pagination({
     <div className="flex gap-x-[5px]">
       <button
         type="button"
-        className="btn leading-[28px] px-[10px] text-[14px] disabled:opacity-50"
+        className="border-0 px-[10px] text-[14px] leading-0"
+        style={{ lineHeight: '10px' }}
         onClick={() => setPage(page - 1)}
         disabled={page === 1}
       >
-        이전
+        <Image
+          src={'/icons/gray_arrow.svg'}
+          alt=""
+          width={6}
+          height={6}
+          style={{ transform: 'rotate(180deg)' }}
+        />
       </button>
 
       {pageArr.map((item, i) => {
@@ -38,21 +47,24 @@ export default function Pagination({
               key={i}
               onClick={() => setPage(item as number)}
               className={`${
-                page === item ? 'bg-point1 text-white' : 'text-black'
-              } btn leading-[28px] px-[10px] text-[14px]`}
+                page === item
+                  ? 'bg-point1 rounded-[50%] w-[36px] h-[10px] text-white'
+                  : 'text-black'
+              } border-0 leading-[28px] px-[10px] text-[14px]`}
             >
               {item}
             </button>
           );
         }
       })}
+
       <button
         type="button"
-        className="btn leading-[28px] px-[10px] text-[14px] disabled:opacity-50"
+        className="border-0  px-[10px] text-[14px] disabled:opacity-50 mt-[9px]"
         onClick={() => setPage(page + 1)}
         disabled={page === totalPage}
       >
-        다음
+        <Image src={'/icons/gray_arrow.svg'} alt="" width={6} height={6} />
       </button>
     </div>
   );
