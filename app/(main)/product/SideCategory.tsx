@@ -23,26 +23,65 @@ export default function SideCategory() {
       .then((res) => res.json())
       .then((json: GnbItem[]) => {
         const 제작소 = json.find((item) => item.label === '제작소');
-        const mediumList = 제작소?.sub || [];
+        const topMenus = 제작소?.sub || [];
 
-        // 전체 메뉴를 펼쳐서 현재 선택된 카테고리 위치 파악
+        const getCategoryValue = (href?: string | null): number | null => {
+          if (!href) return null;
+          const params = new URLSearchParams(href.split('?')[1]);
+          const value = params.get('category');
+          return value ? Number(value) : null;
+        };
+
+        let selectedTop: GnbItem | null = null;
+
+        // 단계별로 탐색
+        outer: for (const top of topMenus) {
+          const topCat = getCategoryValue(top.href);
+          if (topCat === categoryId) {
+            selectedTop = top;
+            break;
+          }
+
+          if (top.sub) {
+            for (const mid of top.sub) {
+              const midCat = getCategoryValue(mid.href);
+              if (midCat === categoryId) {
+                selectedTop = top;
+                break outer;
+              }
+
+              if (mid.sub) {
+                for (const small of mid.sub) {
+                  const smallCat = getCategoryValue(small.href);
+                  if (smallCat === categoryId) {
+                    selectedTop = top;
+                    break outer;
+                  }
+                }
+              }
+            }
+          }
+
+          if (selectedTop) break;
+        }
+
+        const mediumList = selectedTop?.sub || [];
         const findExpandedId = (
           items: GnbItem[],
           categoryId: number | null
         ): number | null => {
           for (const medium of items) {
-            const mediumCat = getCategoryValue(medium.href);
-            if (mediumCat === categoryId) return medium.id;
+            if (medium.id == categoryId) return medium.id; // loose equality OK
 
             if (medium.sub) {
               for (const small of medium.sub) {
-                const smallCat = getCategoryValue(small.href);
-                if (smallCat === categoryId) return medium.id;
+                if (getCategoryValue(small.href) == categoryId)
+                  return medium.id;
 
                 if (small.sub) {
-                  for (const deep of small.sub) {
-                    const deepCat = getCategoryValue(deep.href);
-                    if (deepCat === categoryId) return small.id;
+                  for (const leaf of small.sub) {
+                    if (getCategoryValue(leaf.href) == categoryId)
+                      return medium.id;
                   }
                 }
               }
@@ -51,14 +90,24 @@ export default function SideCategory() {
           return null;
         };
 
-        const selectedId = findExpandedId(mediumList, categoryId);
-        setExpandedId(selectedId);
-        setMediumTabs(mediumList);
+        const expandedFromSub = findExpandedId(mediumList, categoryId);
 
-        console.log('🔥 expandedId:', selectedId);
-        console.log('🧩 currentCategory:', currentCategory);
+        setMediumTabs(mediumList);
+        setExpandedId(expandedFromSub);
+
+        console.log(
+          '✅ selectedTop.sub IDs:',
+          mediumList.map((m) => m.id)
+        );
+        for (const medium of mediumList) {
+          console.log(
+            '🔍 compare medium.id vs categoryId',
+            medium.id,
+            categoryId
+          );
+        }
       });
-  }, [currentCategory]);
+  }, [categoryId]);
 
   return (
     <aside className="w-[220px]">
@@ -69,34 +118,61 @@ export default function SideCategory() {
           return (
             <li key={medium.id}>
               {/* 중분류 탭 */}
-              <button
+              <Link
+                href={medium.href ?? '/product'}
                 onClick={() => setExpandedId(isExpanded ? null : medium.id)}
-                className={`w-full text-left px-3 py-2 rounded-md text-[15px] font-semibold ${
+                className={`w-full block text-left px-3 py-2 rounded-md text-[15px] font-semibold ${
                   isExpanded ? 'bg-point1 text-white' : 'hover:text-point1'
                 }`}
               >
                 {medium.label}
-              </button>
+              </Link>
 
-              {/* 소분류 목록 (있을 경우) */}
+              {/* 중분류 하위: 소분류들 */}
               {isExpanded && medium.sub && (
                 <ul className="pl-4 mt-1 flex flex-col gap-1">
                   {medium.sub.map((small) => {
-                    const isActive =
-                      getCategoryValue(small.href) === categoryId;
+                    const isSmallActive =
+                      isExpanded && getCategoryValue(small.href) === categoryId;
 
                     return (
                       <li key={small.id}>
                         <Link
                           href={small.href ?? '/product'}
                           className={`block text-[14px] px-2 py-1 rounded-md ${
-                            isActive
+                            isSmallActive
                               ? 'text-point1 font-bold'
                               : 'hover:text-point1'
                           }`}
                         >
                           {small.label}
                         </Link>
+
+                        {/* 소분류 하위: 리프 노드 (있을 경우) */}
+                        {small.sub && small.sub.length > 0 && (
+                          <ul className="pl-4 mt-1 flex flex-col gap-1">
+                            {small.sub.map((leaf) => {
+                              const isLeafActive =
+                                isExpanded &&
+                                getCategoryValue(leaf.href) === categoryId;
+
+                              return (
+                                <li key={leaf.id}>
+                                  <Link
+                                    href={leaf.href ?? '/product'}
+                                    className={`block text-[13px] px-2 py-1 rounded-md ${
+                                      isLeafActive
+                                        ? 'text-point1 font-bold'
+                                        : 'hover:text-point1'
+                                    }`}
+                                  >
+                                    {leaf.label}
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        )}
                       </li>
                     );
                   })}

@@ -23,7 +23,7 @@ export default function Pagination({
     <div className="flex gap-x-[5px]">
       <button
         type="button"
-        className="border-0 px-[10px] text-[14px] leading-0"
+        className="border-0 px-[10px] text-[14px]"
         style={{ lineHeight: '10px' }}
         onClick={() => setPage(page - 1)}
         disabled={page === 1}
@@ -46,11 +46,12 @@ export default function Pagination({
               type="button"
               key={i}
               onClick={() => setPage(item as number)}
+              style={{ height: '28px', width: '28px' }}
               className={`${
                 page === item
-                  ? 'bg-point1 rounded-[50%] w-[36px] h-[10px] text-white'
+                  ? 'bg-point1 rounded-[50%] text-white'
                   : 'text-black'
-              } border-0 leading-[28px] px-[10px] text-[14px]`}
+              } border-0 px-[10px] text-[14px]`}
             >
               {item}
             </button>
@@ -60,7 +61,8 @@ export default function Pagination({
 
       <button
         type="button"
-        className="border-0  px-[10px] text-[14px] disabled:opacity-50 mt-[9px]"
+        style={{ lineHeight: '1' }}
+        className="border-0 px-[10px] text-[14px] disabled:opacity-50 "
         onClick={() => setPage(page + 1)}
         disabled={page === totalPage}
       >
