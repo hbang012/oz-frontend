@@ -1,61 +1,50 @@
 'use client';
 
 import { useState } from 'react';
+import type { GnbItem } from '@/app/_lib/types/GnbItem';
 import Link from 'next/link';
-import { productMenu } from '@/app/componets/home/header/Gnb';
 import Image from 'next/image';
 
-interface MenuItem {
-  label: string;
-  href: string;
-  sub?: MenuItem[];
-}
-
-export default function SubProductMenu({
-  items,
-  activeIndex,
-}: {
-  items: MenuItem[];
-  activeIndex: number;
-}) {
+export default function SubProductMenu({ items }: { items: GnbItem[] }) {
   const [activeSubItem, setActiveSubItem] = useState<number | null>(null);
 
-  const toggleDepth3 = (index: number) => {
-    setActiveSubItem(index === activeSubItem ? null : index);
+  const toggleDepth3 = (idx: number) => {
+    setActiveSubItem((prev) => (prev === idx ? null : idx));
   };
 
   return (
     <div className="p-[25px] rounded bg-[#eee] w-[80%]">
-      {productMenu[activeIndex] ? (
+      {items.length > 0 ? (
         <ul>
-          {productMenu[activeIndex].map((item, index) => (
-            <li key={index} className="mb-2">
-              {item.sub ? (
+          {items.map((item, idx) => (
+            <li key={item.id} className="mb-2">
+              {item.sub && item.sub.length > 0 ? (
                 <>
                   <button
-                    onClick={() => toggleDepth3(index)}
-                    className="hover:font-bold"
+                    onClick={() => toggleDepth3(idx)}
+                    className="hover:font-bold flex items-center"
                   >
                     {item.label}
                     <Image
-                      src={'/icons/gray_arrow.svg'}
+                      src="/icons/gray_arrow.svg"
                       width={6}
                       height={6}
-                      alt=""
+                      alt="토글"
                       className={`ml-[10px] mt-[5px] ${
-                        activeSubItem === index ? 'rotate-270' : 'rotate-90'
+                        activeSubItem === idx ? 'rotate-270' : 'rotate-90'
                       } mb-[10px]`}
                     />
                   </button>
-                  {activeSubItem === index && (
+
+                  {activeSubItem === idx && (
                     <ul className="ml-4 mt-2">
-                      {item.sub.map((subItem, subIndex) => (
-                        <li key={subIndex}>
+                      {item.sub.map((sub) => (
+                        <li key={sub.id} className="mb-2">
                           <Link
-                            href={subItem.href}
+                            href={sub.href ?? ''}
                             className="hover:text-point1"
                           >
-                            {subItem.label}
+                            {sub.label}
                           </Link>
                         </li>
                       ))}
@@ -63,7 +52,7 @@ export default function SubProductMenu({
                   )}
                 </>
               ) : (
-                <Link href={item.href} className="hover:text-point1">
+                <Link href={item.href ?? ''} className="hover:text-point1">
                   {item.label}
                 </Link>
               )}

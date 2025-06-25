@@ -1,5 +1,6 @@
 'use client';
 
+import type { GnbItem } from '@/app/_lib/types/GnbItem';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -9,7 +10,7 @@ export default function ProductMenu({
   menus,
 }: {
   className: string;
-  menus: { label: string; href: string; sub?: any[] }[];
+  menus: GnbItem[];
 }) {
   const [active, setActive] = useState<number | null>(null);
 
@@ -20,13 +21,13 @@ export default function ProductMenu({
       <ul className="border-r-1 border-[#d9d9d9] w-[220px] h-[456px] overflow-auto">
         {menus.map((item, index) => (
           <li
-            key={item.label}
+            key={item.id}
             onMouseEnter={() => setActive(index)}
             onMouseLeave={() => setActive(null)}
             className="mb-[10px]"
           >
             <Link
-              href={item.href}
+              href={item.href ?? '/'}
               className="group flex items-center justify-between hover:font-bold hover:text-point1"
             >
               {item.label}
@@ -46,7 +47,7 @@ export default function ProductMenu({
               {item.sub?.map((item) => (
                 <li key={item.label} className="mb-[10px]">
                   <Link
-                    href={item.href}
+                    href={item.href ?? '/'}
                     className="hover:text-point1 hover:font-bold"
                   >
                     {item.label}

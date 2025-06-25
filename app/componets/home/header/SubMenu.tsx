@@ -1,10 +1,11 @@
+// app/componets/home/header/SubMenu.tsx
 'use client';
 
-import { useState } from 'react';
-import { MenuItem, gnb, productMenu } from '@/app/componets/home/header/Gnb';
+import { useState, useEffect } from 'react';
+import type { GnbItem } from '@/app/_lib/types/GnbItem';
 import Image from 'next/image';
 import Link from 'next/link';
-import SubProductMenu from '@/app/componets/home/header/SubProductMenu';
+import SubProductMenu from './SubProductMenu';
 
 export default function MobileMenu({
   isOpen,
@@ -13,20 +14,33 @@ export default function MobileMenu({
   isOpen: boolean;
   onClose: () => void;
 }) {
+  // DB에서 받아온 1~3Depth 메뉴 트리
+  const [menuData, setMenuData] = useState<GnbItem[]>([]);
+  // 2Depth 토글 상태
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
+  // 3Depth 토글 상태
   const [activeSubItem, setActiveSubItem] = useState<number | null>(null);
 
-  const toggleSubMenu = (index: number) => {
-    setActiveSubMenu(activeSubMenu === index ? null : index);
-  };
+  useEffect(() => {
+    fetch('http://localhost:3001/gnb')
+      .then((res) => res.json())
+      .then((data: GnbItem[]) => setMenuData(data))
+      .catch((err) => console.error('GNB 로딩 실패', err));
+  }, []);
 
-  const toggleDepth3 = (index: number) => {
-    setActiveSubItem(activeSubItem === index ? null : index);
+  if (menuData.length === 0) return null;
+
+  const toggleSubMenu = (idx: number) => {
+    setActiveSubMenu((prev) => (prev === idx ? null : idx));
+    setActiveSubItem(null);
+  };
+  const toggleDepth3 = (idx: number) => {
+    setActiveSubItem((prev) => (prev === idx ? null : idx));
   };
 
   return (
     <>
-      {/* 배경 추가 */}
+      {/* 백드롭 */}
       <div
         className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 transition-opacity duration-500 ${
           isOpen ? 'opacity-50' : 'opacity-0 pointer-events-none'
@@ -34,13 +48,13 @@ export default function MobileMenu({
         onClick={onClose}
       />
 
-      {/* 메뉴 박스 */}
+      {/* 사이드 메뉴 */}
       <div
-        className={`fixed top-0 right-0 w-[100%] h-full overflow-y-auto bg-white shadow-lg transition-transform duration-500 ease-in-out ${
+        className={`fixed top-0 right-0 w-full h-full overflow-y-auto bg-white shadow-lg transition-transform duration-500 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        {/* webkit기반 브라우저에서 숨기기 */}
+        {/* 스크롤바 숨기기 */}
         <style jsx>{`
           div::-webkit-scrollbar {
             display: none;
@@ -54,10 +68,10 @@ export default function MobileMenu({
           onClick={onClose}
         >
           <Image
-            src={'/icons/plus-svgrepo-com.svg'}
+            src="/icons/plus-svgrepo-com.svg"
             width={32}
             height={32}
-            alt=""
+            alt="닫기"
             className="rotate-45"
           />
         </button>
@@ -66,32 +80,33 @@ export default function MobileMenu({
           <h2 className="font-bold text-point1 border-b-1 border-[#eee] leading-[40px]">
             홈
           </h2>
-          {/* 1depth */}
-          {gnb.map((item, index) => (
+
+          {/* 1Depth */}
+          {menuData.map((item, idx) => (
             <li
-              key={index}
+              key={item.id}
               className="border-b-1 border-[#eee] leading-[35px] text-[#000]"
             >
-              {item.sub ? (
+              {item.sub && item.sub.length > 0 ? (
                 <button
                   type="button"
-                  className="w-full text-left text-[16px] text-[#000]"
-                  onClick={() => toggleSubMenu(index)}
+                  className="w-full text-left text-[16px] text-[#000] flex justify-between items-center"
+                  onClick={() => toggleSubMenu(idx)}
                 >
                   {item.label}
                   <Image
-                    src={'/icons/keyboard_arrow.svg'}
+                    src="/icons/keyboard_arrow.svg"
                     width={25}
                     height={25}
-                    alt=""
+                    alt="토글"
                     className={`${
-                      activeSubMenu === index ? 'rotate-270' : 'rotate-90'
+                      activeSubMenu === idx ? 'rotate-270' : 'rotate-90'
                     } mb-[10px]`}
                   />
                 </button>
               ) : (
                 <Link
-                  href={item.href || ''}
+                  href={item.href ?? ''}
                   className="block"
                   onClick={onClose}
                 >
@@ -99,33 +114,46 @@ export default function MobileMenu({
                 </Link>
               )}
 
-              {/* 2depth */}
-              {activeSubMenu === index && (
+              {/* 2Depth */}
+              {activeSubMenu === idx && item.sub && (
                 <ul className="ml-4 mt-2 pl-4 pb-[20px]">
-                  {item.sub &&
-                    item.sub.map((subItem, subIndex) => (
-                      <li key={subIndex} className="text-[#777]">
-                        {productMenu[subIndex] ? (
-                          <button
-                            type="button"
-                            className="w-full text-left text-[#888]"
-                            onClick={() => toggleDepth3(subIndex)}
-                          >
-                            {subItem.label}
-                          </button>
-                        ) : (
-                          <Link href={subItem.href || ''} onClick={onClose}>
-                            {subItem.label}
-                          </Link>
-                        )}
-                        {activeSubItem === subIndex && (
-                          <SubProductMenu
-                            items={productMenu[subIndex]}
-                            activeIndex={subIndex}
+                  {item.sub.map((subItem, subIdx) => (
+                    <li key={subItem.id} className="text-[#777]">
+                      {subItem.sub && subItem.sub.length > 0 ? (
+                        <button
+                          type="button"
+                          className="w-full text-left text-[#888] flex justify-between items-center"
+                          onClick={() => toggleDepth3(subIdx)}
+                        >
+                          {subItem.label}
+                          <Image
+                            src="/icons/keyboard_arrow.svg"
+                            width={20}
+                            height={20}
+                            alt="토글"
+                            className={`${
+                              activeSubItem === subIdx
+                                ? 'rotate-270'
+                                : 'rotate-90'
+                            }`}
                           />
-                        )}
-                      </li>
-                    ))}
+                        </button>
+                      ) : (
+                        <Link
+                          href={subItem.href ?? ''}
+                          className="block"
+                          onClick={onClose}
+                        >
+                          {subItem.label}
+                        </Link>
+                      )}
+
+                      {/* 3Depth */}
+                      {activeSubItem === subIdx && subItem.sub && (
+                        <SubProductMenu items={subItem.sub} />
+                      )}
+                    </li>
+                  ))}
                 </ul>
               )}
             </li>

@@ -6,7 +6,11 @@ import type { GnbItem } from '@/app/_lib/types/GnbItem';
 
 export default function SideCategory() {
   const [mediumTabs, setMediumTabs] = useState<GnbItem[]>([]);
+  // 열려있는 중분류 id
   const [expandedId, setExpandedId] = useState<number | null>(null);
+  // 소분류 없는 중분류 선택 id
+  const [selectedMedium, setSelectedMedium] = useState<number | null>(null);
+
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('category');
   const categoryId = currentCategory ? Number(currentCategory) : null;
@@ -71,7 +75,7 @@ export default function SideCategory() {
           categoryId: number | null
         ): number | null => {
           for (const medium of items) {
-            if (medium.id == categoryId) return medium.id; // loose equality OK
+            if (medium.id == categoryId) return medium.id;
 
             if (medium.sub) {
               for (const small of medium.sub) {
@@ -94,24 +98,15 @@ export default function SideCategory() {
 
         setMediumTabs(mediumList);
         setExpandedId(expandedFromSub);
-
-        console.log(
-          '✅ selectedTop.sub IDs:',
-          mediumList.map((m) => m.id)
-        );
-        for (const medium of mediumList) {
-          console.log(
-            '🔍 compare medium.id vs categoryId',
-            medium.id,
-            categoryId
-          );
-        }
       });
   }, [categoryId]);
 
   return (
-    <aside className="w-[220px]">
-      <ul className="flex flex-col gap-2">
+    <aside
+      className="w-[220px] border-r-1 "
+      style={{ paddingRight: '36px', marginRight: '52px', borderColor: '#eee' }}
+    >
+      <ul className="flex flex-col" style={{ gap: '10px' }}>
         {mediumTabs.map((medium) => {
           const isExpanded = medium.id === expandedId;
 
@@ -120,17 +115,24 @@ export default function SideCategory() {
               {/* 중분류 탭 */}
               <Link
                 href={medium.href ?? '/product'}
-                onClick={() => setExpandedId(isExpanded ? null : medium.id)}
+                onClick={() => {
+                  if (medium.sub && medium.sub.length > 0) {
+                    setExpandedId(isExpanded ? null : medium.id);
+                  }
+                }}
                 className={`w-full block text-left px-3 py-2 rounded-md text-[15px] font-semibold ${
-                  isExpanded ? 'bg-point1 text-white' : 'hover:text-point1'
+                  isExpanded ? 'text-point1 font-bold' : ' '
                 }`}
               >
                 {medium.label}
               </Link>
 
               {/* 중분류 하위: 소분류들 */}
-              {isExpanded && medium.sub && (
-                <ul className="pl-4 mt-1 flex flex-col gap-1">
+              {isExpanded && medium.sub && medium.sub.length > 0 && (
+                <ul
+                  className="flex flex-col"
+                  style={{ gap: '10px', padding: '20px 0px 20px 40px' }}
+                >
                   {medium.sub.map((small) => {
                     const isSmallActive =
                       isExpanded && getCategoryValue(small.href) === categoryId;
@@ -140,17 +142,18 @@ export default function SideCategory() {
                         <Link
                           href={small.href ?? '/product'}
                           className={`block text-[14px] px-2 py-1 rounded-md ${
-                            isSmallActive
-                              ? 'text-point1 font-bold'
-                              : 'hover:text-point1'
+                            isSmallActive ? 'text-point1 font-bold' : ' '
                           }`}
                         >
                           {small.label}
                         </Link>
 
-                        {/* 소분류 하위: 리프 노드 (있을 경우) */}
+                        {/* 소분류 하위 */}
                         {small.sub && small.sub.length > 0 && (
-                          <ul className="pl-4 mt-1 flex flex-col gap-1">
+                          <ul
+                            className="pl-4 mt-1 flex flex-col"
+                            style={{ gap: '20px' }}
+                          >
                             {small.sub.map((leaf) => {
                               const isLeafActive =
                                 isExpanded &&
@@ -163,7 +166,7 @@ export default function SideCategory() {
                                     className={`block text-[13px] px-2 py-1 rounded-md ${
                                       isLeafActive
                                         ? 'text-point1 font-bold'
-                                        : 'hover:text-point1'
+                                        : ' '
                                     }`}
                                   >
                                     {leaf.label}
