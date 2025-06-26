@@ -8,16 +8,19 @@ import type { Product } from '@/app/_lib/types/product';
 import ProductCategoryTabs from '@/app/(main)/product/ProductTab';
 import { useSearchParams } from 'next/navigation';
 import SideCategory from '@/app/(main)/product/SideCategory';
+import SortBar from '@/app/(main)/product/SortBar';
 
 export default function ProductPage() {
   const [data, setData] = useState<Product[] | null>(null);
   const [filtered, setFiltered] = useState<Product[]>([]);
+
+  const [sort, setSort] = useState<
+    'default' | 'popular' | 'price_asc' | 'price_desc' | 'qty_asc' | 'time_asc'
+  >('default');
+
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-  const itemsPerPage = 10;
-
-  // 전체 아이템 갯수
-  const itemCount = filtered.length;
+  const itemsPerPage = 16;
 
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('category');
@@ -25,24 +28,21 @@ export default function ProductPage() {
     fetch('http://localhost:3001/product')
       .then((res) => res.json())
       .then((json: Product[]) => {
+        const categoryNum = Number(currentCategory);
+        const filteredItems = !currentCategory
+          ? json
+          : json.filter((item) =>
+              [
+                item.category_large_id,
+                item.category_medium_id,
+                item.category_small_id,
+              ].includes(categoryNum)
+            );
+
         setData(json);
-
-        if (!currentCategory) {
-          setFiltered(json);
-        } else {
-          const categoryNum = Number(currentCategory);
-          const filteredItems = json.filter((item) =>
-            [
-              item.category_large_id,
-              item.category_medium_id,
-              item.category_small_id,
-            ].includes(categoryNum)
-          );
-          setFiltered(filteredItems);
-        }
-
+        setFiltered(filteredItems);
         setPage(1);
-        setTotalPage(Math.ceil(json.length / itemsPerPage));
+        setTotalPage(Math.ceil(filteredItems.length / itemsPerPage));
       });
   }, [currentCategory]);
 
@@ -77,24 +77,11 @@ export default function ProductPage() {
         )}
 
         {/* 전체 아이템 */}
-        <div>
-          {/* 옵션 */}
-          <div
-            className="flex"
-            style={{
-              padding: '20px 0px 30px 0px',
-              justifyContent: 'space-between',
-            }}
-          >
-            <p className="text-[12px] text-[#626262]">
-              전체 <span style={{ margin: '0px 5px' }}>{itemCount}</span>
-            </p>
-            <button type="button" className="border-0">
-              <p className="text-[14px] text-[#000]">기본순</p>
-            </button>
-          </div>
+        <div style={{ width: '100%' }}>
+          {/* 필터 옵션 */}
+          <SortBar sort={sort} setSort={setSort} />
 
-          <ul className="grid grid-cols-4 grid-rows-5" style={{ gap: '20px' }}>
+          <ul className="grid grid-cols-4 grid-rows-4" style={{ gap: '20px' }}>
             {pagedData?.map((product) => (
               <li key={product.product_id} className="relative">
                 <Link href={`/product/${product.product_id}`}>

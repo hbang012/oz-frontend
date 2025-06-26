@@ -23,8 +23,8 @@ export default function ProductCategoryTabs() {
   return (
     <div className="w-full bg-white ">
       <ul
-        className="max-w-[1200px] flex justify-center overflow-x-auto px-[20px] py-[16px]"
-        style={{ margin: 'auto', gap: '6%' }}
+        className="max-w-[1200px] flex justify-center overflow-x-auto "
+        style={{ margin: 'auto', gap: '6%', padding: '10px 10px' }}
       >
         {tabs.map((tab) => {
           const isActive = (() => {

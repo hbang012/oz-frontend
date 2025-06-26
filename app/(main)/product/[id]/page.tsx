@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import type { Product } from '@/app/_lib/types/product';
-import Image from 'next/image';
 import ProductImg from '@/app/(main)/product/[id]/componets/ProductImg';
 import ProdutOptions from '@/app/(main)/product/[id]/componets/ProdutOptions';
 import ProductPay from '@/app/(main)/product/[id]/componets/ProductPay';

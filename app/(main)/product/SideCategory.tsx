@@ -6,9 +6,7 @@ import type { GnbItem } from '@/app/_lib/types/GnbItem';
 
 export default function SideCategory() {
   const [mediumTabs, setMediumTabs] = useState<GnbItem[]>([]);
-  // 열려있는 중분류 id
   const [expandedId, setExpandedId] = useState<number | null>(null);
-  // 소분류 없는 중분류 선택 id
   const [selectedMedium, setSelectedMedium] = useState<number | null>(null);
 
   const searchParams = useSearchParams();
@@ -98,6 +96,14 @@ export default function SideCategory() {
 
         setMediumTabs(mediumList);
         setExpandedId(expandedFromSub);
+
+        const autoSelect =
+          mediumList.find(
+            (m) =>
+              !(m.sub && m.sub.length > 0) &&
+              getCategoryValue(m.href) === categoryId
+          )?.id ?? null;
+        setSelectedMedium(autoSelect);
       });
   }, [categoryId]);
 
@@ -118,10 +124,15 @@ export default function SideCategory() {
                 onClick={() => {
                   if (medium.sub && medium.sub.length > 0) {
                     setExpandedId(isExpanded ? null : medium.id);
+                    setSelectedMedium(null);
+                  } else {
+                    setSelectedMedium(medium.id);
                   }
                 }}
                 className={`w-full block text-left px-3 py-2 rounded-md text-[15px] font-semibold ${
-                  isExpanded ? 'text-point1 font-bold' : ' '
+                  isExpanded || selectedMedium === medium.id
+                    ? 'text-point1 font-bold'
+                    : ' '
                 }`}
               >
                 {medium.label}

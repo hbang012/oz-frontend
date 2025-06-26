@@ -2,12 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import ProductMenu from './ProductMenu';
 import type { GnbItem } from '@/app/_lib/types/GnbItem';
 
 export default function Gnb() {
   const [active, setActive] = useState<number | null>(null);
   const [activeProduct, setActiveProduct] = useState<number | null>(null);
+
+  const pathname = usePathname();
+  const isProductPage = pathname?.startsWith('/product');
 
   const [menuData, setMenuData] = useState<GnbItem[]>([]);
 
@@ -22,9 +26,7 @@ export default function Gnb() {
       });
   }, []);
 
-  if (menuData.length === 0) {
-    return null;
-  }
+  if (menuData.length === 0) return null;
 
   return (
     <nav className="max-md:hidden">
@@ -49,7 +51,9 @@ export default function Gnb() {
             {/* 2depth */}
             {item.sub && item.sub.length > 0 && (
               <ul
-                className={`absolute left-1/2 top-[85px] -translate-x-1/2 ${
+                className={`${
+                  active === index && !isProductPage ? 'block' : 'hidden'
+                } absolute left-1/2 top-[85px] -translate-x-1/2 ${
                   index === 2
                     ? 'flex justify-between max-w-[1200px] w-full h-[52px] bg-white border-b-1 border-[#eee]'
                     : ''
