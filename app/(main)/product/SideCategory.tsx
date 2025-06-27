@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import type { GnbItem } from '@/app/_lib/types/GnbItem';
+import Image from 'next/image';
 
 export default function SideCategory() {
   const [mediumTabs, setMediumTabs] = useState<GnbItem[]>([]);
@@ -115,83 +116,112 @@ export default function SideCategory() {
       <ul className="flex flex-col" style={{ gap: '10px' }}>
         {mediumTabs.map((medium) => {
           const isExpanded = medium.id === expandedId;
+          const hasChildren = medium.sub && medium.sub.length > 0;
 
           return (
             <li key={medium.id}>
               {/* 중분류 탭 */}
-              <Link
-                href={medium.href ?? '/product'}
-                onClick={() => {
-                  if (medium.sub && medium.sub.length > 0) {
+              {hasChildren ? (
+                <button
+                  onClick={() => {
                     setExpandedId(isExpanded ? null : medium.id);
                     setSelectedMedium(null);
-                  } else {
-                    setSelectedMedium(medium.id);
-                  }
-                }}
-                className={`w-full block text-left px-3 py-2 rounded-md text-[15px] font-semibold ${
-                  isExpanded || selectedMedium === medium.id
-                    ? 'text-point1 font-bold'
-                    : ' '
-                }`}
-              >
-                {medium.label}
-              </Link>
+                  }}
+                  className={`
+            flex items-center justify-between w-full text-left
+            px-3 py-2 rounded-md text-[15px] font-semibold
+            ${isExpanded ? 'text-point1 font-bold' : 'text-[#000]'}
+          `}
+                >
+                  <span>{medium.label}</span>
+                  <Image
+                    src="/icons/keyboard_arrow.svg"
+                    width={16}
+                    height={16}
+                    alt="toggle arrow"
+                    style={{
+                      transform: isExpanded
+                        ? 'rotate(270deg)'
+                        : 'rotate(90deg)',
+                    }}
+                  />
+                </button>
+              ) : (
+                /* 하위없음 중분류 */
+                <Link
+                  href={medium.href ?? '/product'}
+                  onClick={() => setSelectedMedium(medium.id)}
+                  className={`
+            block w-full text-left px-3 py-2 rounded-md text-[15px]
+            ${
+              selectedMedium === medium.id
+                ? 'text-point1 font-bold'
+                : 'text-[#000]'
+            }
+          `}
+                >
+                  {medium.label}
+                </Link>
+              )}
 
               {/* 중분류 하위: 소분류들 */}
-              {isExpanded && medium.sub && medium.sub.length > 0 && (
-                <ul
-                  className="flex flex-col"
-                  style={{ gap: '10px', padding: '20px 0px 20px 40px' }}
-                >
-                  {medium.sub.map((small) => {
-                    const isSmallActive =
-                      isExpanded && getCategoryValue(small.href) === categoryId;
+              {hasChildren &&
+                isExpanded &&
+                medium.sub &&
+                medium.sub.length > 0 && (
+                  <ul
+                    className="flex flex-col"
+                    style={{ gap: '10px', padding: '20px 0px 20px 40px' }}
+                  >
+                    {medium.sub.map((small) => {
+                      const isSmallActive =
+                        isExpanded &&
+                        getCategoryValue(small.href) === categoryId;
 
-                    return (
-                      <li key={small.id}>
-                        <Link
-                          href={small.href ?? '/product'}
-                          className={`block text-[14px] px-2 py-1 rounded-md ${
-                            isSmallActive ? 'text-point1 font-bold' : ' '
-                          }`}
-                        >
-                          {small.label}
-                        </Link>
-
-                        {/* 소분류 하위 */}
-                        {small.sub && small.sub.length > 0 && (
-                          <ul
-                            className="pl-4 mt-1 flex flex-col"
-                            style={{ gap: '20px' }}
+                      return (
+                        <li key={small.id}>
+                          <Link
+                            href={small.href ?? '/product'}
+                            className={`block text-[14px] px-2 py-1 rounded-md ${
+                              isSmallActive ? 'text-point1 font-bold' : ' '
+                            }`}
                           >
-                            {small.sub.map((leaf) => {
-                              const isLeafActive =
-                                isExpanded &&
-                                getCategoryValue(leaf.href) === categoryId;
+                            {small.label}
+                          </Link>
 
-                              return (
-                                <li key={leaf.id}>
-                                  <Link
-                                    href={leaf.href ?? '/product'}
-                                    className={`block text-[13px] px-2 py-1 rounded-md ${
-                                      isLeafActive
-                                        ? 'text-point1 font-bold'
-                                        : ' '
-                                    }`}
-                                  >
-                                    {leaf.label}
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
+                          {/* 소분류 하위 */}
+                          {small.sub && small.sub.length > 0 && (
+                            <ul
+                              className="pl-4 mt-1 flex flex-col"
+                              style={{ gap: '20px' }}
+                            >
+                              {small.sub.map((leaf) => {
+                                const isLeafActive =
+                                  isExpanded &&
+                                  getCategoryValue(leaf.href) === categoryId;
+
+                                return (
+                                  <li key={leaf.id}>
+                                    <Link
+                                      href={leaf.href ?? '/product'}
+                                      className={`block text-[13px] px-2 py-1 rounded-md ${
+                                        isLeafActive
+                                          ? 'text-point1 font-bold'
+                                          : ' '
+                                      }`}
+                                    >
+                                      {leaf.label}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
             </li>
           );
         })}

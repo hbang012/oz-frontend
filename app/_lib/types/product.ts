@@ -2,6 +2,7 @@ export type Product = {
   product_id: number;
   name: string;
   image_url: string;
+  sub_image_urls?: string[];
   created_at: string;
 
   price?: number; // 선택값 - 공급가 + 배송비 등 계산될 수 있음
