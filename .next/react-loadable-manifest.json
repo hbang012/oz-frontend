@@ -1,4 +1,10 @@
 {
+  "app\\(main)\\contact\\ContactInfoWrapper.tsx -> @/app/(main)/contact/ContactInfoMobile": {
+    "id": "app\\(main)\\contact\\ContactInfoWrapper.tsx -> @/app/(main)/contact/ContactInfoMobile",
+    "files": [
+      "static/chunks/_app-pages-browser_app_main_contact_ContactInfoMobile_tsx.js"
+    ]
+  },
   "node_modules\\@tanstack\\query-devtools\\build\\dev.js -> ./DevtoolsComponent/OHEVZFKG.js": {
     "id": "node_modules\\@tanstack\\query-devtools\\build\\dev.js -> ./DevtoolsComponent/OHEVZFKG.js",
     "files": [

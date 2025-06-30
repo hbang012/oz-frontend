@@ -9,14 +9,26 @@ import ProductPay from '@/app/(main)/product/[id]/componets/ProductPay';
 import ProdutInfo from '@/app/(main)/product/[id]/componets/ProdutInfo';
 
 export default function ProductDetail() {
+  const params = useParams();
+  const rawId = params.id!;
+  // id가 배열일 수 도 있으니 항상 string으로 변환
+  const productId: string = Array.isArray(rawId) ? rawId[0] : rawId;
+
   const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    if (!id) return;
+  // 옵션 그룹별 선택값
+  const [selectedOptions, setSelectedOptions] = useState<
+    Record<number, string>
+  >({});
+  // 배송방식
+  const [deliveryMethod, setDeliveryMethod] = useState<string>('택배');
 
-    fetch(`http://localhost:3001/product/${id}`)
+  useEffect(() => {
+    if (!productId) return;
+
+    fetch(`http://localhost:3001/product/${productId}`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
@@ -26,7 +38,7 @@ export default function ProductDetail() {
         console.error('상세 조회 실패:', err);
         setError(true);
       });
-  }, [id]);
+  }, [productId]);
 
   if (error) return <p>상품을 불러오지 못했습니다.</p>;
   if (!product) return <p>로딩 중...</p>;
@@ -65,11 +77,18 @@ export default function ProductDetail() {
           <ProductImg />
 
           {/* 아이템별 옵션 */}
-          <ProdutOptions />
+          <ProdutOptions
+            productId={productId}
+            onOptionsChange={setSelectedOptions}
+            onDeliveryChange={setDeliveryMethod}
+          />
         </div>
 
-        {/* 아이템별 구매 */}
-        <ProductPay />
+        {/* 아이템별 구매*/}
+        <ProductPay
+          selectedOptions={selectedOptions}
+          deliveryMethod={deliveryMethod}
+        />
       </div>
 
       <div>

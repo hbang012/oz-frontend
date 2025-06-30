@@ -8,7 +8,15 @@ import { Product } from '@/app/_lib/types/product';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function ProductPay() {
+export interface ProductPayProps {
+  selectedOptions: Record<number, string>;
+  deliveryMethod: string;
+}
+
+export default function ProductPay({
+  selectedOptions,
+  deliveryMethod,
+}: ProductPayProps) {
   // 데이터
   const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
