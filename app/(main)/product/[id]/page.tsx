@@ -64,11 +64,12 @@ export default function ProductDetail() {
         <div>
           <ProductImg />
 
-          <ProductPay />
+          {/* 아이템별 옵션 */}
+          <ProdutOptions />
         </div>
 
-        {/* 아이템별 옵션 */}
-        <ProdutOptions />
+        {/* 아이템별 구매 */}
+        <ProductPay />
       </div>
 
       <div>
