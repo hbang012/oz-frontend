@@ -44,14 +44,11 @@ export default function ProductDetail() {
   if (!product) return <p>로딩 중...</p>;
 
   return (
-    <main
-      className="pt-[100px] max-w-[1200px] mx-auto max-sm:pt-[60px]"
-      style={{ paddingLeft: '30px', paddingRight: '30px' }}
-    >
+    <main className="pt-[100px] max-w-[1200px] mx-auto max-sm:pt-[60px]">
       {/* 텍스트 */}
       <div
         className="flex flex-col border-b-1 border-[#d8d8d8]"
-        style={{ padding: '50px 0px 28px 0px', margin: '0px 0px 22px 0px' }}
+        style={{ padding: '50px 30px 28px 30px', margin: '0px 0px 22px 0px' }}
       >
         <span
           className=" h-[32px] rounded-[8px] text-[16px] text-white"
@@ -72,7 +69,10 @@ export default function ProductDetail() {
         <p>{product.description}</p>
       </div>
 
-      <div className="flex" style={{ gap: '30px' }}>
+      <div
+        className="flex"
+        style={{ gap: '30px', paddingLeft: '30px', paddingRight: '30px' }}
+      >
         <div>
           <ProductImg />
 
@@ -92,6 +92,7 @@ export default function ProductDetail() {
       </div>
 
       <div>
+        {/* 설명 */}
         <ProdutInfo />
       </div>
     </main>

@@ -133,49 +133,60 @@ export default function ProdutOptions({
       ))}
 
       {/* 배송방법 */}
-      <div
-        className="relative flex justify-between items-center"
-        style={{ gap: '20px', margin: '35px 0px' }}
-      >
-        <p className="font-bold" style={{ width: '20%', color: '#777' }}>
-          배송방법
-        </p>
-
-        <ul
-          className="flex flex-wrap gap-[10px]"
-          style={{
-            maxWidth: '889px',
-            paddingTop: '15px',
-            paddingBottom: '30px',
-          }}
+      <div>
+        <div
+          className="relative flex justify-between items-center"
+          style={{ gap: '20px', margin: '35px 0px' }}
         >
-          {deliveryOptions.map((option) => (
-            <li key={option}>
-              <input
-                type="radio"
-                id={option}
-                name="packaging"
-                checked={selectedDeliveryOption === option}
-                onChange={() => setSelectedDeliveryOption(option)}
-                className="hidden"
-              />
-              <label
-                htmlFor={option}
-                className={`flex justify-center items-center h-[48px] border rounded-[8px] 
-                ${
-                  selectedDeliveryOption === option
-                    ? 'border-[3px] border-[#000] text-[#000]'
-                    : 'border border-[#d8d8d8] text-[#999]'
-                }`}
-                style={{ padding: '20px', cursor: 'pointer' }}
-              >
-                {option}
-              </label>
-            </li>
-          ))}
-        </ul>
+          <p className="font-bold" style={{ width: '20%', color: '#777' }}>
+            배송방법
+          </p>
+
+          <ul
+            className="flex flex-wrap gap-[10px]"
+            style={{
+              maxWidth: '889px',
+              paddingTop: '15px',
+              paddingBottom: '30px',
+            }}
+          >
+            {deliveryOptions.map((option) => (
+              <li key={option}>
+                <input
+                  type="radio"
+                  id={option}
+                  name="packaging"
+                  checked={selectedDeliveryOption === option}
+                  onChange={() => setSelectedDeliveryOption(option)}
+                  className="hidden"
+                />
+                <div className="flex items-center ">
+                  <label
+                    htmlFor={option}
+                    style={{
+                      padding: '10px',
+                      cursor: 'pointer',
+                      border:
+                        selectedDeliveryOption === option
+                          ? '1px solid #6b59f6'
+                          : '1px solid #d8d8d8',
+                      backgroundColor:
+                        selectedDeliveryOption === option
+                          ? '#6b59f6'
+                          : 'transparent',
+                      color:
+                        selectedDeliveryOption === option ? '#FF6600' : '#999',
+                    }}
+                    className="flex justify-center items-center rounded-full"
+                  />
+                  <div style={{ paddingLeft: '10px' }}>{option}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
         {selectedDeliveryOption === '택배' && (
-          <div className="mt-2 text-[#999] text-[12px]">
+          <div className="mt-2 text-[#999] text-[12px] flex justify-end ">
             무료 배송
             <span className="ml-4">제주·도서산간 추가 5,000원</span>
           </div>
