@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import type { Product } from '@/app/_lib/types/product';
-import ProductImg from '@/app/(main)/product/[id]/componets/ProductImg';
-import ProdutOptions from '@/app/(main)/product/[id]/componets/ProdutOptions';
-import ProductPay from '@/app/(main)/product/[id]/componets/ProductPay';
-import ProdutInfo from '@/app/(main)/product/[id]/componets/ProdutInfo';
+import ProductImgTablet from '@/app/(main)/product/[id]/componets/ProductImgTablet';
+import ProdutOptionsTablet from '@/app/(main)/product/[id]/componets/ProdutOptionsTablet';
+import ProductPayTablet from '@/app/(main)/product/[id]/componets/ProductPayTablet';
+import ProdutInfoTablet from '@/app/(main)/product/[id]/componets/ProdutInfoTablet';
 
 export default function ProductDetailTablet() {
   const params = useParams();
@@ -51,41 +51,44 @@ export default function ProductDetailTablet() {
         style={{ padding: '50px 30px 28px 30px', margin: '0px 0px 22px 0px' }}
       >
         <span
-          className=" h-[32px] rounded-[8px] text-[16px] text-white"
+          className=" h-[23px] text-[12px] text-white"
           style={{
             background: '#918FEF',
             width: 'fit-content',
-            padding: '4px 8px',
+            padding: '2px 4px',
+            borderRadius: '4px',
           }}
         >
           {product.category_medium_name}
         </span>
         <h2
           className="font-bold pt-[8px] text-black"
-          style={{ fontSize: '40px' }}
+          style={{ fontSize: '20px' }}
         >
           {product.name}
         </h2>
-        <p>{product.description}</p>
+        <p className="text-[14px]">{product.description}</p>
       </div>
 
       <div
-        className="flex"
+        className=""
         style={{ gap: '30px', paddingLeft: '30px', paddingRight: '30px' }}
       >
         <div>
-          <ProductImg />
+          <ProductImgTablet />
 
           {/* 아이템별 옵션 */}
-          <ProdutOptions
+          <ProdutOptionsTablet
             productId={productId}
             onOptionsChange={setSelectedOptions}
             onDeliveryChange={setDeliveryMethod}
           />
         </div>
+      </div>
 
+      <div>
         {/* 아이템별 구매*/}
-        <ProductPay
+        <ProductPayTablet
           selectedOptions={selectedOptions}
           deliveryMethod={deliveryMethod}
         />
@@ -93,7 +96,7 @@ export default function ProductDetailTablet() {
 
       <div>
         {/* 설명 */}
-        <ProdutInfo />
+        <ProdutInfoTablet />
       </div>
     </main>
   );
