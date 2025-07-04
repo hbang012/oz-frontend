@@ -5,6 +5,7 @@ import MobileMenu from '@/app/componets/home/header/SubMenu';
 import Search from '@/app/componets/home/header/Search';
 import Image from 'next/image';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Utility() {
   const { openLogin } = useLogin();
@@ -57,13 +58,13 @@ export default function Utility() {
       </button>
 
       {/* 로그인 */}
-      <button
-        type="button"
+      <Link
+        href={'/login'}
         className="text-[14px] text-gray-400 pl-[16px] max-md:hidden"
-        onClick={openLogin}
+        style={{ marginTop: '10px' }}
       >
         로그인
-      </button>
+      </Link>
 
       {/* 더보기 버튼 */}
       <button

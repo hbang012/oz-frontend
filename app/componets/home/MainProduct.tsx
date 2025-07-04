@@ -75,7 +75,7 @@ export default function MainProduct() {
       {/* 상품 grid (PC) */}
       <div className="pt-[60px] hidden md:block fade-up2">
         <ul className="grid grid-cols-4 grid-rows-2 gap-[60px_13px]">
-          {data?.map((product) => (
+          {data?.slice(0, 8).map((product) => (
             <li
               key={product.product_id}
               className="group cursor-pointer overflow-hidden rounded-[8px] max-w-[900px]"

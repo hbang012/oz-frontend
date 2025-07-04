@@ -20,19 +20,7 @@ export default function AuthLayout({
   // console.log(pathname);
 
   return (
-    <div>
-      <ul className="flex gap-x-[10px] p-[30px] pb-0">
-        {links.map((link) => (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              className={pathname === link.href ? 'text-point1' : ''}
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <div className="p-[30px]" style={{ marginTop: '90px' }}>
       {children}
     </div>
   );

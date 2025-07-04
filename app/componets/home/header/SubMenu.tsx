@@ -150,7 +150,7 @@ export default function MobileMenu({
 
                       {/* 3Depth */}
                       {activeSubItem === subIdx && subItem.sub && (
-                        <SubProductMenu items={subItem.sub} />
+                        <SubProductMenu items={subItem.sub} onClose={onClose} />
                       )}
                     </li>
                   ))}

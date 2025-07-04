@@ -5,7 +5,13 @@ import type { GnbItem } from '@/app/_lib/types/GnbItem';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function SubProductMenu({ items }: { items: GnbItem[] }) {
+export default function SubProductMenu({
+  items,
+  onClose,
+}: {
+  items: GnbItem[];
+  onClose: () => void;
+}) {
   const [activeSubItem, setActiveSubItem] = useState<number | null>(null);
 
   const toggleDepth3 = (idx: number) => {
@@ -52,7 +58,11 @@ export default function SubProductMenu({ items }: { items: GnbItem[] }) {
                   )}
                 </>
               ) : (
-                <Link href={item.href ?? ''} className="hover:text-point1">
+                <Link
+                  href={item.href ?? ''}
+                  onClick={onClose}
+                  className="hover:text-point1"
+                >
                   {item.label}
                 </Link>
               )}
