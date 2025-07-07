@@ -5,13 +5,16 @@ import Link from 'next/link';
 import { BlogPost } from '@/app/_lib/types/BlogPost';
 import { useEffect, useState } from 'react';
 import Pagination from '@/app/componets/Pagination';
+import { useParams, useRouter } from 'next/navigation';
 
 export default function BlogPc() {
+  const router = useRouter();
+  const { id } = useParams();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [page, setPage] = useState(1);
 
   // 1페이지당 글 수
-  const PER_PAGE = 8;
+  const PER_PAGE = 16;
   const totalPage = Math.ceil(posts.length / PER_PAGE);
 
   useEffect(() => {
@@ -39,14 +42,29 @@ export default function BlogPc() {
   return (
     <main
       className="max-w-[1200px] mx-auto"
-      style={{ padding: '85px 0px 0px' }}
+      style={{ padding: '85px 20px 0px' }}
     >
-      <div style={{ padding: '50px 0px 0px' }}>
+      <div className="flex flex-col" style={{ padding: '50px 0px 0px' }}>
+        <div className="flex justify-end" style={{ margin: '10px 0px' }}>
+          <button
+            type="button"
+            className=" rounded-[10px] text-[#777] text-[12px]"
+            style={{
+              border: '1px solid #ccc',
+              padding: '5px 10px',
+              width: '60px',
+            }}
+            onClick={() => router.push(`/blog/${id}/create`)}
+          >
+            글쓰기
+          </button>
+        </div>
+
         <ul
           className="grid grid-cols-4 grid-rows-5"
           style={{ gap: '30px 16px' }}
         >
-          {posts.map((post) => (
+          {currentPosts.map((post) => (
             <li key={post.post_id} className="flex flex-col">
               <Link
                 href={`/blog/${post.post_id}`}

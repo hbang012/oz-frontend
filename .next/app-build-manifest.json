@@ -21,11 +21,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(main)/layout.js"
     ],
-    "/(main)/page": [
+    "/(main)/blog/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(main)/page.css",
-      "static/chunks/app/(main)/page.js"
+      "static/chunks/app/(main)/blog/page.js"
+    ],
+    "/(main)/blog/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(main)/blog/[id]/page.js"
+    ],
+    "/(main)/blog/[id]/create/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(main)/blog/[id]/create/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
@@ -37,15 +46,16 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(main)/product/page.js"
     ],
-    "/(main)/blog/page": [
+    "/(main)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/blog/page.js"
+      "static/css/app/(main)/page.css",
+      "static/chunks/app/(main)/page.js"
     ],
-    "/(main)/blog/[id]/page": [
+    "/(main)/blog/[id]/edit/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/blog/[id]/page.js"
+      "static/chunks/app/(main)/blog/[id]/edit/page.js"
     ]
   }
 }

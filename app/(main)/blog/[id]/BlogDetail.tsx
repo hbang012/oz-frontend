@@ -2,23 +2,11 @@
 
 import { BlogPost } from '@/app/_lib/types/BlogPost';
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-import {
-  getPost,
-  createPost,
-  updatePost,
-  deletePost,
-} from '@/app/_lib/api/blog';
-
-type Form = {
-  title: string;
-  description: string;
-  thumbnail_url: string;
-};
-
 export default function BlogDetail() {
+  const router = useRouter();
   const { id } = useParams();
   const [post, setPost] = useState<BlogPost | null>(null);
 
@@ -38,6 +26,32 @@ export default function BlogDetail() {
     );
   }
 
+  // 삭제 핸들러
+  const handleDelete = async () => {
+    if (!id) return;
+
+    const confirmDelete = window.confirm('정말 삭제하시겠습니까?');
+    if (!confirmDelete) return;
+
+    try {
+      const res = await fetch(`http://localhost:3001/blog/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!res.ok) {
+        const error = await res.json();
+        alert(`삭제 실패: ${error.error || '알 수 없는 오류'}`);
+        return;
+      }
+
+      alert('삭제가 완료되었습니다.');
+      router.push('/blog');
+    } catch (err) {
+      console.error('삭제 중 오류:', err);
+      alert('삭제 중 오류가 발생했습니다.');
+    }
+  };
+
   return (
     <main
       className="max-w-[1200px] mx-auto"
@@ -46,7 +60,11 @@ export default function BlogDetail() {
       {/* 상단 */}
       <div
         className="flex justify-between"
-        style={{ margin: '50px auto 80px', gap: '0px 50px' }}
+        style={{
+          margin: '50px auto 80px',
+          gap: '0px 30px',
+          padding: '0px 20px',
+        }}
       >
         <Image
           src={`http://localhost:3001${post.thumbnail_url}`}
@@ -57,7 +75,7 @@ export default function BlogDetail() {
           className="rounded-[20px]"
         />
 
-        <div className="flex flex-col justify-between ">
+        <div className="flex flex-col justify-between">
           <span>
             <h2 className="text-[#000] text-[24px] font-bold">{post.title}</h2>
             <p className="text-[16px]">{post.description}</p>
@@ -68,15 +86,45 @@ export default function BlogDetail() {
           </p>
         </div>
 
-        <div>
-          <div className="flex gap-[10px]">
+        {/* 버튼 */}
+        <div className="flex flex-col items-end" style={{ gap: '70%' }}>
+          <div className="flex" style={{ gap: '10px' }}>
             <Image
               src={'/icons/D-bookmark.svg'}
               alt=""
-              width={50}
-              height={50}
+              width={40}
+              height={40}
             />
             <Image src={'/icons/D-Share.svg'} alt="" width={40} height={40} />
+          </div>
+
+          <div className="flex" style={{ gap: '10px', margin: '10px 0px' }}>
+            <button
+              type="button"
+              className="rounded-[10px] text-[#777] text-[12px]"
+              style={{
+                border: '1px solid #ccc',
+                padding: '5px 12px',
+                width: '60px',
+                height: '30px',
+              }}
+              onClick={() => router.push(`/blog/${id}/edit`)}
+            >
+              수정
+            </button>
+            <button
+              type="button"
+              className="rounded-[10px] text-[#777] text-[12px]"
+              style={{
+                border: '1px solid #ccc',
+                padding: '5px 12px',
+                width: '60px',
+                height: '30px',
+              }}
+              onClick={handleDelete}
+            >
+              삭제
+            </button>
           </div>
         </div>
       </div>
@@ -88,32 +136,6 @@ export default function BlogDetail() {
           borderTop: '5px solid rgb(238, 238, 238)',
         }}
       >
-        <div className="flex justify-end gap-[10px]">
-          <button
-            type="button"
-            className="rounded-[10px] text-[#777] text-[12px]"
-            style={{ border: '1px solid #ccc', padding: '5px 10px' }}
-          >
-            글쓰기
-          </button>
-
-          <button
-            type="button"
-            className="rounded-[10px] text-[#777] text-[12px]"
-            style={{ border: '1px solid #ccc', padding: '5px 10px' }}
-          >
-            수정
-          </button>
-
-          <button
-            type="button"
-            className="rounded-[10px] text-[#777] text-[12px]"
-            style={{ border: '1px solid #ccc', padding: '5px 10px' }}
-          >
-            삭제
-          </button>
-        </div>
-
         <div>
           <p className="text-[16px]">
             어떤 굿즈를 만들면 좋을지, <br />

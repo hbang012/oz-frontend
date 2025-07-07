@@ -46,7 +46,7 @@ export default function BlogTablet() {
           className="grid grid-cols-3 grid-rows-7"
           style={{ gap: '20px 10px' }}
         >
-          {posts.map((post) => (
+          {currentPosts.map((post) => (
             <li key={post.post_id} className="flex flex-col">
               <Link
                 href={`/blog/${post.post_id}`}
