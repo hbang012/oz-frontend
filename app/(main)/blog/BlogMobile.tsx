@@ -15,7 +15,8 @@ export default function BlogMobile() {
   const totalPage = Math.ceil(posts.length / PER_PAGE);
 
   useEffect(() => {
-    fetch('http://localhost:3001/blog')
+    // fetch('http://localhost:3001/blog')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog`)
       .then((res) => res.json())
       .then((data: BlogPost[]) => {
         setPosts(data);

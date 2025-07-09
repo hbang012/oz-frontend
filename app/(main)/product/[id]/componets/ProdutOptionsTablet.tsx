@@ -23,7 +23,6 @@ export default function ProdutOptionsTablet({
   onDeliveryChange,
 }: ProdutOptionsProps) {
   // 옵션
-  const { id } = useParams();
   const [error, setError] = useState(false);
   const [options, setOptions] = useState<OptionGroup[]>([]);
   const [selected, setSelected] = useState<Record<number, string>>({});
@@ -37,7 +36,8 @@ export default function ProdutOptionsTablet({
 
   // 2 아이템별 옵션 불러오기
   useEffect(() => {
-    fetch(`http://localhost:3001/product/${productId}/options`)
+    // fetch(`http://localhost:3001/product/${productId}/options`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/product/${productId}/options`)
       .then((r) => r.json())
       .then(setOptions)
       .catch(console.error);

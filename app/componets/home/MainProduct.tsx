@@ -21,10 +21,16 @@ export default function MainProduct() {
   const [data, setData] = useState<Product[] | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/product')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/product`)
       .then((res) => res.json())
       .then((json) => setData(json));
   }, []);
+
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/product')
+  //     .then((res) => res.json())
+  //     .then((json) => setData(json));
+  // }, []);
 
   return (
     <div className="pt-[60px] max-w-[1200px] mx-auto">

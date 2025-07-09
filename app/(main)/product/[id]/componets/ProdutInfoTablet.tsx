@@ -36,8 +36,8 @@ export default function ProdutInfoTablet() {
 
   useEffect(() => {
     if (!productId) return;
-
-    fetch(`http://localhost:3001/product/${productId}`)
+    //  fetch(`http://localhost:3001/product/${productId}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/product/${productId}`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();

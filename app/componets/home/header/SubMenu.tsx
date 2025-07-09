@@ -22,11 +22,18 @@ export default function MobileMenu({
   const [activeSubItem, setActiveSubItem] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/gnb')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/gnb`)
       .then((res) => res.json())
       .then((data: GnbItem[]) => setMenuData(data))
       .catch((err) => console.error('GNB 로딩 실패', err));
   }, []);
+
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/gnb')
+  //     .then((res) => res.json())
+  //     .then((data: GnbItem[]) => setMenuData(data))
+  //     .catch((err) => console.error('GNB 로딩 실패', err));
+  // }, []);
 
   if (menuData.length === 0) return null;
 

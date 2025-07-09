@@ -30,7 +30,8 @@ export default function ProductPayTablet({
   // 1) 상품 상세 fetch
   useEffect(() => {
     if (!id) return;
-    fetch(`http://localhost:3001/product/${id}`)
+    // fetch(`http://localhost:3001/product/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/product/${id}`)
       .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
       .then(setProduct)
       .catch(() => setError(true));
@@ -39,7 +40,8 @@ export default function ProductPayTablet({
   // 2) 수량 티어 fetch
   useEffect(() => {
     if (!id) return;
-    fetch(`http://localhost:3001/product/${id}/quantity-options`)
+    // fetch(`http://localhost:3001/product/${id}/quantity-options`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/product/${id}/quantity-options`)
       .then((r) => r.json())
       .then((json) => setQtyTiers(json.tiers || []))
       .catch(console.error);
@@ -57,11 +59,15 @@ export default function ProductPayTablet({
   const onSelectQty = async (qty: number) => {
     setQuantity(qty);
     try {
-      const res = await fetch(`http://localhost:3001/product/${id}/calculate`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ quantity: qty }),
-      });
+      // `http://localhost:3001/product/${id}/calculate`
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/product/${id}/calculate`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ quantity: qty }),
+        }
+      );
       const data: PricingResult | { error: string } = await res.json();
       if ('error' in data) {
         console.warn('계산 API 에러:', data.error);

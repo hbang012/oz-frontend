@@ -9,7 +9,8 @@ export default function ProductCategoryTabs() {
   const [tabs, setTabs] = useState<GnbItem[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/gnb')
+    // fetch('http://localhost:3001/gnb')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/gnb`)
       .then((res) => res.json())
       .then((json) => {
         const 제작소 = json.find((item: GnbItem) => item.label === '제작소');

@@ -21,7 +21,8 @@ export default function BlogEditPage() {
 
   useEffect(() => {
     if (!id) return;
-    fetch(`http://localhost:3001/blog/${id}`)
+    // fetch(`http://localhost:3001/blog/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setForm({

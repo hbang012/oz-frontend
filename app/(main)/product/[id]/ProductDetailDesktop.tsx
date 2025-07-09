@@ -14,7 +14,6 @@ export default function ProductDetailDesktop() {
   // id가 배열일 수 도 있으니 항상 string으로 변환
   const productId: string = Array.isArray(rawId) ? rawId[0] : rawId;
 
-  const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [error, setError] = useState(false);
 
@@ -27,8 +26,8 @@ export default function ProductDetailDesktop() {
 
   useEffect(() => {
     if (!productId) return;
-
-    fetch(`http://localhost:3001/product/${productId}`)
+    // fetch(`http://localhost:3001/product/${productId}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/product/${productId}`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();

@@ -16,7 +16,8 @@ export default function ProductImg() {
 
   useEffect(() => {
     if (!id) return;
-    fetch(`http://localhost:3001/product/${id}`)
+    // fetch(`http://localhost:3001/product/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/product/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();

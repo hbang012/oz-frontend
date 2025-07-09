@@ -22,7 +22,8 @@ export default function SideCategory() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:3001/gnb')
+    // fetch('http://localhost:3001/gnb')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/gnb`)
       .then((res) => res.json())
       .then((json: GnbItem[]) => {
         const 제작소 = json.find((item) => item.label === '제작소');
