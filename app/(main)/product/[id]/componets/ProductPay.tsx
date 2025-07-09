@@ -44,13 +44,14 @@ export default function ProductPay({}: ProductPayProps) {
       .catch(console.error);
   }, [id]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   // 수량 티어 기본값
   useEffect(() => {
     if (qtyTiers.length > 0) {
       const defaultQty = qtyTiers[0].minQty; // 제일 작은 수량
       onSelectQty(defaultQty);
     }
-  }, [qtyTiers]);
+  }, []);
 
   // 3) 수량 선택 시 계산 API
   const onSelectQty = async (qty: number) => {

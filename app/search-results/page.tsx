@@ -19,8 +19,8 @@ export default function SearchResults() {
       <main className="max-w-[1200px] mx-auto h-[900px] pt-[85px]">
         <div className="">
           <h1 className="text-[24px] p-[50px_0px_35px] font-bold leading-[36px]">
-            <span className="text-point1">"{query}"</span> 에 대한 총 검색 결과
-            ()
+            <span className="text-point1">&quot;{query}&quot;</span> 에 대한 총
+            검색 결과 ()
           </h1>
           <ul className="flex">
             <li>
