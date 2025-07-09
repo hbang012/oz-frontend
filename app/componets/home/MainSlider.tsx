@@ -62,7 +62,7 @@ export default function MainSlider() {
 
   useEffect(() => {
     setTemp(1);
-  }, []);
+  }, [setTemp]);
 
   return (
     <div className="max-w-[1920px] pt-[3%] flex gap-[50px] border-b-1 border-[#eee] max-md:block">
