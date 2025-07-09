@@ -17,7 +17,7 @@ type Product = {
   quantity_range: string; // 최소 수량
   supply_price: string; // 최소 단가
   category_large_name: string;
-  category_medium_name: string; // 중분류 "인형"
+  category_medium_name: string; //  중분류 "인형"
   category_small_name: string;
 };
 
