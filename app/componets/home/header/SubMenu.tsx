@@ -1,4 +1,3 @@
-// app/componets/home/header/SubMenu.tsx
 'use client';
 
 import { useState, useEffect } from 'react';

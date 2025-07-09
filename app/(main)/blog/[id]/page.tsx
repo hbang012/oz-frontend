@@ -5,7 +5,7 @@ import BlogDetailMobile from '@/app/(main)/blog/[id]/BlogDetailMobile';
 import BlogDetailTablet from '@/app/(main)/blog/[id]/BlogDetailTablet';
 import { useState, useEffect } from 'react';
 
-export default function page() {
+export default function Blog() {
   const [width, setWidth] = useState(
     typeof window === 'undefined' ? 1024 : window.innerWidth
   );

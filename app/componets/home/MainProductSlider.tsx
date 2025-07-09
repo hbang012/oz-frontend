@@ -6,6 +6,7 @@ import 'swiper/css/scrollbar';
 import style from '@/app/componets/home/MainProductSlider.module.css';
 import { Scrollbar } from 'swiper/modules';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 type Product = {
   product_id: number;
@@ -61,9 +62,11 @@ export default function MainProductSlider() {
                   className="group cursor-pointer overflow-hidden rounded-[8px] bg-[#f6f6f6] flex flex-col items-cente"
                 >
                   <div className="relative w-full pt-[133%]">
-                    <img
+                    <Image
                       src={`http://localhost:3001${product.image_url}`}
                       alt={product.name}
+                      width={100}
+                      height={100}
                       className="absolute top-0 left-0 w-[80%] h-auto m-auto inset-0 transition-transform duration-300 ease-in-out group-hover:scale-105"
                     />
                     {/* 태그 */}

@@ -1,12 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function BlogCreatePage() {
   const router = useRouter();
-  const { id } = useParams();
   const DEFAULT_THUMBNAIL = '/images/focus-00.png';
   const [form, setForm] = useState({
     title: '',

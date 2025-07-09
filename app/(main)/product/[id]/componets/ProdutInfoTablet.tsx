@@ -1,7 +1,6 @@
 'use client';
 
 import { Product } from '@/app/_lib/types/product';
-import { Stick } from 'next/font/google';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';

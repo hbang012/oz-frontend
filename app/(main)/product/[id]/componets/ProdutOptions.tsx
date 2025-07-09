@@ -1,8 +1,6 @@
 'use client';
 
-import { Product } from '@/app/_lib/types/product';
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
 interface OptionGroup {
@@ -17,12 +15,9 @@ interface ProdutOptionsProps {
   onDeliveryChange: Dispatch<SetStateAction<string>>;
 }
 
-export default function ProdutOptions({
-  productId,
-  onOptionsChange,
-  onDeliveryChange,
-}: ProdutOptionsProps) {
+export default function ProdutOptions({ productId }: ProdutOptionsProps) {
   // 옵션
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false);
   const [options, setOptions] = useState<OptionGroup[]>([]);
   const [selected, setSelected] = useState<Record<number, string>>({});
@@ -42,18 +37,6 @@ export default function ProdutOptions({
       .then(setOptions)
       .catch(console.error);
   }, [productId]);
-
-  const handleValueSelect = (gid: number, val: string) => {
-    const next = { ...selected, [gid]: val };
-    setSelected(next);
-    onOptionsChange(next);
-    setOpenGroup(null);
-  };
-
-  const handleDelivery = (opt: string) => {
-    setSelectedDeliveryOption(opt);
-    onDeliveryChange(opt);
-  };
 
   if (error) return <p>불러오지 못했습니다.</p>;
   if (!options) return <p>로딩 중...</p>;

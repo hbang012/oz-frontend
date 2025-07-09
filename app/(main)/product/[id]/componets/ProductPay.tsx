@@ -13,10 +13,7 @@ export interface ProductPayProps {
   deliveryMethod: string;
 }
 
-export default function ProductPay({
-  selectedOptions,
-  deliveryMethod,
-}: ProductPayProps) {
+export default function ProductPay({}: ProductPayProps) {
   // 데이터
   const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);

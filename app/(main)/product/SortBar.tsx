@@ -27,6 +27,7 @@ export default function SortBar({ sort, setSort }: SortBarProps) {
   const [filtered, setFiltered] = useState<Product[]>([]);
 
   // 상태
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [items, setItems] = useState<Product[]>([]);
   const [showList, setShowList] = useState(false);
 

@@ -96,9 +96,11 @@ export default function MainProduct() {
                     최소{product.quantity_range}
                   </div>
                 </div>
-                <img
+                <Image
                   src={`http://localhost:3001${product.image_url}`}
                   alt={product.name}
+                  width={100}
+                  height={100}
                   className="transition-transform duration-300 ease-in-out group-hover:scale-105 w-[80%]"
                 />
               </div>

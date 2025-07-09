@@ -1,6 +1,5 @@
 'use client';
 
-import styles from '@/app/pagination.module.css';
 import { Product } from '@/app/_lib/types/product';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';

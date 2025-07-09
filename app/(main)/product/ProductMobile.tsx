@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import Pagination from '@/app/componets/Pagination';
-import SideCategory from '@/app/(main)/product/SideCategory';
 import SortBar from '@/app/(main)/product/SortBar';
 import ProductCategoryTabs from '@/app/(main)/product/ProductTab';
 import type { Product } from '@/app/_lib/types/product';
@@ -30,6 +29,7 @@ export default function ProductMobile() {
   const currentCategory = searchParams.get('category');
 
   const [sortKey, setSortKey] = useState<SortKey>('DEFAULT');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const sortParam = (searchParams.get('sort') as SortKey) ?? 'DEFAULT';
 
   useEffect(() => {

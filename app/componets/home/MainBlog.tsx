@@ -68,6 +68,7 @@ const focus = [
 ];
 
 export default function MainBlog() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [temp, setTemp] = useState(0);
   const prevRef = useRef(null);
   const nextRef = useRef(null);

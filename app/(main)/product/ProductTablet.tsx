@@ -30,6 +30,7 @@ export default function ProductTablet() {
   const currentCategory = searchParams.get('category');
 
   const [sortKey, setSortKey] = useState<SortKey>('DEFAULT');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const sortParam = (searchParams.get('sort') as SortKey) ?? 'DEFAULT';
 
   useEffect(() => {
