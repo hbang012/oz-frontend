@@ -17,7 +17,7 @@ export default function Gnb() {
 
   useEffect(() => {
     // fetch('http://localhost:3001/gnb')
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}gnb`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/gnb`)
       .then((res) => res.json())
       .then((data: GnbItem[]) => {
         setMenuData(data);
