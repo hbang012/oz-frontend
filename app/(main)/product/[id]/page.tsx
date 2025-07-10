@@ -15,7 +15,7 @@ export default function ProductDetailPage() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  if (width < 768) return <ProductDetailTablet />;
-  if (width < 1024) return <ProductDetailTablet />;
+  if (width >= 768) return <ProductDetailTablet />;
+  if (width >= 1200) return <ProductDetailTablet />;
   return <ProductDetailDesktop />;
 }
