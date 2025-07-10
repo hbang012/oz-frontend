@@ -435,10 +435,11 @@ export default function ProdutInfoTablet() {
               <h3
                 className="flex text-[12px]"
                 style={{
-                  padding: '10px 20px',
+                  padding: '30px 20px',
                   borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
                   width: '300px',
+                  height: '100%',
                 }}
               >
                 법에 의한 인증, 허가 등을 받았음을 확인할 수 있는 경우 그에 대한
@@ -568,10 +569,11 @@ export default function ProdutInfoTablet() {
               <h3
                 className="flex text-[12px]"
                 style={{
-                  padding: '25px 20px',
+                  padding: '45px 20px',
                   borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
                   width: '300px',
+                  height: '100%',
                 }}
               >
                 제품하자·오배송 등에 따른 청약철회 등의 경우 청약철회 등을 할 수
@@ -596,10 +598,11 @@ export default function ProdutInfoTablet() {
               <h3
                 className="flex text-[12px]"
                 style={{
-                  padding: '20px 20px',
+                  padding: '30px 20px',
                   borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
                   width: '300px',
+                  height: '100%',
                 }}
               >
                 제품하자가 아닌 소비자의 단순변심, 착오구매에 따른 청약철회등이
@@ -623,10 +626,11 @@ export default function ProdutInfoTablet() {
               <h3
                 className="flex text-[12px]"
                 style={{
-                  padding: '10px 20px',
+                  padding: '20px 20px',
                   borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
                   width: '300px',
+                  height: '100%',
                 }}
               >
                 재화등의 교환·반품·보증 조건 및 품질보증기준
@@ -647,10 +651,11 @@ export default function ProdutInfoTablet() {
               <h3
                 className="flex items-center text-[12px]"
                 style={{
-                  padding: '10px 20px',
+                  padding: '45px 20px',
                   borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
                   width: '300px',
+                  height: '100%',
                 }}
               >
                 대금을 환불받기 위한 방법과 환불이 지연될 경우 지연에 따른
@@ -675,10 +680,11 @@ export default function ProdutInfoTablet() {
               <h3
                 className="flex text-[12px]"
                 style={{
-                  padding: '10px 20px',
+                  padding: '30px 20px',
                   borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
                   width: '300px',
+                  height: '100%',
                 }}
               >
                 소비자피해보상의 처리, 재화등에 대한 불만 처리 및 소비자와
