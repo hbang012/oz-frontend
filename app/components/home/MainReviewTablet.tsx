@@ -95,7 +95,7 @@ export default function MainReviewTablet() {
                 className="absolute top-[9px] left-[44px] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
               />
             </span>
-            {/* 버튼 애니메이션 효과 */}
+            {/* 버튼 애니메이션 효과. */}
             <span
               className="absolute left-0 top-0 w-full h-full bg-[#000] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 [transition-timing-function:cubic-bezier(0.5,0,0.1,1)]"
               aria-hidden="true"
