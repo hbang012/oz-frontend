@@ -184,7 +184,9 @@ export default function SideCategory() {
                           <Link
                             href={small.href ?? '/product'}
                             className={`block text-[14px] px-2 py-1 rounded-md ${
-                              isSmallActive ? 'text-point1 font-bold' : ' '
+                              isSmallActive
+                                ? 'text-point1 font-bold'
+                                : ' text-[#626262]'
                             }`}
                           >
                             {small.label}
@@ -208,7 +210,7 @@ export default function SideCategory() {
                                       className={`block text-[13px] px-2 py-1 rounded-md ${
                                         isLeafActive
                                           ? 'text-point1 font-bold'
-                                          : ' '
+                                          : 'text-[#626262] '
                                       }`}
                                     >
                                       {leaf.label}

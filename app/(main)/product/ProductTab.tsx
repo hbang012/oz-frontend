@@ -60,7 +60,7 @@ export default function ProductCategoryTabs() {
                   <Link
                     href={tab.href ?? '/'}
                     className={`px-4 py-2 text-[15px] whitespace-nowrap rounded-full ${
-                      isActive ? 'text-point1 font-bold' : 'hover:text-white'
+                      isActive ? 'text-point1 font-bold' : 'text-[#626262]'
                     }`}
                   >
                     {tab.label}
@@ -96,7 +96,7 @@ export default function ProductCategoryTabs() {
                   <Link
                     href={tab.href ?? '/'}
                     className={`px-4 py-2 text-[15px] whitespace-nowrap rounded-full ${
-                      isActive ? 'text-point1 font-bold' : 'hover:text-white'
+                      isActive ? 'text-point1 font-bold' : 'text-[#626262]'
                     }`}
                   >
                     {tab.label}
@@ -115,7 +115,7 @@ export default function ProductCategoryTabs() {
           style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '6%',
+            gap: '1%',
             padding: '10px',
           }}
         >
@@ -132,7 +132,7 @@ export default function ProductCategoryTabs() {
                   <Link
                     href={tab.href ?? '/'}
                     className={`px-4 py-2 text-[18px] whitespace-nowrap rounded-full ${
-                      isActive ? 'text-point1 font-bold' : 'hover:text-white'
+                      isActive ? 'text-point1 font-bold' : 'text-[#626262]'
                     }`}
                   >
                     {tab.label}
