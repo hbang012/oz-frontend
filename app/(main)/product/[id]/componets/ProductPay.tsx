@@ -92,9 +92,7 @@ export default function ProductPay({}: ProductPayProps) {
             borderColor: '#6b59f6',
           }}
         >
-          <p>
-            여기에 별도문의 포장방법 배송방법 택배 같은 옵션 데이터 들어가야함
-          </p>
+          <p>[별도문의]</p>
 
           {/* 수량옵션 */}
           <QuantitySelector

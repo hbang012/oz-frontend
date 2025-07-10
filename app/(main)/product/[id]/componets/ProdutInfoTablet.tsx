@@ -24,7 +24,7 @@ export default function ProdutInfoTablet() {
   const stickyThresh = useRef<number>(0);
 
   // 헤더 높이 만큼 오프셋
-  const HEADER_HEIGHT = 40;
+  const HEADER_HEIGHT = 60;
 
   // 섹션별 ref
   const sectionRefs = {
