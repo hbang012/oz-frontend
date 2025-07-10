@@ -44,7 +44,7 @@ export default function ProductDetailTablet() {
   if (!product) return <p>로딩 중...</p>;
 
   return (
-    <main className="pt-[100px] max-w-[1200px] mx-auto max-sm:pt-[60px] border-8">
+    <main className="pt-[100px] max-w-[1200px] mx-auto max-sm:pt-[60px]">
       {/* 텍스트 */}
       <div
         className="flex flex-col border-b-1 border-[#d8d8d8]"
