@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BlogPost } from '@/app/_lib/types/BlogPost';
 import { useEffect, useState } from 'react';
-import Pagination from '@/app/componets/Pagination';
+import Pagination from '@/app/components/Pagination';
 import { useParams, useRouter } from 'next/navigation';
 
 export default function BlogPc() {

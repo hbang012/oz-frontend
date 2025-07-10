@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import type { Product } from '@/app/_lib/types/product';
-import ProductImg from '@/app/(main)/product/[id]/componets/ProductImg';
-import ProdutOptions from '@/app/(main)/product/[id]/componets/ProdutOptions';
-import ProductPay from '@/app/(main)/product/[id]/componets/ProductPay';
-import ProdutInfo from '@/app/(main)/product/[id]/componets/ProdutInfo';
+import ProductImg from '@/app/(main)/product/[id]/components/ProductImg';
+import ProdutOptions from '@/app/(main)/product/[id]/components/ProdutOptions';
+import ProductPay from '@/app/(main)/product/[id]/components/ProductPay';
+import ProdutInfo from '@/app/(main)/product/[id]/components/ProdutInfo';
 
 export default function ProductDetailDesktop() {
   const params = useParams();

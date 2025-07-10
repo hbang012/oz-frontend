@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import gnb from '@/app/componets/home/header/Gnb';
+import gnb from '@/app/components/home/header/Gnb';
 import MainLayout from '@/app/(main)/layout';
 
 export default function SearchResults() {

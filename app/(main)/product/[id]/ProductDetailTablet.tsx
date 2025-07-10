@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import type { Product } from '@/app/_lib/types/product';
-import ProductImgTablet from '@/app/(main)/product/[id]/componets/ProductImgTablet';
-import ProdutOptionsTablet from '@/app/(main)/product/[id]/componets/ProdutOptionsTablet';
-import ProductPayTablet from '@/app/(main)/product/[id]/componets/ProductPayTablet';
-import ProdutInfoTablet from '@/app/(main)/product/[id]/componets/ProdutInfoTablet';
+import ProductImgTablet from '@/app/(main)/product/[id]/components/ProductImgTablet';
+import ProdutOptionsTablet from '@/app/(main)/product/[id]/components/ProdutOptionsTablet';
+import ProductPayTablet from '@/app/(main)/product/[id]/components/ProductPayTablet';
+import ProdutInfoTablet from '@/app/(main)/product/[id]/components/ProdutInfoTablet';
 
 export default function ProductDetailTablet() {
   const params = useParams();

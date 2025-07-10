@@ -1,17 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import MainSlider from '@/app/componets/home/MainSlider';
-import MainProduct from '@/app/componets/home/MainProduct';
-import MainPortfolio from '@/app/componets/home/MainPortfolio';
-import MainReview from '@/app/componets/home/MainReview';
-import MainBlog from '@/app/componets/home/MainBlog';
-import InfoConnect from '@/app/componets/home/InfoConnect';
-import MainPartner from '@/app/componets/home/MainPartner';
-import QuickConnect from '@/app/componets/home/QuickConnect';
-import Frame from '@/app/componets/home/Frame';
-import MainReviewMobile from '@/app/componets/home/MainReviewMobile';
-import MainReviewTablet from '@/app/componets/home/MainReviewTablet';
+import MainSlider from '@/app/components/home/MainSlider';
+import MainProduct from '@/app/components/home/MainProduct';
+import MainPortfolio from '@/app/components/home/MainPortfolio';
+import MainReview from '@/app/components/home/MainReview';
+import MainBlog from '@/app/components/home/MainBlog';
+import InfoConnect from '@/app/components/home/InfoConnect';
+import MainPartner from '@/app/components/home/MainPartner';
+import QuickConnect from '@/app/components/home/QuickConnect';
+import Frame from '@/app/components/home/Frame';
+import MainReviewMobile from '@/app/components/home/MainReviewMobile';
+import MainReviewTablet from '@/app/components/home/MainReviewTablet';
 
 export default function Home() {
   // 테일윈드 max-sm 안 먹힘 이슈로 분기점 처리

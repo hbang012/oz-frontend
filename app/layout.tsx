@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { pretendard } from '@/app/componets/fonts';
+import { pretendard } from '@/app/components/fonts';
 import TanStackProvider from '@/providers/TanStackProvider';
-import ThemeProvider from '@/app/componets/ThemeProvider';
+import ThemeProvider from '@/app/components/ThemeProvider';
 import { LoginProvider } from '@/app/(auth)/login/LoginContext';
 
 export const metadata: Metadata = {

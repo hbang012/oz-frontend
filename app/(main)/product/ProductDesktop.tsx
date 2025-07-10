@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import Pagination from '@/app/componets/Pagination';
+import Pagination from '@/app/components/Pagination';
 import SideCategory from '@/app/(main)/product/SideCategory';
 import SortBar from '@/app/(main)/product/SortBar';
 import ProductCategoryTabs from '@/app/(main)/product/ProductTab';
