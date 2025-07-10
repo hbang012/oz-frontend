@@ -35,7 +35,7 @@ export default function BlogDetail() {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:3001/blog/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`, {
         method: 'DELETE',
       });
 
@@ -68,7 +68,7 @@ export default function BlogDetail() {
         }}
       >
         <Image
-          src={`http://localhost:3001${post.thumbnail_url}`}
+          src={`${process.env.NEXT_PUBLIC_API_URL}${post.thumbnail_url}`}
           alt={post.title}
           width={600}
           height={340}

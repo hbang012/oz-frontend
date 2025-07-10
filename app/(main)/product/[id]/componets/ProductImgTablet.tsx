@@ -50,7 +50,7 @@ export default function ProductImgTablet() {
               <li>
                 <div className="w-full h-[400px] rounded-[20px] bg-[#f3efe9]">
                   <Image
-                    src={`http://localhost:3001${url}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
                     alt={`slide-${idx}`}
                     width={550}
                     height={550}

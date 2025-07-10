@@ -72,7 +72,7 @@ export default function ProductImg() {
               }}
             >
               <Image
-                src={`http://localhost:3001${url}`}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
                 alt={`thumb-${idx}`}
                 width={135}
                 height={135}
@@ -96,7 +96,7 @@ export default function ProductImg() {
       {/*대표이미지 */}
       <div style={{}}>
         <Image
-          src={`http://localhost:3001${product.image_url}`}
+          src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
           alt={product.name}
           width={550}
           height={550}

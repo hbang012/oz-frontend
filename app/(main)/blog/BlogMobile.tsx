@@ -54,7 +54,7 @@ export default function BlogMobile() {
                 className="border rounded-[8px] border-[#d8d8d8]"
               >
                 <Image
-                  src={`http://localhost:3001${post.thumbnail_url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${post.thumbnail_url}`}
                   alt={post.title}
                   width={285}
                   height={161}

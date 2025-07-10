@@ -38,7 +38,7 @@ export default function ProductDesktop() {
     if (currentCategory) params.set('category', currentCategory);
     if (sortKey !== 'DEFAULT') params.set('sort', sortKey);
 
-    fetch(`http://localhost:3001/product?${params.toString()}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/product?${params.toString()}`)
       .then((res) => res.json())
       .then((list: Product[]) => {
         // currentCategory로 필터링
@@ -123,7 +123,7 @@ export default function ProductDesktop() {
                       />
                     </span>
                     <Image
-                      src={`http://localhost:3001${product.image_url}`}
+                      src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
                       alt={product.name}
                       width={291}
                       height={291}

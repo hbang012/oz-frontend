@@ -40,7 +40,7 @@ export default function BlogEditPage() {
     e.preventDefault();
     if (!id) return;
 
-    const res = await fetch(`http://localhost:3001/blog/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -121,7 +121,7 @@ export default function BlogEditPage() {
               썸네일 미리보기
             </label>
             <Image
-              src={`http://localhost:3001${form.thumbnail_url}`}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${form.thumbnail_url}`}
               alt="썸네일"
               width={300}
               height={160}
