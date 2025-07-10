@@ -78,7 +78,7 @@ export default function MainPortfolio() {
   };
 
   return (
-    <div className="pt-[100px] max-w-[1200px] mx-auto">
+    <div className="max-w-[1200px] mx-auto" style={{ paddingTop: '50px' }}>
       {/* 제목 */}
       <div className="flex relative justify-center items-center gap-[8px] max-md:gap-[4px] max-md:static max-md:flex-col fade-up">
         <h2 className="text-[#000] font-bold text-[32px] max-md:text-[24px]">

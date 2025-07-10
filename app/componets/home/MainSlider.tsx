@@ -79,7 +79,7 @@ export default function MainSlider() {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}
-        spaceBetween={10}
+        spaceBetween={5}
         slidesPerView={2.5}
         loop={true}
         autoplay={{ delay: 3000 }}
@@ -101,7 +101,7 @@ export default function MainSlider() {
                 width={400}
                 height={300}
                 alt="굿즈 이미지"
-                className="rounded-[20px] scale-[0.7] w-auto h-auto "
+                className="rounded-[20px] scale-[0.7] w-auto h-auto"
                 priority
               />
               {/* 텍스트 */}

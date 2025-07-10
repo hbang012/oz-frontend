@@ -59,7 +59,7 @@ const MainReviews = [
   },
 ];
 
-export default function MainReview() {
+export default function MainReviewMobile() {
   return (
     <div
       className="pt-[100px] max-w-[1200px] mx-auto"
@@ -106,31 +106,37 @@ export default function MainReview() {
       </div>
 
       {/* 리뷰 */}
-      <ul className="grid grid-cols-4 grid-rows-2 gap-[13px] pt-[60px] max-md:grid-cols-2  max-sm:min-w-[250px] max-sm:scroll-snap-start max-sm:shrink-0">
-        {MainReviews.map((item, index) => (
-          <li
-            key={item.id}
-            className={`flex flex-col gap-[14px] p-[20px_22px_30px] rounded-[8px] border-[#eee] border max-sm:mt-[10px]`}
-          >
-            <div className="flex justify-between items-center">
-              <h2 className="w-[140px] text-[16px] font-bold text-[#000]">
-                {item.name}
-              </h2>
-              <div className="w-[100px] h-[48px]">
-                <Image
-                  src={item.imgSrc}
-                  alt={item.name}
-                  width={80}
-                  height={28}
-                  priority
-                  className="h-auto w-auto"
-                />
+      <div
+        className="pt-[50px] px-[20px] overflow-x-auto"
+        style={{ height: '100%' }}
+      >
+        <ul className="flex gap-[10px] scroll-snap-x mandatory">
+          {MainReviews.map((item, index) => (
+            <li
+              key={item.id}
+              className="shrink-0 scroll-snap-start border border-[#eee] rounded-[8px] p-[20px]"
+              style={{ width: '260px', height: '100%' }}
+            >
+              <div className="flex justify-between items-center">
+                <h2 className="w-[140px] text-[16px] font-bold text-[#000]">
+                  {item.name}
+                </h2>
+                <div className="w-[100px] h-[48px]">
+                  <Image
+                    src={item.imgSrc}
+                    alt={item.name}
+                    width={80}
+                    height={28}
+                    priority
+                    className="h-auto w-auto"
+                  />
+                </div>
               </div>
-            </div>
-            <p className="text-[14px]">{item.reviews}</p>
-          </li>
-        ))}
-      </ul>
+              <p className="text-[14px]">{item.reviews}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
