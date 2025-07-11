@@ -97,8 +97,7 @@ export default function MainProduct() {
                   </div>
                 </div>
                 <Image
-                  // src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
-                  src={`https://abc.com/images/starfish-doll-keyring.png`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
                   alt={product.name}
                   width={100}
                   height={100}
