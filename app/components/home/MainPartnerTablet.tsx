@@ -38,7 +38,7 @@ export default function MainPartnerTablet() {
   return (
     <div className="pt-[100px] max-w-[1200px] mx-auto max-sm:pt-[60px]">
       <div className="text-center">
-        <p className="text-[18px] text-point1 fade-up max-md:text-[15px]">
+        <p className="text-[18px] text-point1 max-md:text-[15px]">
           스타트업부터 대기업까지
         </p>
         <h2 className="mt-[9px] font-bold text-[#000] text-[32px] fade-up2 max-md:text-[24px] max-md:mt-[4px]">

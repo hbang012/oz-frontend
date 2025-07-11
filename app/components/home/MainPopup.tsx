@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import React from 'react';
 
 interface MainPopupProps {
@@ -27,12 +26,11 @@ export default function MainPopup({ isOpen, onClose, item }: MainPopupProps) {
         >
           ✖
         </button>
-        <Image
+        <img
           src={item.imgSrc}
           alt={item.name}
           width={792}
           height={594}
-          priority
           className="w-full h-auto rounded-tr-[20px] rounded-tl-[20px]"
         />
         <div className="p-[16px_24px] max-md:p-[16px_24px] max-sm:p-[12px_20px]">

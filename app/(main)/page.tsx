@@ -16,6 +16,8 @@ import MainPartnerMobile from '@/app/components/home/MainPartnerMobile';
 import QuickConnectMoblie from '@/app/components/home/QuickConnectMoblie';
 import QuickConnectTablet from '@/app/components/home/QuickConnectTablet';
 import MainPartnerTablet from '@/app/components/home/MainPartnerTablet';
+import MainBlogMoblie from '@/app/components/home/MainBlogMoblie';
+import MainBlogTablet from '@/app/components/home/MainBlogTablet';
 
 export default function Home() {
   // 테일윈드 max-sm 안 먹힘 이슈로 분기점 처리
@@ -63,7 +65,13 @@ export default function Home() {
       </div>
 
       <div className="p-[30px_20px_0_30px]">
-        <MainBlog />
+        {isMobile ? (
+          <MainBlogMoblie />
+        ) : isTablet ? (
+          <MainBlogTablet />
+        ) : (
+          <MainBlog />
+        )}
       </div>
 
       <div className="p-[30px_20px_0_30px]">
