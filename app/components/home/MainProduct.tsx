@@ -84,7 +84,7 @@ export default function MainProduct() {
           {data?.slice(0, 8).map((product) => (
             <li
               key={product.product_id}
-              className="group cursor-pointer overflow-hidden rounded-[8px] max-w-[900px]"
+              className="group cursor-pointer overflow-hidden rounded-[8px] max-w-[900px] border-8 border-amber-600"
             >
               <div className="relative w-[290px] h-[386px] bg-[#f6f6f6] flex justify-center items-center">
                 {/* 상품 태그 */}
@@ -101,7 +101,7 @@ export default function MainProduct() {
                   alt={product.name}
                   width={100}
                   height={100}
-                  className="transition-transform duration-300 ease-in-out group-hover:scale-105 w-[80%] border-amber-600"
+                  className="transition-transform duration-300 ease-in-out group-hover:scale-105 w-[80%] "
                 />
               </div>
 
