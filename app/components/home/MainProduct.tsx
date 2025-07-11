@@ -84,7 +84,7 @@ export default function MainProduct() {
           {data?.slice(0, 8).map((product) => (
             <li
               key={product.product_id}
-              className="group cursor-pointer overflow-hidden rounded-[8px] max-w-[900px] border-8 border-amber-600"
+              className="group cursor-pointer overflow-hidden rounded-[8px] max-w-[900px] "
             >
               <div className="relative w-[290px] h-[386px] bg-[#f6f6f6] flex justify-center items-center">
                 {/* 상품 태그 */}
@@ -99,8 +99,8 @@ export default function MainProduct() {
                 <Image
                   src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
                   alt={product.name}
-                  width={100}
-                  height={100}
+                  width={232}
+                  height={232}
                   className="transition-transform duration-300 ease-in-out group-hover:scale-105 w-[80%] "
                 />
               </div>
