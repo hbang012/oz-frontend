@@ -12,6 +12,10 @@ import QuickConnect from '@/app/components/home/QuickConnect';
 import Frame from '@/app/components/home/Frame';
 import MainReviewMobile from '@/app/components/home/MainReviewMobile';
 import MainReviewTablet from '@/app/components/home/MainReviewTablet';
+import MainPartnerMobile from '@/app/components/home/MainPartnerMobile';
+import QuickConnectMoblie from '@/app/components/home/QuickConnectMoblie';
+import QuickConnectTablet from '@/app/components/home/QuickConnectTablet';
+import MainPartnerTablet from '@/app/components/home/MainPartnerTablet';
 
 export default function Home() {
   // 테일윈드 max-sm 안 먹힘 이슈로 분기점 처리
@@ -36,15 +40,15 @@ export default function Home() {
         <MainSlider />
       </div>
 
-      <div className="p-[30px_30px_0_30px]">
+      <div className="p-[30px_20px_0_30px]">
         <MainProduct />
       </div>
 
-      <div className="p-[30px_30px_0_30px]">
+      <div className="p-[30px_20px_0_30px]">
         <MainPortfolio />
       </div>
 
-      <div className="p-[30px_30px_0_30px]">
+      <div className="p-[30px_20px_0_30px]">
         {isMobile ? (
           <MainReviewMobile />
         ) : isTablet ? (
@@ -54,20 +58,32 @@ export default function Home() {
         )}
       </div>
 
-      <div className="p-[30px_30px_0_30px]">
+      <div className="p-[30px_20px_0_30px]">
         <InfoConnect />
       </div>
 
-      <div className="p-[30px_30px_0_30px]">
+      <div className="p-[30px_20px_0_30px]">
         <MainBlog />
       </div>
 
-      <div className="p-[30px_30px_0_30px]">
-        <MainPartner />
+      <div className="p-[30px_20px_0_30px]">
+        {isMobile ? (
+          <MainPartnerMobile />
+        ) : isTablet ? (
+          <MainPartnerTablet />
+        ) : (
+          <MainPartner />
+        )}
       </div>
 
-      <div className="p-[30px_30px_0_30px]">
-        <QuickConnect />
+      <div className="p-[30px_20px_0_30px]">
+        {isMobile ? (
+          <QuickConnectMoblie />
+        ) : isTablet ? (
+          <QuickConnectTablet />
+        ) : (
+          <QuickConnect />
+        )}
       </div>
 
       <Frame />

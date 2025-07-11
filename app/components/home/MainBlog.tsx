@@ -1,12 +1,12 @@
 'use client';
 
-import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from '@/app/components/home/MainBlog.module.css';
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 const focus = [
   {
@@ -90,21 +90,20 @@ export default function MainBlog() {
             type="button"
             className="group relative overflow-hidden flex w-[80px] h-[32px] justify-center items-center gap-[4px] text-[#000] font-bold text-[13px] border border-[#eee] rounded-[100px] shadow-[inset_0px_0px_0px_1px_rgb(238,238,238)] transition-colors duration-500 [transition-timing-function:cubic-bezier(0.5,0,0.1,1)]"
           >
+            <Link href="/blog" />
             <span className="relative z-10 flex items-center mr-[8px] transition-colors duration-500 group-hover:text-[#fff]">
               더보기
-              <Image
+              <img
                 src={'/icons/plus-svgrepo-com.svg'}
                 width={15}
                 height={15}
-                priority
                 alt=""
                 className="absolute top-[2px] left-[35px] transition-opacity duration-500 opacity-100 group-hover:opacity-0"
               />
-              <Image
+              <img
                 src={'/icons/plus-gray.svg'}
                 width={8}
                 height={8}
-                priority
                 alt=""
                 className="absolute top-[9px] left-[44px] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
               />
@@ -147,12 +146,11 @@ export default function MainBlog() {
         {focus.map((item) => (
           <SwiperSlide key={item.id}>
             <div className="w-full pt-[20px]">
-              <Image
+              <img
                 src={item.imgSrc}
                 alt={item.tit}
                 width={380}
                 height={213}
-                priority
                 className="rounded-[8px]"
               />
               <div>

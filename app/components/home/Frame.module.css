@@ -1,0 +1,29 @@
+.container {
+  padding-top: 100px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slide {
+  width: 1000px;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  color: #000;
+  font-weight: bold;
+  font-size: 57px;
+  padding-left: 30px;
+  letter-spacing: -0.57px;
+}
+
+@media (max-width: 768px) {
+  .text {
+    font-size: 30px;
+  }
+}
+
+.swiper {
+  --swiper-transition-timing-function: linear;
+}
