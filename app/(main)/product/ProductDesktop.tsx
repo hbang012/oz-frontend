@@ -122,7 +122,7 @@ export default function ProductDesktop() {
                         alt=""
                       />
                     </span>
-                    <Image
+                    {/* <Image
                       src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
                       alt={product.name}
                       width={291}
@@ -134,7 +134,7 @@ export default function ProductDesktop() {
                         width: '100%',
                         height: '100%',
                       }}
-                    />
+                    /> */}
                     {product.image_url}
                   </div>
 
