@@ -101,7 +101,7 @@ export default function MainProduct() {
                   alt={product.name}
                   width={100}
                   height={100}
-                  className="transition-transform duration-300 ease-in-out group-hover:scale-105 w-[80%]"
+                  className="transition-transform duration-300 ease-in-out group-hover:scale-105 w-[80%] border-amber-600"
                 />
               </div>
 
