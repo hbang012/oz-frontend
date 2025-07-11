@@ -135,6 +135,7 @@ export default function ProductDesktop() {
                         height: '100%',
                       }}
                     />
+                    {product.image_url}
                   </div>
 
                   {/* 태그 */}
