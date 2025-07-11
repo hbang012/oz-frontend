@@ -63,7 +63,7 @@ export default function MainProductSlider() {
                 >
                   <div className="relative w-full pt-[133%]">
                     <Image
-                      src={`http://localhost:3001${product.image_url}`}
+                      src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
                       alt={product.name}
                       width={100}
                       height={100}
