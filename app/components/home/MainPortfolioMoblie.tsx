@@ -117,14 +117,14 @@ export default function MainPortfolioMoblie() {
       </div>
 
       {/* 포트폴리오 */}
-      {/* 이미지 관련 경고 이슈*/}
-      <div className="fade-up2">
-        <ul className="grid grid-cols-3 grid-rows-2 gap-[40px_30px] pt-[60px] max-md:grid-cols-2 max-md:grid-rows-none">
-          {MainPortfolios.map((item, index) => (
+      <div className="overflow-x-auto scroll-hidden">
+        <ul className="flex" style={{ gap: '20px', paddingTop: '60px' }}>
+          {MainPortfolios.map((item) => (
             <li
               key={item.id}
               onClick={() => handleOpenPopup(item)}
-              className={`cursor-pointer ${index >= 2 ? 'max-md:hidden ' : ''}`}
+              className="shrink-0 cursor-pointer"
+              style={{ width: '350px' }}
             >
               <div className="overflow-hidden rounded-[8px] relative">
                 <img

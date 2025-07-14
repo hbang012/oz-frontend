@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 const MainReviews = [
   {
     id: 1,
@@ -78,19 +76,17 @@ export default function MainReview() {
           >
             <span className="relative z-10 flex items-center mr-[8px] transition-colors duration-500 group-hover:text-[#fff]">
               더보기
-              <Image
+              <img
                 src={'/icons/plus-svgrepo-com.svg'}
                 width={15}
                 height={15}
-                priority
                 alt=""
                 className="absolute top-[2px] left-[35px] transition-opacity duration-500 opacity-100 group-hover:opacity-0"
               />
-              <Image
+              <img
                 src={'/icons/plus-gray.svg'}
                 width={8}
                 height={8}
-                priority
                 alt=""
                 className="absolute top-[9px] left-[44px] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
               />
@@ -106,7 +102,7 @@ export default function MainReview() {
       </div>
 
       {/* 리뷰 */}
-      <ul className="grid grid-cols-4 grid-rows-2 gap-[13px] pt-[60px] max-md:grid-cols-2  max-sm:min-w-[250px] max-sm:scroll-snap-start max-sm:shrink-0">
+      <ul className="grid grid-cols-4 grid-rows-2 gap-[13px] pt-[60px]">
         {MainReviews.map((item) => (
           <li
             key={item.id}
@@ -117,12 +113,11 @@ export default function MainReview() {
                 {item.name}
               </h2>
               <div className="w-[100px] h-[48px]">
-                <Image
+                <img
                   src={item.imgSrc}
                   alt={item.name}
                   width={80}
                   height={28}
-                  priority
                   className="h-auto w-auto"
                 />
               </div>

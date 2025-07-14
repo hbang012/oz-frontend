@@ -280,6 +280,20 @@
   display: none;
 } */
 
+  /* 스크롤바 안보이게2 */
+  .scroll-hidden {
+    overflow-x: auto;
+
+    /* IE & Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    /* Chrome, Safari */
+  }
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
   /* 텍스트 선택 컬러 */
   /* ::selection {
   background: #000;

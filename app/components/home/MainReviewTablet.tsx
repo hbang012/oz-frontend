@@ -103,7 +103,7 @@ export default function MainReviewTablet() {
 
       {/* 리뷰 */}
       <div
-        className="pt-[50px] px-[20px] overflow-x-auto"
+        className="pt-[50px] px-[20px] overflow-x-auto scroll-hidden"
         style={{ height: '100%' }}
       >
         <ul className="flex gap-[10px] scroll-snap-x mandatory">

@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 const MainReviews = [
   {
     id: 1,
@@ -78,19 +76,17 @@ export default function MainReviewMobile() {
           >
             <span className="relative z-10 flex items-center mr-[8px] transition-colors duration-500 group-hover:text-[#fff]">
               더보기
-              <Image
+              <img
                 src={'/icons/plus-svgrepo-com.svg'}
                 width={15}
                 height={15}
-                priority
                 alt=""
                 className="absolute top-[2px] left-[35px] transition-opacity duration-500 opacity-100 group-hover:opacity-0"
               />
-              <Image
+              <img
                 src={'/icons/plus-gray.svg'}
                 width={8}
                 height={8}
-                priority
                 alt=""
                 className="absolute top-[9px] left-[44px] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
               />
@@ -107,7 +103,7 @@ export default function MainReviewMobile() {
 
       {/* 리뷰 */}
       <div
-        className="pt-[50px] px-[20px] overflow-x-auto"
+        className="pt-[50px] px-[20px] overflow-x-auto scroll-hidden"
         style={{ height: '100%' }}
       >
         <ul className="flex gap-[10px] scroll-snap-x mandatory">
@@ -122,12 +118,11 @@ export default function MainReviewMobile() {
                   {item.name}
                 </h2>
                 <div className="w-[100px] h-[48px]">
-                  <Image
+                  <img
                     src={item.imgSrc}
                     alt={item.name}
                     width={80}
                     height={28}
-                    priority
                     className="h-auto w-auto"
                   />
                 </div>

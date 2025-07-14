@@ -117,13 +117,17 @@ export default function MainPortfolioTablet() {
       </div>
 
       {/* 포트폴리오 */}
-      <div className="fade-up2">
-        <ul className="grid grid-cols-6 gap-[40px_30px] pt-[60px]">
-          {MainPortfolios.map((item, index) => (
+      <div
+        className="overflow-x-auto scroll-hidden"
+        style={{ padding: '0px 20px' }}
+      >
+        <ul className="flex" style={{ gap: '20px', paddingTop: '60px' }}>
+          {MainPortfolios.map((item) => (
             <li
               key={item.id}
               onClick={() => handleOpenPopup(item)}
-              className={`cursor-pointer ${index >= 2 ? 'max-md:hidden ' : ''}`}
+              className="shrink-0 cursor-pointer"
+              style={{ width: '350px' }}
             >
               <div className="overflow-hidden rounded-[8px] relative">
                 <img

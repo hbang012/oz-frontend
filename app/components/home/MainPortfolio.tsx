@@ -1,7 +1,6 @@
 'use client';
 
 import MainPopup from '@/app/components/home/MainPopup';
-import Image from 'next/image';
 import { useState } from 'react';
 
 type Item = {
@@ -92,19 +91,17 @@ export default function MainPortfolio() {
           >
             <span className="relative z-10 flex items-center mr-[8px] transition-colors duration-500 group-hover:text-[#fff]">
               더보기
-              <Image
+              <img
                 src={'/icons/plus-svgrepo-com.svg'}
                 width={15}
                 height={15}
-                priority
                 alt=""
                 className="absolute top-[2px] left-[35px] transition-opacity duration-500 opacity-100 group-hover:opacity-0"
               />
-              <Image
+              <img
                 src={'/icons/plus-gray.svg'}
                 width={8}
                 height={8}
-                priority
                 alt=""
                 className="absolute top-[9px] left-[44px] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
               />
@@ -130,12 +127,11 @@ export default function MainPortfolio() {
               className={`cursor-pointer ${index >= 2 ? 'max-md:hidden ' : ''}`}
             >
               <div className="overflow-hidden rounded-[8px] relative">
-                <Image
+                <img
                   src={item.imgSrc}
                   alt={item.name}
                   width={380}
                   height={260}
-                  priority
                   className="w-auto h-auto max-md:w-full rounded-[8px] transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
                 />
               </div>

@@ -1,7 +1,6 @@
 'use client';
 
 import MainProductSlider from '@/app/components/home/MainProductSlider';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 type Product = {
@@ -51,19 +50,17 @@ export default function MainProduct() {
           >
             <span className="relative z-10 flex items-center mr-[8px] transition-colors duration-500 group-hover:text-[#fff]">
               더보기
-              <Image
+              <img
                 src={'/icons/plus-svgrepo-com.svg'}
                 width={15}
                 height={15}
-                priority
                 alt=""
                 className="absolute top-[2px] left-[35px] transition-opacity duration-500 opacity-100 group-hover:opacity-0"
               />
-              <Image
+              <img
                 src={'/icons/plus-gray.svg'}
                 width={8}
                 height={8}
-                priority
                 alt=""
                 className="absolute top-[9px] left-[44px] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
               />
@@ -96,7 +93,7 @@ export default function MainProduct() {
                     최소{product.quantity_range}
                   </div>
                 </div>
-                <Image
+                <img
                   src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
                   alt={product.name}
                   width={232}
