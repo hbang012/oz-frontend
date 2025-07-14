@@ -1,7 +1,6 @@
 'use client';
 
 import { Product } from '@/app/_lib/types/product';
-import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -49,7 +48,7 @@ export default function ProductImgTablet() {
             <SwiperSlide key={idx}>
               <li>
                 <div className="w-full h-[400px] rounded-[20px] bg-[#f3efe9]">
-                  <Image
+                  <img
                     src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
                     alt={`slide-${idx}`}
                     width={550}

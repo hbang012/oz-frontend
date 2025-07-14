@@ -98,15 +98,17 @@ export default function Estimate({ pricing }: Props) {
                 style={{
                   borderColor: '#d8d8d8',
                   padding: '10px 13px',
-                  width: '16%',
+                  width: '48px',
                   height: '48px',
                 }}
               >
-                <Image
+                <img
                   src={'/icons/onBookmark.svg'}
-                  width={20}
-                  height={20}
+                  width={40}
+                  height={40}
                   alt=""
+                  className="shrink-0"
+                  style={{ width: '100%', height: '100%' }}
                 />
               </button>
 

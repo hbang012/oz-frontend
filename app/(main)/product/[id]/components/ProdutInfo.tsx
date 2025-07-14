@@ -134,12 +134,11 @@ export default function ProdutInfo() {
         </div>
 
         {/* 여기에 아이템별 이미지 */}
-        <Image
+        <img
           src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
           alt={product.name}
           width={800}
           height={600}
-          priority
           className="rounded-[20px]"
           style={{ background: '#f3efe9' }}
         />
@@ -147,13 +146,7 @@ export default function ProdutInfo() {
 
       {/* 작업 가이드 */}
       <div ref={sectionRefs.작업가이드} style={{ paddingTop: '20px' }}>
-        <Image
-          src={'/images/info/more.png'}
-          width={1200}
-          height={3257}
-          priority
-          alt=""
-        />
+        <img src={'/images/info/more.png'} width={1200} height={3257} alt="" />
       </div>
 
       {/* 환불/반품 */}
@@ -184,7 +177,7 @@ export default function ProdutInfo() {
           >
             {/* 판매자 지정 택배사 */}
             <div
-              className="flex h-[38px]"
+              className="flex "
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -208,7 +201,7 @@ export default function ProdutInfo() {
 
             {/* 반품 배송비 */}
             <div
-              className="flex h-[38px]"
+              className="flex "
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -232,7 +225,7 @@ export default function ProdutInfo() {
 
             {/* 교환 배송비 */}
             <div
-              className="flex h-[38px]"
+              className="flex "
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -256,7 +249,7 @@ export default function ProdutInfo() {
 
             {/* 보내실 곳 */}
             <div
-              className="flex h-[38px]"
+              className="flex "
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -379,7 +372,7 @@ export default function ProdutInfo() {
           >
             {/* 품명 */}
             <div
-              className="flex h-[38px]"
+              className="flex "
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -403,7 +396,7 @@ export default function ProdutInfo() {
 
             {/* 반품 배송비 */}
             <div
-              className="flex h-[38px]"
+              className="flex "
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -413,6 +406,7 @@ export default function ProdutInfo() {
                   borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
                   width: '300px',
+                  height: '100%',
                 }}
               >
                 모델명
@@ -427,16 +421,17 @@ export default function ProdutInfo() {
 
             {/* 법 사항 */}
             <div
-              className="flex h-[38px]"
+              className="flex"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
                 className="flex text-[12px]"
                 style={{
-                  padding: '30px 20px',
+                  padding: '10px 20px',
                   borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
                   width: '300px',
+                  height: '100%',
                 }}
               >
                 법에 의한 인증, 허가 등을 받았음을 확인할 수 있는 경우 그에 대한
@@ -452,7 +447,7 @@ export default function ProdutInfo() {
 
             {/* 제조사 */}
             <div
-              className="flex h-[38px]"
+              className="flex"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -462,20 +457,21 @@ export default function ProdutInfo() {
                   borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
                   width: '300px',
+                  height: '100%',
                 }}
               >
                 제조사
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '596px', height: '100%' }}
               >
                 상품 상세 참조
               </p>
             </div>
 
             {/* as */}
-            <div className="flex h-[38px]">
+            <div className="flex">
               <h3
                 className="flex text-[12px]"
                 style={{
@@ -483,13 +479,14 @@ export default function ProdutInfo() {
                   borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
                   width: '300px',
+                  height: '100%',
                 }}
               >
                 AS 책임자와 전화번호
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '596px', height: '100%' }}
               >
                 상품 상세 참조
               </p>
@@ -511,7 +508,7 @@ export default function ProdutInfo() {
           >
             {/* 예상 배송 */}
             <div
-              className="flex h-[38px]"
+              className="flex"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -535,7 +532,7 @@ export default function ProdutInfo() {
 
             {/* 거래 약관 */}
             <div
-              className="flex h-[38px]"
+              className="flex "
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -560,7 +557,7 @@ export default function ProdutInfo() {
 
             {/* 제품 하자 */}
             <div
-              className="flex h-[38px]"
+              className="flex "
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -589,7 +586,7 @@ export default function ProdutInfo() {
 
             {/* 단순변심 */}
             <div
-              className="flex h-[38px]"
+              className="flex"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -617,7 +614,7 @@ export default function ProdutInfo() {
 
             {/* 재화 */}
             <div
-              className="flex h-[38px]"
+              className="flex "
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -642,7 +639,7 @@ export default function ProdutInfo() {
 
             {/* 대금 환불 */}
             <div
-              className="flex h-[38px]"
+              className="flex"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
@@ -673,7 +670,7 @@ export default function ProdutInfo() {
             </div>
 
             {/* 소비자피해보상 */}
-            <div className="flex h-[38px]">
+            <div className="flex ">
               <h3
                 className="flex text-[12px]"
                 style={{

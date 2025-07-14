@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import type { GnbItem } from '@/app/_lib/types/GnbItem';
-import Image from 'next/image';
 import Link from 'next/link';
 import SubProductMenu from './SubProductMenu';
 
@@ -73,7 +72,7 @@ export default function MobileMenu({
           className="absolute top-4 right-4 text-gray-500"
           onClick={onClose}
         >
-          <Image
+          <img
             src="/icons/plus-svgrepo-com.svg"
             width={32}
             height={32}
@@ -100,7 +99,7 @@ export default function MobileMenu({
                   onClick={() => toggleSubMenu(idx)}
                 >
                   {item.label}
-                  <Image
+                  <img
                     src="/icons/keyboard_arrow.svg"
                     width={25}
                     height={25}
@@ -122,9 +121,13 @@ export default function MobileMenu({
 
               {/* 2Depth */}
               {activeSubMenu === idx && item.sub && (
-                <ul className="ml-4 mt-2 pl-4 pb-[20px]">
+                <ul className="pb-[20px]" style={{ paddingLeft: '10px' }}>
                   {item.sub.map((subItem, subIdx) => (
-                    <li key={subItem.id} className="text-[#777]">
+                    <li
+                      key={subItem.id}
+                      className="text-[#777]"
+                      style={{ paddingTop: '20px', paddingBottom: '20px' }}
+                    >
                       {subItem.sub && subItem.sub.length > 0 ? (
                         <button
                           type="button"
@@ -132,17 +135,6 @@ export default function MobileMenu({
                           onClick={() => toggleDepth3(subIdx)}
                         >
                           {subItem.label}
-                          <Image
-                            src="/icons/keyboard_arrow.svg"
-                            width={20}
-                            height={20}
-                            alt="토글"
-                            className={`${
-                              activeSubItem === subIdx
-                                ? 'rotate-270'
-                                : 'rotate-90'
-                            }`}
-                          />
                         </button>
                       ) : (
                         <Link

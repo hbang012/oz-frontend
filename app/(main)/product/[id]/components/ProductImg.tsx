@@ -1,7 +1,6 @@
 'use client';
 
 import { Product } from '@/app/_lib/types/product';
-import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -71,7 +70,7 @@ export default function ProductImg() {
                 cursor: 'pointer',
               }}
             >
-              <Image
+              <img
                 src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
                 alt={`thumb-${idx}`}
                 width={135}
@@ -95,7 +94,7 @@ export default function ProductImg() {
 
       {/*대표이미지 */}
       <div style={{}}>
-        <Image
+        <img
           src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
           alt={product.name}
           width={550}

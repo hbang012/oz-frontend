@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import ProductDetailDesktop from './ProductDetailDesktop';
 import ProductDetailTablet from './ProductDetailTablet';
+import ProductDetailMobile from '@/app/(main)/product/[id]/ProductDetailMobile';
 
 export default function ProductDetailPage() {
   const [width, setWidth] = useState(
@@ -15,7 +16,7 @@ export default function ProductDetailPage() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  if (width < 768) return <ProductDetailTablet />;
+  if (width < 768) return <ProductDetailMobile />;
   if (width < 1024) return <ProductDetailTablet />;
   return <ProductDetailDesktop />;
 }

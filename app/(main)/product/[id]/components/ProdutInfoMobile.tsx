@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 const TABS = ['상품소개', '작업가이드', '교환/반품'] as const;
 type Tab = (typeof TABS)[number];
 
-export default function ProdutInfoTablet() {
+export default function ProdutInfoMobile() {
   // 상품별 선택
   const [activeTab, setActiveTab] = useState<Tab>('상품소개');
 
@@ -156,6 +156,7 @@ export default function ProdutInfoTablet() {
         style={{ padding: '0px 30px 0px 30px' }}
       >
         <div
+          className=""
           style={{
             paddingTop: '40px',
             paddingBottom: '50px',
@@ -173,28 +174,27 @@ export default function ProdutInfoTablet() {
           </div>
 
           <div
-            className="flex flex-col"
+            className=""
             style={{ border: '0.5px solid rgb(203, 203, 203)' }}
           >
             {/* 판매자 지정 택배사 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
                   padding: '10px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                 }}
               >
                 판매자 지정 택배사
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 CJ대한통운
               </p>
@@ -202,23 +202,23 @@ export default function ProdutInfoTablet() {
 
             {/* 반품 배송비 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
                   padding: '10px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                 }}
               >
                 반품 배송비
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 4,000원
               </p>
@@ -226,23 +226,23 @@ export default function ProdutInfoTablet() {
 
             {/* 교환 배송비 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
                   padding: '10px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                 }}
               >
                 교환 배송비
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 8,000원
               </p>
@@ -250,23 +250,23 @@ export default function ProdutInfoTablet() {
 
             {/* 보내실 곳 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
                   padding: '10px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                 }}
               >
                 보내실 곳
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 서울특별시 마포구 성미산로80 4,5층 (주)콘콘
               </p>
@@ -274,18 +274,17 @@ export default function ProdutInfoTablet() {
 
             {/* 요청 가능 기간 */}
             <div
-              className="flex items-center"
+              className="flex flex-col"
               style={{
                 borderBottom: '0.5px solid rgb(203, 203, 203)',
               }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
-                  padding: '30px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+                  padding: '10px 20px',
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                   height: '100%',
                 }}
               >
@@ -293,7 +292,7 @@ export default function ProdutInfoTablet() {
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 구매자 단순 변심은 상품 수령 후 7일 이내 (구매자 반품배송비
                 부담) 표시/광고와 상이, 상품하자의 경우 상품 수령 후 3개월 이내
@@ -303,14 +302,14 @@ export default function ProdutInfoTablet() {
             </div>
 
             {/* 반품/교환 불가능 사유 */}
-            <div className="flex items-center">
+            <div className="flex flex-col">
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
-                  padding: '60px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+                  padding: '10px 20px',
+
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                   height: '100%',
                 }}
               >
@@ -318,7 +317,7 @@ export default function ProdutInfoTablet() {
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 1.반품요청기간이 지난 경우 <br /> 2.구매자의 책임있는 사유로
                 상품 등이 멸실 또는 훼손된 경우 (단, 상품의 내용을 확인하기
@@ -373,23 +372,22 @@ export default function ProdutInfoTablet() {
           >
             {/* 품명 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
                   padding: '10px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                 }}
               >
                 품명
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 상품 상세 참조
               </p>
@@ -397,23 +395,22 @@ export default function ProdutInfoTablet() {
 
             {/* 반품 배송비 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
                   padding: '10px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                 }}
               >
                 모델명
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 상품 상세 참조
               </p>
@@ -421,16 +418,15 @@ export default function ProdutInfoTablet() {
 
             {/* 법 사항 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
-                  padding: '30px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+                  padding: '10px 20px',
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                   height: '100%',
                 }}
               >
@@ -438,8 +434,8 @@ export default function ProdutInfoTablet() {
                 사항
               </h3>
               <p
-                className="flex items-center text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                className="text-[#4f4f4f] text-[12px]"
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 상품 상세 참조
               </p>
@@ -447,44 +443,43 @@ export default function ProdutInfoTablet() {
 
             {/* 제조사 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
                   padding: '10px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                 }}
               >
                 제조사
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 상품 상세 참조
               </p>
             </div>
 
             {/* as */}
-            <div className="flex ">
+            <div className="flex flex-col">
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
                   padding: '10px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                 }}
               >
                 AS 책임자와 전화번호
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 상품 상세 참조
               </p>
@@ -506,23 +501,23 @@ export default function ProdutInfoTablet() {
           >
             {/* 예상 배송 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
                   padding: '10px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                 }}
               >
                 주문 이후 예상되는 배송기간
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 주문 시안 확정 후 15 ~ 55일 이내 발송
               </p>
@@ -530,23 +525,23 @@ export default function ProdutInfoTablet() {
 
             {/* 거래 약관 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
                 className="flex text-[12px]"
                 style={{
                   padding: '10px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                 }}
               >
                 거래에 관한 약관의 내용 또는 확인할 수 있는 방법
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 상품상세 페이지 및 페이지 하단의 이용약관 링크를 통해 확인할 수
                 있습니다.
@@ -555,16 +550,15 @@ export default function ProdutInfoTablet() {
 
             {/* 제품 하자 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
-                  padding: '45px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+                  padding: '15px 20px',
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                   height: '100%',
                 }}
               >
@@ -573,7 +567,7 @@ export default function ProdutInfoTablet() {
               </h3>
               <p
                 className="flex items-center text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 전자상거래등에서의소비자보호에관한법률 등에 의한 제품의 하자
                 또는 오배송 등으로 인한 청약철회의 경우에는 상품 수령 후 3개월
@@ -584,16 +578,15 @@ export default function ProdutInfoTablet() {
 
             {/* 단순변심 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
-                  padding: '30px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+                  padding: '15px 20px',
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                   height: '100%',
                 }}
               >
@@ -602,7 +595,7 @@ export default function ProdutInfoTablet() {
               </h3>
               <p
                 className="flex items-center text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 전자상거래 등에서의 소비자보호에 관한 법률 등에 의한 청약철회
                 제한 사유에 해당하는 경우 및 기타 객관적으로 이에 준하는 것으로
@@ -612,16 +605,15 @@ export default function ProdutInfoTablet() {
 
             {/* 재화 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
-                  padding: '20px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+                  padding: '10px 20px',
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                   height: '100%',
                 }}
               >
@@ -629,7 +621,7 @@ export default function ProdutInfoTablet() {
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 소비자분쟁해결기준(공정거래위원회 고시) 및 관계법령에 따릅니다.
               </p>
@@ -637,16 +629,16 @@ export default function ProdutInfoTablet() {
 
             {/* 대금 환불 */}
             <div
-              className="flex "
+              className="flex flex-col"
               style={{ borderBottom: '0.5px solid rgb(203, 203, 203)' }}
             >
               <h3
-                className="flex items-center text-[12px]"
+                className="text-[12px]"
                 style={{
-                  padding: '45px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+                  padding: '15px 20px',
+
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                   height: '100%',
                 }}
               >
@@ -656,7 +648,7 @@ export default function ProdutInfoTablet() {
               </h3>
               <p
                 className=" text-[#4f4f4f] text-[12px] flex items-center"
-                style={{ padding: '20px 20px', width: '596px' }}
+                style={{ padding: '20px 20px', width: '100%' }}
               >
                 주문취소 및 대금의 환불은 주문 내역 페이지에서 신청할 수 있으며,
                 전자상거래 등에서의 소비자보호에 관한 법률에 따라 소비자의
@@ -668,14 +660,14 @@ export default function ProdutInfoTablet() {
             </div>
 
             {/* 소비자피해보상 */}
-            <div className="flex ">
+            <div className="flex flex-col">
               <h3
-                className="flex text-[12px]"
+                className="text-[12px]"
                 style={{
-                  padding: '30px 20px',
-                  borderRight: '0.4px solid rgb(203, 203, 203)',
+                  padding: '15px 20px',
+
                   background: 'rgb(248, 248, 248)',
-                  width: '300px',
+                  width: '100%',
                   height: '100%',
                 }}
               >
@@ -684,7 +676,7 @@ export default function ProdutInfoTablet() {
               </h3>
               <p
                 className="flex items-center text-[#4f4f4f] text-[12px]"
-                style={{ padding: '10px 20px', width: '596px' }}
+                style={{ padding: '10px 20px', width: '100%' }}
               >
                 소비자분쟁해결기준(공정거래위원회 고시) 및 관계법령에 따릅니다.
               </p>
