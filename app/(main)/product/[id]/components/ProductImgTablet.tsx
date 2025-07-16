@@ -45,7 +45,14 @@ export default function ProductImgTablet() {
       >
         <ul>
           {images.map((url, idx) => (
-            <SwiperSlide key={idx}>
+            <SwiperSlide
+              key={idx}
+              style={{
+                background: '#f3efe9',
+                width: '100%',
+                height: '100%',
+              }}
+            >
               <li>
                 <div className="w-full h-[400px] rounded-[20px] bg-[#f3efe9]">
                   <img

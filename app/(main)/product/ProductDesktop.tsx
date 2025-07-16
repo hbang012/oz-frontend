@@ -98,7 +98,7 @@ export default function ProductDesktop() {
           {filtered.length === 0 ? (
             <div
               className="flex justify-center items-center text-[#999] font-bold text-[14px]"
-              style={{ height: '1100px' }}
+              style={{ height: '900px' }}
             >
               상품을 준비 중입니다.
             </div>
