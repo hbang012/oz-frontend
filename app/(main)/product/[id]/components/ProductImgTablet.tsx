@@ -54,7 +54,7 @@ export default function ProductImgTablet() {
               }}
             >
               <li style={{ width: '100%', height: '100%' }}>
-                <div className="w-full h-[400px] rounded-[20px] bg-[#f3efe9]">
+                <div className="rounded-[20px] bg-[#f3efe9]">
                   <img
                     src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
                     alt={`slide-${idx}`}
