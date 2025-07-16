@@ -3,7 +3,6 @@
 import { useLogin } from '@/app/(auth)/login/LoginContext';
 import MobileMenu from '@/app/components/home/header/SubMenu';
 import Search from '@/app/components/home/header/Search';
-import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 
@@ -25,7 +24,7 @@ export default function Utility() {
           className="border-0 bg-[#f6f6f6] rounded-[50%] w-[40px] h-[40px] max-md:bg-white"
           onClick={() => setIsSearchOpen(true)}
         >
-          <Image
+          <img
             src={'/icons/sharch.svg'}
             width={100}
             height={100}
@@ -48,7 +47,7 @@ export default function Utility() {
         className="border-0 bg-[#f6f6f6] rounded-[50%] w-[40px] h-[40px] max-md:bg-white"
         onClick={openLogin}
       >
-        <Image
+        <img
           src={'/icons/cart.svg'}
           width={100}
           height={100}
@@ -72,7 +71,7 @@ export default function Utility() {
         className="hidden max-md:block border-0 rounded-[50%] w-[40px] h-[40px]"
         onClick={() => setIsMenuOpen(true)}
       >
-        <Image
+        <img
           src={'/icons/menu-hamburger.svg'}
           width={24}
           height={24}

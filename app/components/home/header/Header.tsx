@@ -1,6 +1,5 @@
 import Gnb from '@/app/components/home/header/Gnb';
 import Utility from '@/app/components/home/header/Utility';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header() {
@@ -10,7 +9,7 @@ export default function Header() {
         <div className="flex items-center">
           <h1>
             <Link href={'/'}>
-              <Image
+              <img
                 src={'/icons/logo.png'}
                 alt="오즈의제작소"
                 width={195}

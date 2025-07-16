@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 export default function InfoConnect() {
   return (
     <div className="max-w-[1200px] mx-auto p-[100px_0px_0px] max-sm:p-[40px_0px]">
@@ -21,12 +19,11 @@ export default function InfoConnect() {
           </div>
           <div className="relative z-10 pt-[10px] border-t-1 border-white flex">
             <p className="text-[14px] text-white">자세히 보기</p>
-            <Image
+            <img
               src={'/icons/arrow-2.svg'}
               alt=""
               width={15}
               height={15}
-              priority
               className="ml-[15px]"
             />
           </div>
@@ -48,7 +45,7 @@ export default function InfoConnect() {
           </div>
           <div className="relative z-10 pt-[10px] border-t-1 border-white flex">
             <p className="text-[14px] text-white">자세히 보기</p>
-            <Image
+            <img
               src={'/icons/arrow-2.svg'}
               alt=""
               width={15}

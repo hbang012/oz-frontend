@@ -1,7 +1,6 @@
 'use client';
 
 import { PricingResult } from '@/app/_lib/types/PricingResult';
-import Image from 'next/image';
 
 interface Props {
   pricing: PricingResult | null;

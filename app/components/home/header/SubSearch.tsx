@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -29,7 +28,7 @@ export default function SubSearch({ onClose, isSearchOpen }: SubSearchProps) {
     >
       <div className="pt-[5px] relative">
         <form>
-          <Image
+          <img
             src={'/icons/sharch-gray.svg'}
             alt=""
             width={15}
@@ -54,7 +53,7 @@ export default function SubSearch({ onClose, isSearchOpen }: SubSearchProps) {
         }`}
             onClick={onClose}
           >
-            <Image src={'/icons/colse-2.svg'} width={16} height={16} alt="" />
+            <img src={'/icons/colse-2.svg'} width={16} height={16} alt="" />
           </button>
         </form>
       </div>

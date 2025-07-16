@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import type { GnbItem } from '@/app/_lib/types/GnbItem';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function SubProductMenu({
   items,
@@ -31,7 +30,7 @@ export default function SubProductMenu({
                     className="hover:font-bold flex items-center"
                   >
                     {item.label}
-                    <Image
+                    <img
                       src="/icons/gray_arrow.svg"
                       width={6}
                       height={6}

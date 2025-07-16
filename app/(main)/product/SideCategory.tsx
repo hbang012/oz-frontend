@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import type { GnbItem } from '@/app/_lib/types/GnbItem';
-import Image from 'next/image';
 
 export default function SideCategory() {
   const [mediumTabs, setMediumTabs] = useState<GnbItem[]>([]);
@@ -135,7 +134,7 @@ export default function SideCategory() {
           `}
                 >
                   <span>{medium.label}</span>
-                  <Image
+                  <img
                     src="/icons/keyboard_arrow.svg"
                     width={16}
                     height={16}

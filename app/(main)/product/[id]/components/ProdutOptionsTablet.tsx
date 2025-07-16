@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
 interface OptionGroup {
@@ -76,7 +75,7 @@ export default function ProdutOptionsTablet({ productId }: ProdutOptionsProps) {
                 <p className=" text-[16px]" style={{ color: '#d8d8d8' }}>
                   {selected[group.group_id] ?? '옵션선택'}
                 </p>
-                <Image
+                <img
                   src={'/icons/keyboard_arrow.svg'}
                   width={25}
                   height={25}

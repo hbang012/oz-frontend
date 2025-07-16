@@ -1,7 +1,6 @@
 'use client';
 
 import type { GnbItem } from '@/app/_lib/types/GnbItem';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -31,7 +30,7 @@ export default function ProductMenu({
               className="group flex items-center justify-between hover:font-bold hover:text-point1"
             >
               {item.label}
-              <Image
+              <img
                 src={'/icons/keyboard_arrow.svg'}
                 width={24}
                 height={24}

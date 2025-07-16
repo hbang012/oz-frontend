@@ -1,7 +1,6 @@
 'use client';
 
 import { PricingResult } from '@/app/_lib/types/PricingResult';
-import Image from 'next/image';
 import { useState } from 'react';
 
 interface Props {
@@ -101,7 +100,7 @@ export default function EstimateTablet({ pricing }: Props) {
                       height: '48px',
                     }}
                   >
-                    <Image
+                    <img
                       src={'/icons/onBookmark.svg'}
                       width={20}
                       height={20}

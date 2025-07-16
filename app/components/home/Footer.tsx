@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -32,12 +31,11 @@ export default function Footer() {
         {/* 왼쪽 슬라이드 */}
         <div className="w-[320px] rounded-[10px] bg-[#f6f6f6] p-[20px_10px] max-md:hidden">
           <div className="flex gap-[20px] pb-[14px] border-b-1 border-[#d8d8d8]">
-            <Image
+            <img
               src={'/icons/ozicon.svg'}
               width={28}
               height={43}
               alt=""
-              priority
               className="h-[39px] w-[24px]"
             />
             <div className="">
@@ -110,12 +108,11 @@ export default function Footer() {
           </p>
 
           <div className="flex">
-            <Image
+            <img
               src={'/icons/inipay.svg'}
               width={40}
               height={40}
               alt=""
-              priority
               className="h-[35px] w-[35px] mt-[18px]"
             />
             <p className="text-[12px] text-[#999] mt-[14px] ml-[10px]">

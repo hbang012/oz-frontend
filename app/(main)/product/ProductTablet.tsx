@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import Pagination from '@/app/components/Pagination';
 import SortBar from '@/app/(main)/product/SortBar';
 import ProductCategoryTabs from '@/app/(main)/product/ProductTab';
@@ -108,19 +107,18 @@ export default function ProductTablet() {
                       className="absolute"
                       style={{ top: '6%', right: '7%' }}
                     >
-                      <Image
+                      <img
                         src={'/icons/Bookmark.svg'}
                         width={18}
                         height={18}
                         alt=""
                       />
                     </span>
-                    <Image
+                    <img
                       src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
                       alt={product.name}
                       width={291}
                       height={291}
-                      priority
                       sizes="291px"
                       style={{
                         objectFit: 'cover',

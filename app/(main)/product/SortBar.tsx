@@ -3,7 +3,6 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import type { Product } from '@/app/_lib/types/product';
-import Image from 'next/image';
 
 type SortKey =
   | 'DEFAULT'
@@ -101,7 +100,7 @@ export default function SortBar({ sort, setSort }: SortBarProps) {
         >
           <span className="flex">
             <p className="text-[14px] text-[#000]">{labels[sort]}</p>
-            <Image
+            <img
               src={'/icons/keyboard_arrow.svg'}
               width={20}
               height={20}
