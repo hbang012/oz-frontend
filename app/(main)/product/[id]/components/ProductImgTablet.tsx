@@ -44,19 +44,19 @@ export default function ProductImgTablet() {
         style={{ borderRadius: '20px' }}
       >
         <ul>
-          {images.map((url, idx) => (
+          {images.map((idx) => (
             <SwiperSlide
               key={idx}
               style={{
                 background: '#f3efe9',
-                width: '100%',
-                height: '100%',
+                width: '400px',
+                height: '400px',
               }}
             >
-              <li>
+              <li style={{ width: '100%', height: '100%' }}>
                 <div className="w-full h-[400px] rounded-[20px] bg-[#f3efe9]">
                   <img
-                    src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
                     alt={`slide-${idx}`}
                     width={550}
                     height={550}
