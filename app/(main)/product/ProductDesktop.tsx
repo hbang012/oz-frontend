@@ -65,8 +65,6 @@ export default function ProductDesktop() {
   const pagedData = filtered.slice(startIndex, startIndex + itemsPerPage);
 
   if (!data) return <p>로딩 중...</p>;
-  if (filtered.length === 0)
-    return <main style={{ height: '1100px' }}>상품을 준비 중입니다.</main>;
 
   if (filtered.length === 0) {
     return (
