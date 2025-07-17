@@ -59,7 +59,7 @@ export default function BlogDetailMobile() {
     >
       {/* 상단 */}
       <div
-        className="flex justify-between"
+        className="flex flex-col"
         style={{
           margin: '50px auto 80px',
           gap: '0px 30px',
@@ -71,12 +71,17 @@ export default function BlogDetailMobile() {
           alt={post.title}
           width={600}
           height={340}
-          className="rounded-[20px]"
+          className="rounded-[20px] w-full"
         />
 
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col">
           <span>
-            <h2 className="text-[#000] text-[24px] font-bold">{post.title}</h2>
+            <h2
+              className="text-[#000] text-[24px] font-bold"
+              style={{ marginTop: '30px' }}
+            >
+              {post.title}
+            </h2>
             <p className="text-[16px]">{post.description}</p>
           </span>
 
@@ -86,7 +91,10 @@ export default function BlogDetailMobile() {
         </div>
 
         {/* 버튼 */}
-        <div className="flex flex-col items-end" style={{ gap: '70%' }}>
+        <div
+          className="flex flex-col items-start"
+          style={{ gap: '70%', marginTop: '50px' }}
+        >
           <div className="flex" style={{ gap: '10px' }}>
             <img src={'/icons/D-bookmark.svg'} alt="" width={40} height={40} />
             <img src={'/icons/D-Share.svg'} alt="" width={40} height={40} />
@@ -126,21 +134,15 @@ export default function BlogDetailMobile() {
       {/* 내용 */}
       <div
         style={{
-          padding: '60px 104px 0px 79px',
+          padding: '60px 20px 0px 20px',
           borderTop: '5px solid rgb(238, 238, 238)',
         }}
       >
         <div>
-          <p className="text-[16px]">
-            어떤 굿즈를 만들면 좋을지, <br />
-            디자인은 어떻게 하는게 좋을지,
-            <br />
-            어디서 제작하고 어떤 옵션을 선택하는 게 좋을지,
-            <br />
-            어떻게 포장하면 좋을지
-            <br />
+          <p className="text-[14px]">
+            어떤 굿즈를 만들면 좋을지, 디자인은 어떻게 하는게 좋을지, 어디서
+            제작하고 어떤 옵션을 선택하는 게 좋을지, 어떻게 포장하면 좋을지
             고민이라면?!
-            <br />
           </p>
 
           <img
@@ -151,7 +153,7 @@ export default function BlogDetailMobile() {
             className="w-[100px] h-[20px]"
             style={{ padding: '20px 0px' }}
           />
-          <p>
+          <p className="text-[14px]">
             굿즈 제작 올인원 전문가들이 있는 오즈의제작소에 연락주세요!
             <br />
             cs@ozjejakso.com

@@ -59,7 +59,7 @@ export default function BlogDetailTablet() {
     >
       {/* 상단 */}
       <div
-        className="flex justify-between"
+        className="flex flex-col"
         style={{
           margin: '50px auto 80px',
           gap: '0px 30px',
@@ -71,12 +71,17 @@ export default function BlogDetailTablet() {
           alt={post.title}
           width={600}
           height={340}
-          className="rounded-[20px]"
+          className="rounded-[20px] w-full"
         />
 
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col">
           <span>
-            <h2 className="text-[#000] text-[24px] font-bold">{post.title}</h2>
+            <h2
+              className="text-[#000] text-[24px] font-bold"
+              style={{ marginTop: '30px' }}
+            >
+              {post.title}
+            </h2>
             <p className="text-[16px]">{post.description}</p>
           </span>
 
@@ -86,7 +91,10 @@ export default function BlogDetailTablet() {
         </div>
 
         {/* 버튼 */}
-        <div className="flex flex-col items-end" style={{ gap: '70%' }}>
+        <div
+          className="flex flex-col items-start"
+          style={{ gap: '70%', marginTop: '50px' }}
+        >
           <div className="flex" style={{ gap: '10px' }}>
             <img src={'/icons/D-bookmark.svg'} alt="" width={40} height={40} />
             <img src={'/icons/D-Share.svg'} alt="" width={40} height={40} />

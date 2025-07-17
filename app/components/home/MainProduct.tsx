@@ -1,6 +1,7 @@
 'use client';
 
 import MainProductSlider from '@/app/components/home/MainProductSlider';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 type Product = {
@@ -79,44 +80,46 @@ export default function MainProduct() {
       <div className="pt-[60px] hidden md:block fade-up2">
         <ul className="grid grid-cols-4 grid-rows-2 gap-[60px_13px]">
           {data?.slice(0, 8).map((product) => (
-            <li
+            <Link
               key={product.product_id}
-              className="group cursor-pointer overflow-hidden rounded-[8px] max-w-[900px] "
+              href={`${process.env.NEXT_PUBLIC_API_URL}/product/${product.product_id}`}
             >
-              <div className="relative w-[290px] h-[386px] bg-[#f6f6f6] flex justify-center items-center">
-                {/* 상품 태그 */}
-                <div className="absolute left-[16px] bottom-[17px] flex gap-[4px]">
-                  <div className="w-auto h-[28px] p-[3px_6px] rounded-[5px] bg-black text-white text-[13px]">
-                    {product.category_medium_name}
+              <li className="group cursor-pointer overflow-hidden rounded-[8px] max-w-[900px] ">
+                <div className="relative w-[290px] h-[386px] bg-[#f6f6f6] flex justify-center items-center">
+                  {/* 상품 태그 */}
+                  <div className="absolute left-[16px] bottom-[17px] flex gap-[4px]">
+                    <div className="w-auto h-[28px] p-[3px_6px] rounded-[5px] bg-black text-white text-[13px]">
+                      {product.category_medium_name}
+                    </div>
+                    <div className="w-auto h-[28px] p-[3px_6px] rounded-[5px] bg-white text-[13px]">
+                      최소{product.quantity_range}
+                    </div>
                   </div>
-                  <div className="w-auto h-[28px] p-[3px_6px] rounded-[5px] bg-white text-[13px]">
-                    최소{product.quantity_range}
-                  </div>
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
+                    alt={product.name}
+                    width={232}
+                    height={232}
+                    className="transition-transform duration-300 ease-in-out group-hover:scale-105 w-[80%] "
+                  />
                 </div>
-                <img
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
-                  alt={product.name}
-                  width={232}
-                  height={232}
-                  className="transition-transform duration-300 ease-in-out group-hover:scale-105 w-[80%] "
-                />
-              </div>
 
-              {/* 상품 설명 */}
-              <div className="mt-[10px]">
-                <h2 className=" font-bold text-[18px] text-[#000]">
-                  {product.name}
-                </h2>
-                <p className=" font-bold text-[18px] text-[#777]">
-                  최소{' '}
-                  <span>
-                    {product.supply_price
-                      ? `${Number(product.supply_price).toLocaleString()}원~`
-                      : '1234원~'}
-                  </span>
-                </p>
-              </div>
-            </li>
+                {/* 상품 설명 */}
+                <div className="mt-[10px]">
+                  <h2 className=" font-bold text-[18px] text-[#000]">
+                    {product.name}
+                  </h2>
+                  <p className=" font-bold text-[18px] text-[#777]">
+                    최소{' '}
+                    <span>
+                      {product.supply_price
+                        ? `${Number(product.supply_price).toLocaleString()}원~`
+                        : '1234원~'}
+                    </span>
+                  </p>
+                </div>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { BlogPost } from '@/app/_lib/types/BlogPost';
 import { useEffect, useState } from 'react';
@@ -71,7 +70,7 @@ export default function BlogPc() {
                 href={`/blog/${post.post_id}`}
                 className="border rounded-[8px] border-[#d8d8d8]"
               >
-                <Image
+                <img
                   src={`${process.env.NEXT_PUBLIC_API_URL}${post.thumbnail_url}`}
                   alt={post.title}
                   width={285}

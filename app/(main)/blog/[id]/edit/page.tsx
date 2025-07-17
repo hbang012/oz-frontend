@@ -2,7 +2,6 @@
 
 import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 
 export default function BlogEditPage() {
   const router = useRouter();
@@ -120,12 +119,13 @@ export default function BlogEditPage() {
             >
               썸네일 미리보기
             </label>
-            <Image
+            <img
               src={`${process.env.NEXT_PUBLIC_API_URL}${form.thumbnail_url}`}
               alt="썸네일"
               width={300}
               height={160}
               className="object-cover rounded border"
+              style={{ borderColor: '#ddd' }}
             />
           </div>
 

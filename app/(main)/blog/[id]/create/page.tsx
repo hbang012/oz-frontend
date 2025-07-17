@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -76,7 +75,7 @@ export default function BlogCreatePage() {
           {/* 기본 썸네일 미리보기 */}
           <div className="flex flex-col" style={{ gap: '10px' }}>
             <label style={{ color: '#d8d8d8' }}>썸네일 (기본)</label>
-            <Image
+            <img
               src={`${process.env.NEXT_PUBLIC_API_URL}${DEFAULT_THUMBNAIL}`}
               width={200}
               height={100}
