@@ -82,7 +82,7 @@ export default function MainProduct() {
           {data?.slice(0, 8).map((product) => (
             <Link
               key={product.product_id}
-              href={`${process.env.NEXT_PUBLIC_API_URL}/product/${product.product_id}`}
+              href={`/product/${product.product_id}`}
             >
               <li className="group cursor-pointer overflow-hidden rounded-[8px] max-w-[900px] ">
                 <div className="relative w-[290px] h-[386px] bg-[#f6f6f6] flex justify-center items-center">
