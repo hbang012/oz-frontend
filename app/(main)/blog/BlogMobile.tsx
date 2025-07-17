@@ -65,7 +65,7 @@ export default function BlogMobile() {
                     width: '100%',
                   }}
                 />
-                <h2 className="p-[16px] text-[18px] text-[#000] font-bold h-[54px]">
+                <h2 className="p-[16px] text-[18px] text-[#000] font-bold">
                   {post.title}
                 </h2>
               </Link>

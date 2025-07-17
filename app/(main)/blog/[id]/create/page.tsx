@@ -86,7 +86,7 @@ export default function BlogCreatePage() {
           </div>
 
           {/* 본문 */}
-          <textarea
+          {/* <textarea
             placeholder="본문"
             rows={6}
             value={form.description}
@@ -94,7 +94,7 @@ export default function BlogCreatePage() {
             className="w-full p-2 border rounded-[8px] text-[14px]"
             style={{ borderColor: '#ddd' }}
             required
-          />
+          /> */}
 
           {/* 등록버튼 */}
           <div className="flex justify-end items-end " style={{ gap: '10px' }}>

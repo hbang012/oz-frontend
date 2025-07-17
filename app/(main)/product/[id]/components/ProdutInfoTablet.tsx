@@ -82,19 +82,19 @@ export default function ProdutInfoTablet() {
   };
 
   return (
-    <div style={{ padding: ' 60px 0px 20px 0px' }}>
+    // style={{ padding: ' 30px 0px 20px 0px' }}
+    <div>
       <div
         ref={tabRef}
         className="flex"
         style={{
-          position: isSticky ? 'fixed' : 'static',
-          top: isSticky ? 60 : undefined,
+          position: isSticky ? 'sticky' : 'sticky',
+          top: isSticky ? '60px' : '60px',
           left: '0',
           right: '0',
           backgroundColor: isSticky ? '#fff' : 'transparent',
           zIndex: isSticky ? 20 : 'auto',
           boxShadow: isSticky ? '0 2px 8px rgba(0,0,0,0.1)' : 'none',
-          height: '60px',
         }}
       >
         {TABS.map((tab) => {
@@ -142,7 +142,7 @@ export default function ProdutInfoTablet() {
 
         {/* 여기에 아이템별 이미지 */}
         <img
-          src={`http://localhost:3001${product.image_url}`}
+          src={`${process.env.NEXT_PUBLIC_API_URL}${product.image_url}`}
           alt={product.name}
           width={200}
           height={200}

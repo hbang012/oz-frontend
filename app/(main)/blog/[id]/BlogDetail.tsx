@@ -1,7 +1,6 @@
 'use client';
 
 import { BlogPost } from '@/app/_lib/types/BlogPost';
-import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
@@ -67,12 +66,11 @@ export default function BlogDetail() {
           padding: '0px 20px',
         }}
       >
-        <Image
+        <img
           src={`${process.env.NEXT_PUBLIC_API_URL}${post.thumbnail_url}`}
           alt={post.title}
           width={600}
           height={340}
-          priority
           className="rounded-[20px]"
         />
 
@@ -90,13 +88,8 @@ export default function BlogDetail() {
         {/* 버튼 */}
         <div className="flex flex-col items-end" style={{ gap: '70%' }}>
           <div className="flex" style={{ gap: '10px' }}>
-            <Image
-              src={'/icons/D-bookmark.svg'}
-              alt=""
-              width={40}
-              height={40}
-            />
-            <Image src={'/icons/D-Share.svg'} alt="" width={40} height={40} />
+            <img src={'/icons/D-bookmark.svg'} alt="" width={40} height={40} />
+            <img src={'/icons/D-Share.svg'} alt="" width={40} height={40} />
           </div>
 
           <div className="flex" style={{ gap: '10px', margin: '10px 0px' }}>
@@ -150,12 +143,11 @@ export default function BlogDetail() {
             <br />
           </p>
 
-          <Image
+          <img
             src={'/icons/logo.png'}
             alt=""
             width={195}
             height={39}
-            priority
             className="w-[100px] h-[20px]"
             style={{ padding: '20px 0px' }}
           />

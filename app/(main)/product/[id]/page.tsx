@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import ProductDetailDesktop from './ProductDetailDesktop';
-import ProductDetailTablet from './ProductDetailTablet';
 import ProductDetailMobile from '@/app/(main)/product/[id]/ProductDetailMobile';
+import ProductDetailTablet from '@/app/(main)/product/[id]/ProductDetailTablet';
 
 export default function ProductDetailPage() {
   const [width, setWidth] = useState(
