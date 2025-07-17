@@ -32,17 +32,6 @@ export default function SearchResults() {
     router.replace(`${pathname}?${params.toString()}`);
   };
 
-  // 필터
-  const filteredData = Array.isArray(gnb)
-    ? gnb.filter((item) => {
-        const matchKeyword = item.label
-          .toLowerCase()
-          .includes(keyword.toLowerCase());
-        const matchType = type === 'all' || item.type === type;
-        return matchKeyword && matchType;
-      })
-    : [];
-
   // 데이터 가져오기
   useEffect(() => {
     setLoading(true);
