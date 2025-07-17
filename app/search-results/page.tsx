@@ -1,7 +1,6 @@
 'use client';
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import gnb from '@/app/components/home/header/Gnb';
 import MainLayout from '@/app/(main)/layout';
 import type { BlogPost } from '@/app/_lib/types/BlogPost';
 import type { Product } from '@/app/_lib/types/product';
