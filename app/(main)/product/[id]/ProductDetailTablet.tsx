@@ -87,7 +87,7 @@ export default function ProductDetailTablet() {
       </div>
 
       <div>
-        {/* 아이템별 구매*/}
+        {/* 아이템별 구매 */}
         <ProductPayTablet
           selectedOptions={selectedOptions}
           deliveryMethod={deliveryMethod}

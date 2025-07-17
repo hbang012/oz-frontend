@@ -117,7 +117,7 @@ export default function Estimate({ pricing }: Props) {
                 style={{
                   borderColor: '#d8d8d8',
                   padding: '10px 13px',
-                  width: '100%',
+                  width: '120px',
                   height: '48px',
                   color: '#5749c7',
                 }}
@@ -131,7 +131,7 @@ export default function Estimate({ pricing }: Props) {
                 style={{
                   borderColor: '#d8d8d8',
                   padding: '10px 13px',
-                  width: '100%',
+                  width: '120px',
                   height: '48px',
                   color: '#5749c7',
                 }}

@@ -2,7 +2,7 @@
 
 import { Product } from '@/app/_lib/types/product';
 import { useParams } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 const TABS = ['상품소개', '작업가이드', '교환/반품'] as const;
 type Tab = (typeof TABS)[number];
@@ -48,11 +48,16 @@ export default function ProdutInfoTablet() {
   }, [productId]);
 
   // 초기 위치 계산
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!product) return;
     const el = tabRef.current;
     if (!el) return;
-    stickyThresh.current = el.offsetTop - HEADER_HEIGHT;
+
+    requestAnimationFrame(() => {
+      const rect = el.getBoundingClientRect();
+      const scrollTop = window.scrollY;
+      stickyThresh.current = rect.top + scrollTop - HEADER_HEIGHT;
+    });
   }, [product]);
 
   // 스크롤 핸들러
@@ -77,18 +82,19 @@ export default function ProdutInfoTablet() {
   };
 
   return (
-    <div style={{ padding: ' 120px 0px 20px 0px' }}>
+    <div style={{ padding: ' 60px 0px 20px 0px' }}>
       <div
         ref={tabRef}
         className="flex"
         style={{
           position: isSticky ? 'fixed' : 'static',
-          top: isSticky ? HEADER_HEIGHT : undefined,
+          top: isSticky ? 60 : undefined,
           left: '0',
           right: '0',
           backgroundColor: isSticky ? '#fff' : 'transparent',
           zIndex: isSticky ? 20 : 'auto',
           boxShadow: isSticky ? '0 2px 8px rgba(0,0,0,0.1)' : 'none',
+          height: '60px',
         }}
       >
         {TABS.map((tab) => {
@@ -100,7 +106,7 @@ export default function ProdutInfoTablet() {
               onClick={() => handleClick(tab)}
               className="flex items-center justify-center text-[17px]"
               style={{
-                height: '50px',
+                height: '60px',
                 width: '100%',
                 backgroundColor: isActive ? '#6b59f6' : 'transparent',
                 color: isActive ? '#fff' : '#777',

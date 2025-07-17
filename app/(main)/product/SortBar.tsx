@@ -35,7 +35,8 @@ export default function SortBar({ sort, setSort }: SortBarProps) {
     if (currentCategory) params.set('category', currentCategory);
     if (sort !== 'DEFAULT') params.set('sort', sort);
 
-    fetch(`http://localhost:3001/product?${params.toString()}`)
+    // fetch(`http://localhost:3001/product?${params.toString()}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/product?${params.toString()}`)
       .then((res) => res.json())
       .then((list: Product[]) => {
         // 카테고리 필터

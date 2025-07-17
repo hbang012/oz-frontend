@@ -36,12 +36,14 @@ export default function MainProductSlider() {
   // }, []);
 
   // 4개씩그룹
-  const groupedProducts: Product[][] = [];
-  if (data) {
-    for (let i = 0; i < data.length; i += 4) {
-      groupedProducts.push(data.slice(i, i + 4));
-    }
+const groupedProducts: Product[][] = [];
+if (data) {
+  const limited = data.slice(0, 8);
+  for (let i = 0; i < limited.length; i += 4) {
+    groupedProducts.push(limited.slice(i, i + 4));
   }
+}
+
 
   return (
     <div className="px-[25%] max-sm:px-[10px] fade-up2">
