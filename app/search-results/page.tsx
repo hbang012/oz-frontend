@@ -65,10 +65,7 @@ export default function SearchResults() {
 
   return (
     <MainLayout>
-      <main
-        className="max-w-[1200px] mx-auto h-[900px]"
-        style={{ padding: '50px 20px' }}
-      >
+      <main className="max-w-[1200px] mx-auto" style={{ padding: '50px 20px' }}>
         {/* 제목 */}
         <div className="">
           <h1 className="text-[24px] p-[50px_0px_35px] font-bold leading-[36px]">
@@ -116,7 +113,7 @@ export default function SearchResults() {
                     className="flex flex-col border rounded-[8px] border-[#d8d8d8]"
                   >
                     <img
-                      src={post.thumbnail_url}
+                      src={`${process.env.NEXT_PUBLIC_API_URL}${post.thumbnail_url}`}
                       alt={post.title}
                       width={285}
                       height={161}
@@ -155,7 +152,7 @@ export default function SearchResults() {
                     }}
                   >
                     <img
-                      src={item.image_url}
+                      src={`${process.env.NEXT_PUBLIC_API_URL}${item.image_url}`}
                       alt={item.name}
                       width={291}
                       height={291}
