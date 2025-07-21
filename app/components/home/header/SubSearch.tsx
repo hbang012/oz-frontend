@@ -16,7 +16,7 @@ export default function SubSearch({ onClose, isSearchOpen }: SubSearchProps) {
     if (event.key === 'Enter') {
       event.preventDefault(); // 기본 이벤트 방지
       if (query.trim() !== '') {
-        router.push(`/search-results?page=${encodeURIComponent(query)}`);
+        router.push(`/search-results?keyword=${encodeURIComponent(query)}`);
       }
     }
   };

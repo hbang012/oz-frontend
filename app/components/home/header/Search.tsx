@@ -20,7 +20,7 @@ export default function Search({
 
   const handleSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      router.push(`/search-results?page=${query}`);
+      router.push(`/search-results?keyword=${encodeURIComponent(query)}`);
     }
   };
 
