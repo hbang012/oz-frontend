@@ -36,28 +36,50 @@ export default function SearchResults() {
     setLoading(true);
 
     if (type === 'blog') {
+      // 블로그만
       fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog`)
-        .then((res) => res.json())
-        .then((data: BlogPost[]) => {
-          const filtered = data.filter((post) =>
-            post.title.toLowerCase().includes(keyword.toLowerCase())
+        .then((res) => res.json() as Promise<BlogPost[]>)
+        .then((data) => {
+          const filtered = data.filter((b: BlogPost) =>
+            b.title.toLowerCase().includes(keyword.toLowerCase())
           );
           setBlogs(filtered);
           setProducts([]);
         })
         .finally(() => setLoading(false));
-    } else {
+    } else if (type === 'goods') {
+      // 굿즈만
       fetch(`${process.env.NEXT_PUBLIC_API_URL}/product`)
-        .then((res) => res.json())
-        .then((data: Product[]) => {
-          const filtered =
-            type === 'goods'
-              ? data.filter((item) =>
-                  item.name.toLowerCase().includes(keyword.toLowerCase())
-                )
-              : data;
+        .then((res) => res.json() as Promise<Product[]>)
+        .then((data) => {
+          const filtered = data.filter((p: Product) =>
+            p.name.toLowerCase().includes(keyword.toLowerCase())
+          );
           setProducts(filtered);
           setBlogs([]);
+        })
+        .finally(() => setLoading(false));
+    } else {
+      // 전체(all): 상품 + 블로그
+      Promise.all([
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/product`).then((res) =>
+          res.json()
+        ) as Promise<Product[]>,
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog`).then((res) =>
+          res.json()
+        ) as Promise<BlogPost[]>,
+      ])
+        .then(([productsData, blogsData]: [Product[], BlogPost[]]) => {
+          setProducts(
+            productsData.filter((p: Product) =>
+              p.name.toLowerCase().includes(keyword.toLowerCase())
+            )
+          );
+          setBlogs(
+            blogsData.filter((b: BlogPost) =>
+              b.title.toLowerCase().includes(keyword.toLowerCase())
+            )
+          );
         })
         .finally(() => setLoading(false));
     }
