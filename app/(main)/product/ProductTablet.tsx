@@ -88,7 +88,6 @@ export default function ProductTablet() {
         <div style={{ width: '100%' }}>
           {/* 필터 옵션 */}
           <SortBar sort={sortKey} setSort={setSortKey} />
-          <SortBar sort={sortKey} setSort={setSortKey} />
           {filtered.length === 0 ? (
             <div
               className="flex justify-center items-center text-[#999] font-bold text-[14px]"
