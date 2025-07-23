@@ -58,6 +58,7 @@ export default function SubProductMenu({
                         <li key={sub.id} className="mb-2">
                           <Link
                             href={sub.href ?? ''}
+                            onClick={onClose}
                             className="hover:text-point1"
                           >
                             {sub.label}
