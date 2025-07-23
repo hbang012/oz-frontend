@@ -110,7 +110,11 @@ export default function MobileMenu({
                   />
                 </button>
               ) : (
-                <Link href={item.href ?? ''} className="block">
+                <Link
+                  href={item.href ?? ''}
+                  className="block"
+                  onClick={onClose}
+                >
                   {item.label}
                 </Link>
               )}
@@ -119,7 +123,7 @@ export default function MobileMenu({
               {activeSubMenu === idx && item.sub && (
                 <ul className="pb-[20px]" style={{ paddingLeft: '10px' }}>
                   {/* 추가한 부분 */}
-                  <li key={`main-${item.id}`}>
+                  <li key={`main-${item.id}`} className="">
                     <Link
                       href={'/product'}
                       onClick={onClose}
@@ -144,7 +148,11 @@ export default function MobileMenu({
                           {subItem.label}
                         </button>
                       ) : (
-                        <Link href={subItem.href ?? ''} className="block">
+                        <Link
+                          href={subItem.href ?? ''}
+                          className="block"
+                          onClick={onClose}
+                        >
                           {subItem.label}
                         </Link>
                       )}
