@@ -95,7 +95,7 @@ export default function Dialog({ setActiveTab }: DialogProps) {
       </div>
 
       {/* 쳇봇 대화 구현 */}
-      <div className="p-[10px] flex-1 overflow-y-auto space-y-[10px] border">
+      <div className="p-[10px] flex-1 overflow-y-auto space-y-[10px]">
         {chatHistory.map((msg, idx) => (
           <div
             key={idx}
