@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { pretendard } from '@/app/components/fonts';
-import TanStackProvider from '@/providers/TanStackProvider';
 import ThemeProvider from '@/app/components/ThemeProvider';
 import { LoginProvider } from '@/app/(auth)/login/LoginContext';
+import TanStackProvider from '@/providers/TanStackProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -16,14 +16,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ko">
       <ThemeProvider>
         <body className={pretendard.className}>
           <LoginProvider>
+            {/* 여기에서만 TanStackProvider 사용 */}
             <TanStackProvider>{children}</TanStackProvider>
           </LoginProvider>
         </body>

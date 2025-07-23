@@ -1,3 +1,3 @@
 export default function Production() {
-  return <div>Production</div>;
+  return <div className="max-w-[1200px] mx-auto">Production</div>;
 }

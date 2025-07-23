@@ -39,7 +39,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="pt-[80px] h-full">
+    <main className="pt-[80px] h-full ">
       <div className="p-[30px_20px_0_30px]">
         <MainSlider />
       </div>
