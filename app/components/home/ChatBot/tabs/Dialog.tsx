@@ -47,7 +47,7 @@ export default function Dialog({ setActiveTab }: DialogProps) {
   return (
     <div className="flex flex-col mb-[10px]">
       {/* 제목 */}
-      <div className="flex gap-[20%] pb-[20px]">
+      <div className="flex gap-[20%] pb-[20px] cursor-default">
         <button type="button" onClick={() => setActiveTab('home')} className="">
           <img src={'/icons/back.png'} alt="" className="w-[20px] h-[20px]" />
         </button>
@@ -67,7 +67,7 @@ export default function Dialog({ setActiveTab }: DialogProps) {
       </div>
 
       {/* 공지 */}
-      <div className="p-[12px] h-[60px] bg-[#eee] rounded-[10px] flex items-center">
+      <div className="p-[12px] h-[60px] bg-[#eee] rounded-[10px] flex items-center cursor-default">
         <img
           src={'/icons/volume.png'}
           alt=""
@@ -79,7 +79,7 @@ export default function Dialog({ setActiveTab }: DialogProps) {
       </div>
 
       {/* 오즈제작소에 문의하기 */}
-      <div className="flex flex-col items-center space-y-[10px] my-[30px]">
+      <div className="flex flex-col items-center space-y-[10px] my-[30px] cursor-default">
         <img
           src="/icons/tmp.png"
           className="w-[56px] h-[56px] rounded-[24px] border border-[#ddd]"
@@ -120,18 +120,18 @@ export default function Dialog({ setActiveTab }: DialogProps) {
       {/* 대화 입력 창 */}
       <form
         onSubmit={handleSubmit}
-        className="absolute left-0 bottom-[10px] flex gap-[10px] items-center w-full h-[60px] bg-[#f5f5f5] px-[20px]"
+        className="pt-[5px] absolute left-0 bottom-[10px] flex gap-[10px] items-center w-full h-[60px] bg-[#f5f5f5] px-[20px] "
       >
         <input
           value={input}
           onChange={(e) => setInput(e.currentTarget.value)}
           placeholder="메세지를 입력하세요"
           type="text"
-          className="flex-1 h-[60px] rounded-[20px] px-[20px]"
+          className="flex-1 h-[40px] rounded-[20px] px-[20px] border-[#ddd] max-sm:w-[90%]"
         />
         <button
           type="submit"
-          className="flex items-center justify-center bg-[#fff] w-[35px] h-[30px] rounded-[20px]"
+          className="flex items-center justify-center bg-[#fff] w-[35px] h-[38px] rounded-[20px]"
         >
           <img
             src={'/icons/gray_arrow.svg'}

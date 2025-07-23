@@ -12,7 +12,7 @@ export default function HomeScreen() {
         />
 
         <div>
-          <h2 className="text-[22px] font-bold">오즈의제작소</h2>
+          <h2 className="text-[22px] font-bold cursor-default">오즈의제작소</h2>
           <button type="button" className="flex items-center">
             <p className="text-[12px] text-[#666666]">운영시간 보기</p>
             <img
@@ -25,7 +25,7 @@ export default function HomeScreen() {
       </div>
 
       {/* 인사말 */}
-      <div className="p-[15px] bg-white rounded-[20px]">
+      <div className="p-[15px] bg-white rounded-[20px] cursor-default">
         <div className="flex">
           <img
             src={'/icons/chat.png'}
@@ -34,7 +34,7 @@ export default function HomeScreen() {
           />
           <div className=" ml-[8px] mb-[20px]">
             <h3 className="text-[13px] font-bold">오즈의 제작소</h3>
-            <p className="text-[14px] leading-[22px] text-[#333] mt-[5px]">
+            <p className="text-[14px] leading-[22px] text-[#333] mt-[5px] ">
               👋 안녕하세요
               <br />
               마법같은 굿즈제작소, 오즈의제작소입니다 🔮
@@ -53,7 +53,7 @@ export default function HomeScreen() {
             <p className="font-bold text-[#000] text-[15px] ">문의하기</p>
             <img src={'/icons/send.png'} alt="" className="w-[20px] h-[20px]" />
           </button>
-          <p className="flex items-center text-[12px] text-[#cecece]">
+          <p className="flex items-center text-[12px] text-[#cecece] cursor-default">
             <img
               src={'/icons/brightness.png'}
               alt=""
@@ -66,7 +66,7 @@ export default function HomeScreen() {
 
       {/* 다른 방법으로 문의 */}
       <div className="flex items-center justify-between p-[15px] bg-white rounded-[20px]">
-        <p className="text-[#bbbbbb]">다른 방법으로 문의</p>
+        <p className="text-[#bbbbbb] cursor-default">다른 방법으로 문의</p>
 
         <div className="flex gap-[10px]">
           <img
@@ -82,7 +82,7 @@ export default function HomeScreen() {
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-[5px] text-[12px] text-[#999] mt-4">
+      <div className="flex items-center justify-center gap-[5px] text-[12px] text-[#999] mt-4 cursor-default">
         <img
           src={'/icons/chennle.png'}
           alt=""

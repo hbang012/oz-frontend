@@ -4,7 +4,7 @@ import ToggleSwitch from './ToggleSwitch';
 
 export default function Settings() {
   return (
-    <div className="bg-white rounded-[20px] relative">
+    <div className="bg-white rounded-[20px] relative cursor-default">
       <h2 className="text-[22px] font-bold ml-[10px] mt-[10px] text-[#000]">
         설정
       </h2>

@@ -15,7 +15,7 @@ export default function ChatBot() {
     <>
       {/* 챗봇 창 */}
       {open && (
-        <div className="fixed bottom-[100px] right-[30px] z-50 w-[390px] h-[690px] bg-[#ffffff] rounded-[35px] shadow-xl overflow-hidden border border-[#ddd] flex flex-col">
+        <div className="fixed bottom-[100px] right-[30px] z-50 w-[380px] max-sm:w-[320px] h-[690px] bg-[#ffffff] rounded-[35px] shadow-xl overflow-hidden border border-[#ddd] flex flex-col">
           {/* 콘텐츠 영역 */}
           <div
             className={`p-4 flex-1 overflow-y-auto text-sm text-[#333] ${
@@ -81,7 +81,7 @@ export default function ChatBot() {
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
-          className="w-[60px] h-[60px] rounded-[24px] flex items-center justify-center"
+          className="w-[60px] h-[60px] rounded-[24px] flex items-center justify-center bg-white"
           style={{
             boxShadow:
               '0 20px 25px -5px rgba(0,0,0,0.3), 0 10px 10px -5px rgba(0,0,0,0.3)',
