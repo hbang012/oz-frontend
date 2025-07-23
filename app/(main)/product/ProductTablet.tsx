@@ -78,7 +78,12 @@ export default function ProductTablet() {
     >
       <div
         className="border-b-1 "
-        style={{ padding: '100px 0px 10px 0px', borderColor: '#eee' }}
+        style={{
+          padding: '100px 0px 10px 0px',
+          borderColor: '#eee',
+          overflowX: 'auto',
+          whiteSpace: 'nowrap',
+        }}
       >
         <ProductCategoryTabs />
       </div>
