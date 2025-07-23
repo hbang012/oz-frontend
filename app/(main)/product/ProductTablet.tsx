@@ -36,7 +36,7 @@ export default function ProductTablet() {
     if (currentCategory) params.set('category', currentCategory);
     if (sortKey !== 'DEFAULT') params.set('sort', sortKey);
 
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}?${params.toString()}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/product?${params.toString()}`)
       .then((res) => res.json())
       .then((list: Product[]) => {
         // currentCategory로 필터링

@@ -21,6 +21,17 @@ export default function SubProductMenu({
     <div className="p-[25px] rounded bg-[#eee] w-[80%]">
       {items.length > 0 ? (
         <ul>
+          {/* 추가한 내용 */}
+          <li className="mb-2">
+            <Link
+              href={`/product?category=${items[0].parent_id}`}
+              onClick={onClose}
+              className="hover:text-point1"
+            >
+              전체보기
+            </Link>
+          </li>
+
           {items.map((item, idx) => (
             <li key={item.id} className="mb-2">
               {item.sub && item.sub.length > 0 ? (
