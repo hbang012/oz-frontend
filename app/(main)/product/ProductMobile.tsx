@@ -91,7 +91,7 @@ export default function ProductMobile() {
           {filtered.length === 0 ? (
             <div
               className="flex justify-center items-center text-[#999] font-bold text-[14px]"
-              style={{ height: '900px' }}
+              style={{ height: '1200px' }}
             >
               상품을 준비 중입니다.
             </div>

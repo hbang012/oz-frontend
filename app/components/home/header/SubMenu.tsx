@@ -122,6 +122,16 @@ export default function MobileMenu({
               {/* 2Depth */}
               {activeSubMenu === idx && item.sub && (
                 <ul className="pb-[20px]" style={{ paddingLeft: '10px' }}>
+                  {/* 추가한 부분 */}
+                  <li
+                    key={`main-${item.id}`}
+                    className="text-[#6b59f6] font-bold pb-[10px]"
+                  >
+                    <Link href={'/product'} onClick={onClose}>
+                      제작소 메인
+                    </Link>
+                  </li>
+
                   {item.sub.map((subItem, subIdx) => (
                     <li
                       key={subItem.id}
