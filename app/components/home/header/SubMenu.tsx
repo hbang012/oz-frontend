@@ -50,7 +50,7 @@ export default function MobileMenu({
         className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 transition-opacity duration-500 ${
           isOpen ? 'opacity-50' : 'opacity-0 pointer-events-none'
         }`}
-        onClick={onClose}
+        // on클로즈 삭제함
       />
 
       {/* 사이드 메뉴 */}
