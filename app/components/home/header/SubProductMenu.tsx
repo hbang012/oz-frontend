@@ -25,7 +25,6 @@ export default function SubProductMenu({
           <li className="mb-2">
             <Link
               href={`/product?category=${items[0].parent_id}`}
-              onClick={onClose}
               className="hover:text-point1"
             >
               전체보기
@@ -57,7 +56,6 @@ export default function SubProductMenu({
                       {item.sub.map((sub) => (
                         <li key={sub.id} className="mb-2">
                           <Link
-                            onClick={onClose}
                             href={sub.href ?? ''}
                             className="hover:text-point1"
                           >
@@ -69,11 +67,7 @@ export default function SubProductMenu({
                   )}
                 </>
               ) : (
-                <Link
-                  href={item.href ?? ''}
-                  onClick={onClose}
-                  className="hover:text-point1"
-                >
+                <Link href={item.href ?? ''} className="hover:text-point1">
                   {item.label}
                 </Link>
               )}

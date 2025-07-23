@@ -50,7 +50,7 @@ export default function MobileMenu({
         className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 transition-opacity duration-500 ${
           isOpen ? 'opacity-50' : 'opacity-0 pointer-events-none'
         }`}
-        // on클로즈 삭제함
+        onClick={onClose}
       />
 
       {/* 사이드 메뉴 */}
@@ -110,11 +110,7 @@ export default function MobileMenu({
                   />
                 </button>
               ) : (
-                <Link
-                  href={item.href ?? ''}
-                  className="block"
-                  onClick={onClose}
-                >
+                <Link href={item.href ?? ''} className="block">
                   {item.label}
                 </Link>
               )}
@@ -148,11 +144,7 @@ export default function MobileMenu({
                           {subItem.label}
                         </button>
                       ) : (
-                        <Link
-                          href={subItem.href ?? ''}
-                          className="block"
-                          onClick={onClose}
-                        >
+                        <Link href={subItem.href ?? ''} className="block">
                           {subItem.label}
                         </Link>
                       )}
