@@ -117,7 +117,6 @@ export default function MainPortfolio() {
       </div>
 
       {/* 포트폴리오 */}
-      {/* 이미지 관련 경고 이슈*/}
       <div className="fade-up2">
         <ul className="grid grid-cols-3 grid-rows-2 gap-[40px_30px] pt-[60px] max-md:grid-cols-2 max-md:grid-rows-none">
           {MainPortfolios.map((item, index) => (

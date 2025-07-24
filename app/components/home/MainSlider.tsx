@@ -65,44 +65,46 @@ export default function MainSlider() {
   }, [setTemp]);
 
   return (
-    <div className="max-w-[1920px] pt-[3%] flex gap-[50px] border-b-1 border-[#eee] max-md:block">
-      <div className="relative ml-[8%] max-w-[302px] text-[#000] shrink-0 max-md:ml-[15px]">
-        <h2 className="text-[32px] font-bold max-md:text-[25px]">
-          당신의 아이디어를 <br /> 굿즈로 변신시키는 마법! <br /> 오즈의제작소
-        </h2>
-      </div>
+    <>
+      <div className="max-w-[1920px] pt-[3%] flex gap-[50px] border-b-1 border-[#eee] max-md:block">
+        <div className="relative ml-[8%] max-w-[302px] text-[#000] shrink-0 max-md:ml-[15px]">
+          <h2 className="text-[32px] font-bold max-md:text-[25px]">
+            당신의 아이디어를 <br /> 굿즈로 변신시키는 마법! <br /> 오즈의제작소
+          </h2>
+        </div>
 
-      {/* 슬라이더 */}
-      <Swiper
-        modules={[Navigation, Autoplay]}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        spaceBetween={1}
-        slidesPerView={2.5}
-        loop={true}
-        autoplay={{ delay: 3000 }}
-        className={`${styles.slider}`}
-        breakpoints={{
-          640: {
-            slidesPerView: 2.5,
-          },
-          0: {
-            slidesPerView: 1.3,
-          },
-        }}
-      >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <div className={`p-[10px] mb-[20%] text-center ${styles.slider}`}>
+        {/* 슬라이더 */}
+        <Swiper
+          modules={[Navigation, Autoplay]}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          spaceBetween={50}
+          slidesPerView={2.5}
+          loop={true}
+          // autoplay={{ delay: 3000 }}
+          className={`${styles.slider}`}
+          breakpoints={{
+            640: {
+              slidesPerView: 2.5,
+            },
+            0: {
+              slidesPerView: 1.3,
+            },
+          }}
+        >
+          {slides.map((slide) => (
+            <SwiperSlide
+              key={slide.id}
+              className={`text-center ${styles.slider}`}
+            >
               <Image
                 src={slide.imgSrc}
                 width={400}
                 height={300}
                 alt="굿즈 이미지"
-                className="rounded-[20px] scale-[0.7]"
-                style={{ width: '100%' }}
+                className="rounded-[20px] w-full"
                 priority
               />
               {/* 텍스트 */}
@@ -114,15 +116,15 @@ export default function MainSlider() {
                   {slide.description}
                 </p>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-        {/* 외부 버튼 */}
-        <div>
-          <button ref={prevRef} className={styles.prevButton}></button>
-          <button ref={nextRef} className={styles.nextButton}></button>
-        </div>
-      </Swiper>
-    </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      {/* 외부 버튼 */}
+      <div className="pt-[10%]">
+        <button ref={prevRef} className={styles.prevButton}></button>
+        <button ref={nextRef} className={styles.nextButton}></button>
+      </div>
+    </>
   );
 }
