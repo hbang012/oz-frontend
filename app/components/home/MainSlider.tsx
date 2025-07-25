@@ -83,7 +83,7 @@ export default function MainSlider() {
           spaceBetween={50}
           slidesPerView={2.5}
           loop={true}
-          // autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 3000 }}
           className={`${styles.slider}`}
           breakpoints={{
             640: {

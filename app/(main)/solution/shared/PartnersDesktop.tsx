@@ -1,11 +1,11 @@
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import { useRef } from 'react';
-import styles from '@/app/(main)/solution/shared/Partners.module.css';
+// import { useRef } from 'react';
+// import { Navigation } from 'swiper/modules';
+// import 'swiper/css/navigation';
+// import styles from '@/app/(main)/solution/shared/Partners.module.css';
 
 const Reviews = [
   {
@@ -67,8 +67,8 @@ const Reviews = [
 ];
 
 export default function PartnersDesktop() {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  // const prevRef = useRef(null);
+  // const nextRef = useRef(null);
 
   return (
     <div className="mb-[90px]">
@@ -80,15 +80,15 @@ export default function PartnersDesktop() {
       </div>
 
       {/* 파트너 리스트 */}
-
       <Swiper
         spaceBetween={20}
         slidesPerView={3}
-        modules={[Navigation]}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
+        loop={true}
+        // modules={[Navigation]}
+        // navigation={{
+        //   prevEl: prevRef.current,
+        //   nextEl: nextRef.current,
+        // }}
         className="relative"
       >
         <ul className="">
@@ -121,10 +121,10 @@ export default function PartnersDesktop() {
           ))}
         </ul>
 
-        <div className="">
+        {/* <div className="">
           <button ref={prevRef} className={styles.prevButton}></button>
           <button ref={nextRef} className={styles.nextButton}></button>
-        </div>
+        </div> */}
       </Swiper>
 
       {/* 파트너 */}

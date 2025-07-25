@@ -1,3 +1,7 @@
+.swiper-transition .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
 /* 이전 */
 .prevButton {
   position: absolute;

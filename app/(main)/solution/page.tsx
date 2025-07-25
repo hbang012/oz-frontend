@@ -25,18 +25,22 @@ export default function Solution() {
   const searchParams = useSearchParams();
   const type = searchParams.get('type')?.toLowerCase() || 'default';
 
-  const [width, setWidth] = useState(
-    typeof window === 'undefined' ? 1024 : window.innerWidth
-  );
+  const [width, setWidth] = useState<number | null>(null);
 
   useEffect(() => {
-    const onResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    handleResize(); // 최초 실행
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  if (width === null) return null; // 클라이언트에서만 렌더링 시작
+
   const isMobile = width < 768;
-  const isTablet = width >= 768 && width < 1024;
+  const isTablet = width >= 768 && width < 1200;
 
   type ViewEntry = {
     mobile: () => React.ReactNode;
@@ -44,7 +48,6 @@ export default function Solution() {
     desktop: () => React.ReactNode;
   };
 
-  // 타입별 디바이스 대응 테이블
   const componentMap: Record<string, ViewEntry> = {
     consulting: {
       mobile: ConsultingMobile,

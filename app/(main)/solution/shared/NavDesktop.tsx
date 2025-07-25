@@ -27,13 +27,20 @@ export default function NavDesktop() {
         {tabs.map(({ label, type }) => {
           const isActive = currentType === type;
           return (
-            <li key={type} className="w-[240px] text-center pb-[15px]">
+            <li
+              key={type}
+              className={` w-[240px] text-center pb-[15px] ${
+                isActive
+                  ? 'text-[#000] font-bold border-point1 border-b-4'
+                  : 'text-[#777] border-transparent'
+              }`}
+            >
               <button
                 type="button"
                 onClick={() => onClick(type)}
-                className={`text-[20px] ${
+                className={` text-[20px] ${
                   isActive
-                    ? 'text-[#000] font-bold border-point1'
+                    ? 'text-[#000] font-bold'
                     : 'text-[#777] border-transparent'
                 }`}
               >
