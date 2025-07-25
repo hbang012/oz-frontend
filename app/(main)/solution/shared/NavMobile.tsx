@@ -22,27 +22,28 @@ export default function NavMobile() {
   };
 
   return (
-    <nav className="pt-[10px] overflow-x-scroll">
-      <ul className="flex justify-center items-center gap-[25px]">
+    <nav className="pt-[10px] overflow-x-auto">
+      <ul className="flex flex-nowrap items-center gap-[25px]">
         {tabs.map(({ label, type }) => {
           const isActive = currentType === type;
           return (
-            <li
-              key={type}
-              className={` w-[240px] text-center pb-[10px] ${
-                isActive
-                  ? 'text-[#000] font-bold border-point1 border-b-4'
-                  : 'text-[#777] border-transparent'
-              }`}
-            >
+            <li key={type} className="flex-none w-[100px]">
               <button
                 type="button"
                 onClick={() => onClick(type)}
-                className={` text-[15px] ${
-                  isActive
-                    ? 'text-[#000] font-bold'
-                    : 'text-[#777] border-transparent'
-                }`}
+                className={`
+              block             
+              w-full
+              text-[15px]        
+              text-center
+              whitespace-nowrap   
+              pb-[10px]
+              ${
+                isActive
+                  ? 'text-[#000] font-bold border-b-4 border-point1'
+                  : 'text-[#777] border-transparent'
+              }
+            `}
               >
                 {label}
               </button>

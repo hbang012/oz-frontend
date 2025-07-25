@@ -44,7 +44,7 @@ export default function DesignMobile() {
         </div>
 
         {/* 이미지 */}
-        <ul className="flex justify-center items-center gap-[10px] p-[40px_20px]">
+        <ul className="flex flex-col justify-center items-center gap-[10px] p-[40px_20px]">
           <li className="flex flex-col gap-[10px] w-full p-[10px] rounded-[8px] border border-[#d8d8d8]">
             <img src={'/images/solution/cutting.png'} alt="" className="" />
             <h3 className="font-bold text-center text-black text-[18px]">

@@ -95,19 +95,18 @@ export default function ProductionMobile() {
         </div>
 
         {/* 이미지 */}
-        <div className="p-[40px_20px] w-full">
-          <ul className="flex flex-wrap gap-[10px]">
+        <div className="w-full overflow-x-auto px-[20px] pt-[20px]">
+          <ul className="flex gap-[10px] flex-nowrap">
             {Imgs.map((item) => (
-              <li
-                key={item.id}
-                className="w-[calc((100%-40px)/5)] h-full flex-shrink-0"
-              >
+              <li key={item.id} className="flex-shrink-0 w-[100px]">
                 <img
                   src={item.imgSrc}
                   alt={item.name}
                   className="w-full h-[113px] object-cover"
                 />
-                <h3 className="pt-[6px] text-[12px] text-black">{item.name}</h3>
+                <h3 className="pt-[6px] text-[12px] text-black text-center whitespace-nowrap">
+                  {item.name}
+                </h3>
               </li>
             ))}
           </ul>

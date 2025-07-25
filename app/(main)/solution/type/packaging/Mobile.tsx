@@ -100,26 +100,25 @@ export default function PackagingMobile() {
               제작부터 포장까지 완료해서 납품 드립니다.
             </p>
             <p className="mt-[20px]">
-              희망하시면 품질 검수까지 꼼꼼히 완료한 후, 품질검증 스티커를 붙여
-              보내드리고 있습니다.
+              희망하시면 품질 검수까지 꼼꼼히 완료한 후, <br />
+              품질검증 스티커를 붙여 보내드리고 있습니다.
             </p>
           </div>
         </div>
 
         {/* 이미지 */}
-        <div className="p-[40px_20px] w-full">
-          <ul className="flex flex-wrap gap-[10px]">
+        <div className="w-full overflow-x-auto px-[20px] pt-[20px]">
+          <ul className="flex flex-nowrap gap-[10px]">
             {Imgs.map((item) => (
-              <li
-                key={item.id}
-                className="w-[calc((100%-50px)/6)] h-full flex-shrink-0"
-              >
+              <li key={item.id} className="w-[100px] flex-shrink-0">
                 <img
                   src={item.imgSrc}
                   alt={item.name}
                   className="w-full h-[113px] object-cover"
                 />
-                <h3 className="pt-[6px] text-[12px] text-black">{item.name}</h3>
+                <h3 className="pt-[6px] text-[12px] text-black text-center whitespace-nowrap">
+                  {item.name}
+                </h3>
               </li>
             ))}
           </ul>
